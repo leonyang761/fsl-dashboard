@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN"><head>
+<!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>产品及方案中心 · 人力行政数据看板</title>
@@ -7,8 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <style>
 :root{--bg:#F5F0EB;--card:#FFF;--text:#4A4540;--text2:#8A8480;--text3:#B5AFA8;--border:#E8E2DC;--shadow:rgba(74,69,64,.06);--m-blue:#8BA4B8;--m-bl:#B8CCD8;--m-green:#8FAA8E;--m-gl:#C2D5C1;--m-pink:#C4A4A0;--m-pl:#DDD0CE;--m-beige:#C8B89A;--m-purple:#A898B0;--m-teal:#7FA3A0;--m-lavender:#9E98B4;--m-sage:#97A68F;--m-stone:#9A948C}
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+*{margin:0;padding:0;box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:13px}
 .dash{max-width:960px;margin:0 auto;padding:10px 8px 32px}
 .hd{text-align:center;padding:10px 0 8px;border-bottom:1px solid var(--border);margin-bottom:10px;position:relative}
@@ -25,30 +23,24 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .tab{flex-shrink:0;padding:4px 9px;border-radius:14px;font-size:10px;font-weight:500;background:var(--card);color:var(--text2);border:1px solid var(--border);cursor:pointer;transition:all .2s;white-space:nowrap}
 .tab.on{background:var(--m-blue);color:#fff;border-color:var(--m-blue)}
 .tp{display:none}.tp.on{display:block}
-.sec{margin-bottom:8px}
-.sec-t{font-size:12px;font-weight:600;padding-left:5px;border-left:2px solid var(--m-blue);margin-bottom:6px}
+.sec{margin-bottom:8px}.sec-t{font-size:12px;font-weight:600;padding-left:5px;border-left:2px solid var(--m-blue);margin-bottom:6px}
 .cg{display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:6px}
 .cc{background:var(--card);border-radius:8px;padding:8px;box-shadow:0 1px 3px var(--shadow)}
 .cc .ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.cc .ct{font-size:11px;font-weight:600}
-.cc .cb{padding:1px 5px;border-radius:8px;font-size:9px;background:var(--m-bl);color:#5A7080}
+.cc .ct{font-size:11px;font-weight:600}.cc .cb{padding:1px 5px;border-radius:8px;font-size:9px;background:var(--m-bl);color:#5A7080}
 .sg{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;margin-bottom:6px}
 .sc{background:var(--card);border-radius:7px;padding:8px;box-shadow:0 1px 3px var(--shadow)}
 .sc .sl{font-size:9px;color:var(--text2)}.sc .sv{font-size:16px;font-weight:700}
-.sc .sb{height:3px;border-radius:2px;background:var(--border);margin-top:3px;overflow:hidden}
-.sc .sf{height:100%;border-radius:2px}
+.sc .sb{height:3px;border-radius:2px;background:var(--border);margin-top:3px;overflow:hidden}.sc .sf{height:100%;border-radius:2px}
 .sc .sd{font-size:8px;color:var(--text3);margin-top:1px;text-align:right}
-.sc-detail{max-height:0;overflow:hidden;transition:max-height .3s;font-size:9px;color:var(--text2);line-height:1.5}
-.sc-detail.show{max-height:200px}
+.sc-detail{max-height:0;overflow:hidden;transition:max-height .3s;font-size:9px;color:var(--text2);line-height:1.5}.sc-detail.show{max-height:200px}
 .stbl-wrap{margin-bottom:4px}
 .stbl-toggle{display:inline-block;padding:2px 8px;border-radius:10px;font-size:9px;color:var(--m-blue);background:var(--card);border:1px solid var(--border);cursor:pointer;font-weight:500}
-.stbl-box{max-height:0;overflow:hidden;transition:max-height .3s ease}
-.stbl-box.show{max-height:400px}
+.stbl-box{max-height:0;overflow:hidden;transition:max-height .3s ease}.stbl-box.show{max-height:400px}
 .stbl{background:var(--card);border-radius:7px;overflow:hidden;box-shadow:0 1px 3px var(--shadow);margin-top:3px}
 .stbl table{width:100%;border-collapse:collapse;font-size:10px}
 .stbl th{background:var(--m-blue);color:#fff;padding:4px 6px;text-align:left;font-weight:500;font-size:9px}
-.stbl td{padding:4px 6px;border-bottom:1px solid var(--border)}
-.stbl .pct{color:var(--text3);font-size:9px}
+.stbl td{padding:4px 6px;border-bottom:1px solid var(--border)}.stbl .pct{color:var(--text3);font-size:9px}
 .stbl-total{font-weight:600;border-top:1px solid var(--border)}
 .tag{display:inline-block;padding:1px 5px;border-radius:8px;font-size:8px;font-weight:500}
 .tag-core{background:#E8F5E9;color:#2E7D32}.tag-backbone{background:#E3F2FD;color:#1565C0}.tag-star{background:#FFF3E0;color:#E65100}.tag-stable{background:#F3E5F5;color:#7B1FA2}.tag-watch{background:#FFEBEE;color:#C62828}.tag-pro{background:#E0F7FA;color:#00838F}.tag-poor{background:#FBE9E7;color:#BF360C}.tag-icon{background:#FFF9C4;color:#F57F17}
@@ -58,11 +50,10 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .pot-high{background:#E8F5E9;color:#2E7D32}.pot-mid{background:#E3F2FD;color:#1565C0}.pot-low{background:#FFF3E0;color:#E65100}
 .pcl{display:flex;flex-direction:column;gap:5px}
 .person-card{background:var(--card);border-radius:7px;padding:8px;box-shadow:0 1px 3px var(--shadow)}
-.pc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1px}
-.pc-name{font-size:12px;font-weight:600}.pc-dept{font-size:9px;color:var(--text2);margin-bottom:3px}
-.pc-tags{display:flex;gap:2px;margin-bottom:4px;flex-wrap:wrap}
+.pc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1px}.pc-name{font-size:12px;font-weight:600}
+.pc-dept{font-size:9px;color:var(--text2);margin-bottom:3px}.pc-tags{display:flex;gap:2px;margin-bottom:4px;flex-wrap:wrap}
 .pc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.pc-item{text-align:center}.pc-val{display:block;font-size:10px;font-weight:600}.pc-lbl{display:block;font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden}
+.pc-item{text-align:center}.pc-val{display:block;font-size:10px;font-weight:600}.pc-lbl{display:block;font-size:7px;color:var(--text3)}
 .pc-phone{grid-column:span 3;text-align:center}.pc-phone .pc-val{color:var(--m-blue);font-size:11px}
 .dtw{overflow-x:auto;border-radius:7px;box-shadow:0 1px 3px var(--shadow);margin-bottom:6px}
 table.dtbl{width:100%;border-collapse:collapse;background:var(--card);font-size:10px;min-width:760px}
@@ -70,51 +61,27 @@ table.dtbl th{background:var(--m-blue);color:#fff;padding:5px 3px;text-align:lef
 table.dtbl td{padding:4px 3px;border-bottom:1px solid var(--border);white-space:nowrap}
 table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#faf7f4}
 .vt{text-align:center;margin:6px 0}
-.vb{padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--card);font-size:10px;color:var(--text2);cursor:pointer;margin:0 2px}
-.vb.on{background:var(--m-green);color:#fff;border-color:var(--m-green)}
+.vb{padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--card);font-size:10px;color:var(--text2);cursor:pointer;margin:0 2px}.vb.on{background:var(--m-green);color:#fff;border-color:var(--m-green)}
 .petty-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:6px}
-.pcard{background:var(--card);border-radius:8px;padding:8px;text-align:center;box-shadow:0 1px 3px var(--shadow)}
-.pcard .pv{font-size:16px;font-weight:700}.pcard .pl{font-size:9px;color:var(--text2);margin-top:1px}
+.pcard{background:var(--card);border-radius:8px;padding:8px;text-align:center;box-shadow:0 1px 3px var(--shadow)}.pcard .pv{font-size:16px;font-weight:700}.pcard .pl{font-size:9px;color:var(--text2);margin-top:1px}
 .petty-swipe{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 1px 3px var(--shadow);margin-bottom:6px}
 .petty-handle{background:var(--card);text-align:center;padding:3px;font-size:9px;color:var(--m-blue);cursor:pointer;border-bottom:1px solid var(--border)}
-.petty-content{max-height:0;overflow:hidden;transition:max-height .4s ease;background:var(--card)}
-.petty-content.open{max-height:2000px}
+.petty-content{max-height:0;overflow:hidden;transition:max-height .4s ease;background:var(--card)}.petty-content.open{max-height:2000px}
 .petty-tbl{width:100%;border-collapse:collapse;font-size:7px}
 .petty-tbl th{background:var(--m-blue);color:#fff;padding:2px 4px;font-size:6px;font-weight:500;position:sticky;top:0}
 .petty-tbl td{padding:2px 4px;border-bottom:1px solid var(--border);white-space:nowrap;vertical-align:top;height:18px;line-height:18px}
 .petty-tbl td:first-child{min-width:70px}.petty-tbl .pam{font-weight:600;white-space:nowrap}
-
 .seat-map{background:var(--card);border-radius:8px;padding:8px;box-shadow:0 1px 3px var(--shadow)}
 .seat-legend{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;padding:3px 5px;background:var(--bg);border-radius:5px}
-.seat-legend-item{display:flex;align-items:center;gap:2px;font-size:8px;color:var(--text2)}
-.seat-legend-dot{width:8px;height:8px;border-radius:2px}
+.seat-legend-item{display:flex;align-items:center;gap:2px;font-size:8px;color:var(--text2)}.seat-legend-dot{width:8px;height:8px;border-radius:2px}
 .seat-grid{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:1px}
 .seat-occ{background:var(--m-gl);border:1px solid var(--m-green);border-radius:2px;display:flex;align-items:center;justify-content:center;min-height:22px;writing-mode:vertical-lr;font-size:7px;font-weight:600;color:var(--text);letter-spacing:.3px}
 .seat-spare{background:var(--border);border:1px dashed var(--text3);border-radius:2px;display:flex;align-items:center;justify-content:center;min-height:22px;writing-mode:vertical-lr;font-size:6px;color:var(--text3)}
-.seat-vacant{background:var(--m-pl);border:1px solid var(--m-pink);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:22px;font-size:6px;color:#C49E9A;line-height:1.1}
-.seat-vacant small{font-size:5px}
+.seat-vacant{background:var(--m-pl);border:1px solid var(--m-pink);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:22px;font-size:6px;color:#C49E9A;line-height:1.1}.seat-vacant small{font-size:5px}
 .seat-aisle{min-height:22px}
-.seat-lbl{grid-column:span 14;font-size:8px;font-weight:600;color:var(--text2);padding:3px 0 1px;text-align:center}
 .seat-note{grid-column:span 14;text-align:center;font-size:8px;color:var(--text3);padding:4px 0 0}
-
-/* ===== Organization Chart ===== */
-.org-wrap{background:var(--card);border-radius:8px;padding:10px;box-shadow:0 1px 3px var(--shadow);overflow-x:auto;-webkit-overflow-scrolling:touch}
-.org-tree{min-width:900px}
-.nd{border-radius:6px;text-align:center;padding:5px 8px;font-weight:500;border:1px solid}
-.nd-top{background:#C8B89A;color:#fff;border-color:#b5a48a;font-size:12px;padding:8px 14px}
-.nd-l1{background:var(--m-blue);color:#fff;border-color:#7a94a8;font-size:10px;margin:8px 4px 0}
-.nd-l2{background:var(--m-bl);color:#4a4540;border-color:#a8bcc8;font-size:9px;margin:6px 2px 0}
-.nd-who{display:block;font-weight:700;margin-top:1px}
-.nd-list{background:#f5f0eb;border-radius:4px;padding:3px 6px;margin:2px 2px 6px;font-size:8px;color:var(--text2);line-height:1.4}
-.org-row{display:flex;flex-wrap:wrap;justify-content:center;gap:0}
-.org-lv1,.org-lv2{display:flex;flex-direction:column;align-items:center;min-width:0}
-.org-lv1{position:relative}
-.org-lv1::before{content:"";position:absolute;top:-8px;left:50%;width:1px;height:8px;background:var(--border)}
-.org-lv2{position:relative}
-.org-lv2::before{content:"";position:absolute;top:-6px;left:50%;width:1px;height:6px;background:var(--border)}
-@media(min-width:640px){.nd-top{font-size:14px;padding:10px 18px}.nd-l1{font-size:11px}.nd-l2{font-size:10px}.nd-list{font-size:9px}}
 @media(min-width:640px){body{font-size:14px}.kpi{grid-template-columns:repeat(5,1fr);gap:8px}.kpi-v{font-size:22px}.sg{grid-template-columns:repeat(3,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.dash{padding:18px 14px 40px}.hd h1{font-size:20px}.pcl{display:none}.seat-occ{font-size:8px;min-height:26px}.seat-spare,.seat-vacant{min-height:26px}.seat-grid{gap:2px}}
-@media(min-width:960px){.cg{grid-template-columns:repeat(3,1fr)}
+@media(min-width:960px){.cg{grid-template-columns:repeat(3,1fr)}}
 </style></head><body>
 <div class="dash">
 <div class="hd"><h1>产品及方案中心 · 人力行政数据看板</h1>
@@ -129,10 +96,10 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 </div>
 <div class="tabs">
 <div class="tab on" onclick="sw(this,'t1')">组织概览</div>
+<div class="tab" onclick="sw(this,'t5')">人员总览</div>
 <div class="tab" onclick="sw(this,'t2')">人员画像</div>
 <div class="tab" onclick="sw(this,'t3')">人才盘点</div>
 <div class="tab" onclick="sw(this,'t4')">薪酬分布</div>
-<div class="tab" onclick="sw(this,'t5')">人员总览</div>
 <div class="tab" onclick="sw(this,'t6')">行政事务</div>
 </div>
 <div class="tp on" id="t1">
@@ -227,7 +194,8 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <tr><td>37</td><td><b>朱雨泽</b></td><td>产品管理</td><td>男</td><td>本科</td><td>37岁</td><td><a href="tel:13760641102" style="color:var(--m-blue);text-decoration:none">13760641102</a></td><td>10,000</td><td>8.9491</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-core">核心</span></td><td><span class="pot pot-mid">中潜力</span></td></tr>
 <tr><td>38</td><td><b>吴泽经</b></td><td>行业与解决方案</td><td>男</td><td>本科</td><td>58岁</td><td><a href="tel:18933011655" style="color:var(--m-blue);text-decoration:none">18933011655</a></td><td>10,900</td><td>9.0736</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-watch">关注</span></td><td><span class="pot pot-mid">中潜力</span></td></tr>
 <tr><td>39</td><td><b>孟令宾</b></td><td>行业与解决方案</td><td>男</td><td>大专</td><td>41岁</td><td><a href="tel:18933010375" style="color:var(--m-blue);text-decoration:none">18933010375</a></td><td>12,400</td><td>9.0736</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-backbone">骨干</span></td><td><span class="pot pot-mid">中潜力</span></td></tr>
-<tr><td>40</td><td><b>谭炜昕</b></td><td>人力行政</td><td>女</td><td>本科</td><td>24岁</td><td><a href="tel:13726563396" style="color:var(--m-blue);text-decoration:none">13726563396</a></td><td>5,400</td><td>9.0966</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-stable">稳定</span></td><td><span class="pot pot-low">低潜力</span></td></tr></tbody></table>
+<tr><td>40</td><td><b>谭炜昕</b></td><td>人力行政</td><td>女</td><td>本科</td><td>24岁</td><td><a href="tel:13726563396" style="color:var(--m-blue);text-decoration:none">13726563396</a></td><td>5,400</td><td>9.0966</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-stable">稳定</span></td><td><span class="pot pot-low">低潜力</span></td></tr></tbody></table></div>
+</div>
 <div class="tp" id="t2">
 <div class="sec"><div class="sec-t">年龄与司龄</div><div class="cg">
 <div class="cc"><div style="height:180px"><canvas id="cAge"></canvas></div></div>
@@ -253,8 +221,6 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <div class="sc" onclick="this.querySelector('.sc-detail').classList.toggle('show')"><div class="sl" style="cursor:pointer">5千~6千 <span style="color:var(--text3)">8人 · 20%</span></div><div class="sv" style="color:#C4A4A0">8</div><div class="sb"><div class="sf" style="width:20%;background:#C4A4A0"></div></div><div class="sc-detail">吴建润、徐坤驰、梁耀尹、谭敏怡、谭炜昕、蔡瑜、陈雨欣、潘心怡</div></div>
 <div class="sc" onclick="this.querySelector('.sc-detail').classList.toggle('show')"><div class="sl" style="cursor:pointer">5千以下 <span style="color:var(--text3)">1人 · 2%</span></div><div class="sv" style="color:#9A948C">1</div><div class="sb"><div class="sf" style="width:2%;background:#9A948C"></div></div><div class="sc-detail">白健</div></div>
 </div></div>
-</div>
-</div>
 </div>
 <div class="tp" id="t6">
 <div class="sec"><div class="sec-t">14楼座位分布图</div><div class="seat-map">
@@ -330,10 +296,8 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <tr><td>爆品奖收潘心怡</td><td class="pam" style="color:var(--m-green)">+10,000.00</td></tr>
 <tr><td>爆品奖收蔡瑜</td><td class="pam" style="color:var(--m-green)">+23,500.00</td></tr>
 </tbody></table></div></div>
-
-</div></div></div></div>
 </div>
-</div>
+</div></div>
 <script>
 Chart.register(ChartDataLabels);
 function sw(el,id){document.querySelectorAll(".tp").forEach(function(e){e.classList.remove("on")});document.querySelectorAll(".tab").forEach(function(e){e.classList.remove("on")});document.getElementById(id).classList.add("on");el.classList.add("on")}
@@ -348,7 +312,7 @@ new Chart(document.getElementById("cDept"),{type:"pie",data:{labels:["产品管�
 new Chart(document.getElementById("cGender"),{type:"pie",data:{labels:["男","女"],datasets:[{data:[30,10],backgroundColor:["#8BA4B8","#C4A4A0"],borderWidth:1,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:2},plugins:{legend:{position:"bottom",labels:{font:{size:9}}},datalabels:pieDL}}})
 new Chart(document.getElementById("cEdu"),{type:"bar",data:{labels:["本科", "大专", "中专", "硕士"],datasets:[{data:[28, 8, 2, 2],backgroundColor:P.slice(0,4),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
 new Chart(document.getElementById("cAge"),{type:"bar",data:{labels:["30~39岁", "40~49岁", "20~29岁", "50~59岁"],datasets:[{data:[16, 13, 10, 1],backgroundColor:["#8BA4B8","#8FAA8E","#C8B89A","#9A948C"],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
-new Chart(document.getElementById("cSenior"),{type:"bar",data:{labels:["7年", "9年", "4年", "8年", "6年", "2年", "1年", "5年", "19年", "3年", "不足1年"],datasets:[{data:[4, 5, 5, 3, 3, 2, 3, 6, 1, 1, 7],backgroundColor:P.slice(0,11),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
+new Chart(document.getElementById("cSenior"),{type:"bar",data:{labels:["1年", "不足1年", "2年", "3年", "4年", "5年", "6年", "7年", "8年", "9年", "19年"],datasets:[{data:[3, 7, 2, 1, 5, 6, 3, 4, 3, 5, 1],backgroundColor:P.slice(0,11),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
 var gd={"A": 5, "B": 28, "C": 5, "A+": 2};var go=["A+","A","B","C","D"];var gL=go.filter(function(k){return k in gd});var gV=gL.map(function(k){return gd[k]});
 new Chart(document.getElementById("cPerf"),{type:"bar",data:{labels:gL,datasets:[{data:gV,backgroundColor:["#C2D5C1","#8FAA8E","#B8CCD8","#DDD0CE","#DDD0CC"],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
 new Chart(document.getElementById("cPot"),{type:"bar",data:{labels:["中潜力", "低潜力", "高潜力"],datasets:[{data:[31, 3, 6],backgroundColor:["#8FAA8E","#B8CCD8","#DDD0CE"],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
