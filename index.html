@@ -89,9 +89,12 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 @media(min-width:960px){.cg{grid-template-columns:repeat(3,1fr)}}
 .org img{display:block;max-width:100%;height:auto;margin:0 auto;cursor:pointer;transition:transform .2s}
 .org img:hover{opacity:.9}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;-webkit-tap-highlight-color:transparent}
-.modal-overlay.show{display:flex}
-.modal-overlay img{max-width:96vw;max-height:96vh;width:auto;height:auto;object-fit:contain;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,.3)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:transparent}
+.modal-overlay.show{display:block}
+.modal-close{position:fixed;top:10px;right:10px;z-index:10001;width:32px;height:32px;background:rgba(255,255,255,.9);border:none;border-radius:50%;font-size:18px;color:#333;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3);line-height:1}
+.modal-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;min-height:100dvh;padding:20px 10px}
+.modal-img-box{display:inline-block;max-width:100%;overflow:hidden}
+.modal-img-box img{display:block;max-width:96vw;max-height:90vh;width:auto;height:auto;object-fit:contain;border-radius:2px}
 </style></head><body><div class="dash">
 <div class="hd"><h1>产品及方案中心 · 人力行政数据看板</h1><div class="sub">佛山电器照明股份有限公司</div><div class="upd">数据更新：2026年4月20日</div></div>
 <div class="kpi">
@@ -321,5 +324,39 @@ new Chart(document.getElementById('cTag'),{type:'bar',data:{labels:["核心", "�
 var sd={"1万~1.5万": 11, "8千~1万": 7, "6千~8千": 5, "5千~6千": 8, "2万以上": 6, "5千以下": 1, "1.5~2万": 2};var so=['2万以上','1.5~2万','1万~1.5万','8千~1万','6千~8千','5千~6千','5千以下'];var ss=so.filter(function(k){return k in sd});var sr=Object.keys(sd).filter(function(k){return so.indexOf(k)===-1});var sa=ss.concat(sr);var sv=sa.map(function(k){return sd[k]});
 new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[{data:sv,backgroundColor:['#8BA4B8','#7FA3A0','#8FAA8E','#97A68F','#C8B89A','#C4A4A0','#9A948C'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:{right:36}},plugins:{legend:{display:false},datalabels:hbarDL},scales:{x:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:'#F0ECE8'}},y:{grid:{display:false},ticks:{font:{size:8}}}}}})
 </script>
-<div class="modal-overlay" id="orgModal" onclick="this.classList.remove('show')"><img id="orgModalImg" src=""></div>
+<div class="modal-overlay" id="orgModal" onclick="closeOrgModal(event)"><div class="modal-wrap"><div class="modal-img-box"><img id="orgModalImg" src=""></div></div><button class="modal-close" onclick="document.getElementById('orgModal').classList.remove('show')">&times;</button></div>
+<script>
+function closeOrgModal(e){if(!e.target.closest('.modal-img-box'))document.getElementById('orgModal').classList.remove('show')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('orgModal').classList.remove('show')});
+(function(){
+var box=document.querySelector('.modal-img-box');if(!box)return;
+var img=box.querySelector('img'),scale=1,lastDist=0,lastX=0,lastY=0,isDrag=false;
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+box.addEventListener('touchstart',function(e){
+if(e.touches.length===2){lastDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);isDrag=false}
+else if(e.touches.length===1){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;isDrag=scale>1}
+},{passive:true});
+box.addEventListener('touchmove',function(e){
+if(e.touches.length===2){
+var d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
+scale=clamp(scale*(d/lastDist),0.5,8);lastDist=d;
+img.style.transform='scale('+scale+')';img.style.transformOrigin='center center';
+e.preventDefault();
+}else if(e.touches.length===1&&isDrag){
+var dx=e.touches[0].clientX-lastX,dy=e.touches[0].clientY-lastY;
+lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;
+var cx=parseFloat(box.dataset.tx||0)+dx,cy=parseFloat(box.dataset.ty||0)+dy;
+box.dataset.tx=cx;box.dataset.ty=cy;
+img.style.transform='translate('+cx+'px,'+cy+'px) scale('+scale+')';
+}
+},{passive:false});
+box.addEventListener('touchend',function(){
+if(scale<=1){scale=1;img.style.transform='';box.dataset.tx=0;box.dataset.ty=0}
+},{passive:true});
+box.addEventListener('dblclick',function(){
+if(scale>1.5){scale=1;img.style.transform='';box.dataset.tx=0;box.dataset.ty=0}
+else{scale=3;img.style.transform='scale(3)';box.dataset.tx=0;box.dataset.ty=0}
+});
+})();
+</script>
 </body></html>
