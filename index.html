@@ -28,6 +28,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .cc{background:var(--card);border-radius:8px;padding:8px;box-shadow:0 1px 3px var(--shadow)}
 .cc .ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
 .cc .ct{font-size:11px;font-weight:600}.cc .cb{padding:1px 5px;border-radius:8px;font-size:9px;background:var(--m-bl);color:#5A7080}
+.cc .cw{position:relative;height:180px;width:100%}
 .sg{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;margin-bottom:6px}
 .sc{background:var(--card);border-radius:7px;padding:8px;box-shadow:0 1px 3px var(--shadow)}
 .sc .sl{font-size:9px;color:var(--text2)}.sc .sv{font-size:16px;font-weight:700}
@@ -80,7 +81,18 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .seat-vacant{background:var(--m-pl);border:1px solid var(--m-pink);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:22px;font-size:6px;color:#C49E9A;line-height:1.1}.seat-vacant small{font-size:5px}
 .seat-aisle{min-height:22px}
 .seat-note{grid-column:span 14;text-align:center;font-size:8px;color:var(--text3);padding:4px 0 0}
-@media(min-width:640px){body{font-size:14px}.kpi{grid-template-columns:repeat(5,1fr);gap:8px}.kpi-v{font-size:22px}.sg{grid-template-columns:repeat(3,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.dash{padding:18px 14px 40px}.hd h1{font-size:20px}.pcl{display:none}.seat-occ{font-size:8px;min-height:26px}.seat-spare,.seat-vacant{min-height:26px}.seat-grid{gap:2px}}
+.org{background:var(--card);border-radius:8px;padding:10px;box-shadow:0 1px 3px var(--shadow)}
+.org-center{text-align:center;margin-bottom:6px}
+.nd{display:inline-flex;align-items:center;justify-content:center;border-radius:5px;writing-mode:vertical-lr;text-orientation:upright;letter-spacing:1px;font-weight:600;padding:6px 3px;border:1px solid}
+.nd-l0{background:var(--m-beige);color:#fff;border-color:#b5a48a;font-size:12px;height:60px}
+.nd-l1{background:var(--m-blue);color:#fff;border-color:#7a94a8;font-size:10px;height:46px}
+.nd-l2{background:var(--m-bl);color:#5A7080;border-color:#9ab0be;font-size:8px;height:34px;font-weight:500}
+.org-l1{margin-bottom:6px;padding:3px 0;border-top:1px dashed var(--border)}
+.org-l1-hd{display:flex;justify-content:center;margin-bottom:3px}
+.org-l2s{display:flex;flex-wrap:wrap;justify-content:center;gap:3px}
+.org-l2-item{display:flex;flex-direction:column;align-items:center;gap:1px}
+.org-l2-conn{width:1px;height:3px;background:var(--border)}
+@media(min-width:640px){body{font-size:14px}.kpi{grid-template-columns:repeat(5,1fr);gap:8px}.kpi-v{font-size:22px}.sg{grid-template-columns:repeat(3,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.dash{padding:18px 14px 40px}.hd h1{font-size:20px}.pcl{display:none}.seat-occ{font-size:8px;min-height:26px}.seat-spare,.seat-vacant{min-height:26px}.seat-grid{gap:2px}.nd-l0{font-size:13px;height:65px}.nd-l1{font-size:11px;height:50px}.nd-l2{font-size:9px;height:38px}}
 @media(min-width:960px){.cg{grid-template-columns:repeat(3,1fr)}}
 </style></head><body>
 <div class="dash">
@@ -103,12 +115,48 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <div class="tab" onclick="sw(this,'t6')">行政事务</div>
 </div>
 <div class="tp on" id="t1">
+<div class="sec"><div class="sec-t">组织架构</div><div class="org">
+<div class="org-center"><div class="nd nd-l0">产品及方案中心</div></div>
+<div class="org-l1"><div class="org-l1-hd"><div class="nd nd-l1">产品企划</div></div>
+<div class="org-l2s">
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">产品企划组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">策略支持组</div></div>
+</div></div>
+<div class="org-l1"><div class="org-l1-hd"><div class="nd nd-l1">特战队</div></div>
+<div class="org-l2s">
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">家用特战队</div></div>
+</div></div>
+<div class="org-l1"><div class="org-l1-hd"><div class="nd nd-l1">产品管理</div></div>
+<div class="org-l2s">
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">光源组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">家居组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">商照组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">电工组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">电器组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">消防户外组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">移动后装组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">产品支持组</div></div>
+</div></div>
+<div class="org-l1"><div class="org-l1-hd"><div class="nd nd-l1">行业与解决方案</div></div>
+<div class="org-l2s">
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">工业组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">地产组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">酒店及连锁组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">办公组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">专项与定制组</div></div>
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">智能系统组</div></div>
+</div></div>
+<div class="org-l1"><div class="org-l1-hd"><div class="nd nd-l1">人力行政</div></div>
+<div class="org-l2s">
+<div class="org-l2-item"><div class="org-l2-conn"></div><div class="nd nd-l2">人力行政组</div></div>
+</div></div>
+</div></div>
 <div class="sec"><div class="sec-t">部门人员构成</div><div class="cg">
-<div class="cc"><div class="ch"><span class="ct">部门占比</span><span class="cb">共40人</span></div><div style="height:180px"><canvas id="cDept"></canvas></div></div>
-<div class="cc"><div class="ch"><span class="ct">性别构成</span></div><div style="height:180px"><canvas id="cGender"></canvas></div></div>
+<div class="cc"><div class="ch"><span class="ct">部门占比</span><span class="cb">共40人</span></div><div class="cw"><canvas id="cDept"></canvas></div></div>
+<div class="cc"><div class="ch"><span class="ct">性别构成</span></div><div class="cw"><canvas id="cGender"></canvas></div></div>
 </div></div>
 <div class="sec"><div class="sec-t">学历结构</div>
-<div class="cc"><div style="height:180px"><canvas id="cEdu"></canvas></div></div></div>
+<div class="cc"><div class="cw"><canvas id="cEdu"></canvas></div></div></div>
 <div class="stbl-wrap" id="tbl_dept"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▼ 部门</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>产品管理</td><td>22</td><td class="pct">55%</td></tr><tr><td>行业与解决方案</td><td>8</td><td class="pct">20%</td></tr><tr><td>产品企划</td><td>7</td><td class="pct">18%</td></tr><tr><td>人力行政</td><td>2</td><td class="pct">5%</td></tr><tr><td>特战队</td><td>1</td><td class="pct">2%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div><div class="stbl-wrap" id="tbl_gender"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▼ 性别</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>男</td><td>30</td><td class="pct">75%</td></tr><tr><td>女</td><td>10</td><td class="pct">25%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div><div class="stbl-wrap" id="tbl_edu"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▼ 学历</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>本科</td><td>28</td><td class="pct">70%</td></tr><tr><td>大专</td><td>8</td><td class="pct">20%</td></tr><tr><td>中专</td><td>2</td><td class="pct">5%</td></tr><tr><td>硕士</td><td>2</td><td class="pct">5%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div>
 </div>
 <div class="tp" id="t5">
@@ -198,21 +246,21 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 </div>
 <div class="tp" id="t2">
 <div class="sec"><div class="sec-t">年龄与司龄</div><div class="cg">
-<div class="cc"><div style="height:180px"><canvas id="cAge"></canvas></div></div>
-<div class="cc"><div style="height:180px"><canvas id="cSenior"></canvas></div></div>
+<div class="cc"><div class="ch"><span class="ct">年龄分布</span></div><div class="cw"><canvas id="cAge"></canvas></div></div>
+<div class="cc"><div class="ch"><span class="ct">司龄分布</span></div><div class="cw"><canvas id="cSenior"></canvas></div></div>
 </div></div>
 <div class="stbl-wrap" id="tbl_age"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▼ 年龄段</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>30~39</td><td>16</td><td class="pct">40%</td></tr><tr><td>40~49</td><td>13</td><td class="pct">32%</td></tr><tr><td>20~29</td><td>10</td><td class="pct">25%</td></tr><tr><td>50~59</td><td>1</td><td class="pct">2%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div><div class="stbl-wrap" id="tbl_year"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▼ 司龄</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>不足1年</td><td>7</td><td class="pct">18%</td></tr><tr><td>5年</td><td>6</td><td class="pct">15%</td></tr><tr><td>4年</td><td>5</td><td class="pct">12%</td></tr><tr><td>9年</td><td>5</td><td class="pct">12%</td></tr><tr><td>7年</td><td>4</td><td class="pct">10%</td></tr><tr><td>1年</td><td>3</td><td class="pct">8%</td></tr><tr><td>6年</td><td>3</td><td class="pct">8%</td></tr><tr><td>8年</td><td>3</td><td class="pct">8%</td></tr><tr><td>2年</td><td>2</td><td class="pct">5%</td></tr><tr><td>3年</td><td>1</td><td class="pct">2%</td></tr><tr><td>19年</td><td>1</td><td class="pct">2%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div>
 </div>
 <div class="tp" id="t3">
 <div class="sec"><div class="sec-t">绩效与潜力</div><div class="cg">
-<div class="cc"><div style="height:180px"><canvas id="cPerf"></canvas></div></div>
-<div class="cc"><div style="height:180px"><canvas id="cPot"></canvas></div></div>
+<div class="cc"><div class="ch"><span class="ct">绩效等级</span></div><div class="cw"><canvas id="cPerf"></canvas></div></div>
+<div class="cc"><div class="ch"><span class="ct">潜力等级</span></div><div class="cw"><canvas id="cPot"></canvas></div></div>
 </div></div>
-<div class="sec"><div class="sec-t">人才标签</div><div class="cc"><div style="height:180px"><canvas id="cTag"></canvas></div></div></div>
+<div class="sec"><div class="sec-t">人才标签</div><div class="cc"><div class="cw"><canvas id="cTag"></canvas></div></div></div>
 <div class="stbl-wrap" id="tbl_grade"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▼ 绩效等级</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>B</td><td>28</td><td class="pct">70%</td></tr><tr><td>A</td><td>5</td><td class="pct">12%</td></tr><tr><td>C</td><td>5</td><td class="pct">12%</td></tr><tr><td>A+</td><td>2</td><td class="pct">5%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div><div class="stbl-wrap" id="tbl_pot"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▼ 潜力等级</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>中潜力</td><td>31</td><td class="pct">78%</td></tr><tr><td>高潜力</td><td>6</td><td class="pct">15%</td></tr><tr><td>低潜力</td><td>3</td><td class="pct">8%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div><div class="stbl-wrap" id="tbl_tag"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle('show')">▼ 人才标签</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>骨干</td><td>25</td><td class="pct">62%</td></tr><tr><td>核心</td><td>4</td><td class="pct">10%</td></tr><tr><td>明日之星</td><td>4</td><td class="pct">10%</td></tr><tr><td>稳定</td><td>2</td><td class="pct">5%</td></tr><tr><td>关注</td><td>2</td><td class="pct">5%</td></tr><tr><td>明星</td><td>2</td><td class="pct">5%</td></tr><tr><td>专业</td><td>1</td><td class="pct">2%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div>
 </div>
 <div class="tp" id="t4">
-<div class="sec"><div class="sec-t">薪酬区间</div><div class="cc"><div style="height:200px"><canvas id="cSal"></canvas></div></div></div>
+<div class="sec"><div class="sec-t">薪酬区间</div><div class="cc"><div class="cw" style="height:200px"><canvas id="cSal"></canvas></div></div></div>
 <div class="sec"><div class="sec-t">薪酬详情 <span style="font-size:8px;color:var(--text3);font-weight:400">点击展开</span></div><div class="sg"><div class="sc" onclick="this.querySelector('.sc-detail').classList.toggle('show')"><div class="sl" style="cursor:pointer">2万以上 <span style="color:var(--text3)">6人 · 15%</span></div><div class="sv" style="color:#8BA4B8">6</div><div class="sb"><div class="sf" style="width:15%;background:#8BA4B8"></div></div><div class="sc-detail">马涛、陈志斌、陈宁、黄健明、闫振、李章亮</div></div>
 <div class="sc" onclick="this.querySelector('.sc-detail').classList.toggle('show')"><div class="sl" style="cursor:pointer">1.5~2万 <span style="color:var(--text3)">2人 · 5%</span></div><div class="sv" style="color:#7FA3A0">2</div><div class="sb"><div class="sf" style="width:5%;background:#7FA3A0"></div></div><div class="sc-detail">黄少娟、罗俊</div></div>
 <div class="sc" onclick="this.querySelector('.sc-detail').classList.toggle('show')"><div class="sl" style="cursor:pointer">1万~1.5万 <span style="color:var(--text3)">11人 · 28%</span></div><div class="sv" style="color:#8FAA8E">11</div><div class="sb"><div class="sf" style="width:28%;background:#8FAA8E"></div></div><div class="sc-detail">李土活、冯成华、陈海标、朱雨泽、吴泽经、陆强达、孟令宾、孙明磊、李宥成、陈火生、杨烨</div></div>
@@ -297,7 +345,8 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <tr><td>爆品奖收蔡瑜</td><td class="pam" style="color:var(--m-green)">+23,500.00</td></tr>
 </tbody></table></div></div>
 </div>
-</div></div>
+</div>
+</div>
 <script>
 Chart.register(ChartDataLabels);
 function sw(el,id){document.querySelectorAll(".tp").forEach(function(e){e.classList.remove("on")});document.querySelectorAll(".tab").forEach(function(e){e.classList.remove("on")});document.getElementById(id).classList.add("on");el.classList.add("on")}
