@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>产品及方案中心 · 人力行政数据看板</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <style>
 :root{--bg:#F5F0EB;--card:#FFF;--text:#4A4540;--text2:#8A8480;--text3:#B5AFA8;--border:#E8E2DC;--shadow:rgba(74,69,64,.06);--m-blue:#8BA4B8;--m-bl:#B8CCD8;--m-green:#8FAA8E;--m-gl:#C2D5C1;--m-pink:#C4A4A0;--m-pl:#DDD0CE;--m-beige:#C8B89A;--m-bel:#E2D8C6;--m-purple:#A898B0;--m-pul:#D0C6D5;--m-teal:#7FA3A0;--m-tl:#BDD0CE;--m-coral:#C49E9A;--m-cl:#DDD0CC;--m-lavender:#9E98B4;--m-sage:#97A68F;--m-sand:#C4AD98;--m-rose:#B89898;--m-stone:#9A948C}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -42,9 +43,10 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .sc{background:var(--card);border-radius:10px;padding:12px;box-shadow:0 1px 6px var(--shadow)}
 .sc .sl{font-size:11px;color:var(--text2);margin-bottom:4px}
 .sc .sv{font-size:20px;font-weight:700}
-.sc .sb{height:4px;border-radius:2px;background:var(--border);margin-top:6px;overflow:hidden}
-.sc .sf{height:100%;border-radius:2px;transition:width .6s ease}
-.sc .sd{font-size:10px;color:var(--text3);margin-top:3px;display:flex;justify-content:space-between}
+.sc .svu{font-size:12px;font-weight:400;color:var(--text2)}
+.sc .sb{height:6px;border-radius:3px;background:var(--border);margin-top:6px;overflow:hidden}
+.sc .sf{height:100%;border-radius:3px;transition:width .6s ease}
+.sc .sd{font-size:11px;color:var(--text3);margin-top:3px;text-align:right;font-weight:500}
 .tag{display:inline-block;padding:2px 8px;border-radius:14px;font-size:10px;font-weight:500}
 .tag-core{background:#E8F5E9;color:#2E7D32}.tag-backbone{background:#E3F2FD;color:#1565C0}.tag-star{background:#FFF3E0;color:#E65100}.tag-stable{background:#F3E5F5;color:#7B1FA2}.tag-watch{background:#FFEBEE;color:#C62828}.tag-pro{background:#E0F7FA;color:#00838F}.tag-poor{background:#FBE9E7;color:#BF360C}.tag-icon{background:#FFF9C4;color:#F57F17}
 .grade{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700}
@@ -92,54 +94,82 @@ tr:last-child td{border-bottom:none}tr:hover{background:#faf7f4}
 </div>
 <div class="tp on" id="t1">
 <div class="sec"><div class="sec-t">部门人员构成</div><div class="cg">
-<div class="cc"><div class="ch"><span class="ct">部门人数分布</span><span class="cb">共40人</span></div><div style="height:200px"><canvas id="cDept"></canvas></div></div>
-<div class="cc"><div class="ch"><span class="ct">性别构成</span></div><div style="height:200px"><canvas id="cGender"></canvas></div></div>
+<div class="cc"><div class="ch"><span class="ct">部门占比分布</span><span class="cb">共40人</span></div><div style="height:220px"><canvas id="cDept"></canvas></div></div>
+<div class="cc"><div class="ch"><span class="ct">性别占比</span></div><div style="height:220px"><canvas id="cGender"></canvas></div></div>
 </div></div>
-<div class="sec"><div class="sec-t">学历结构</div>
-<div class="cc"><div style="height:180px"><canvas id="cEdu"></canvas></div></div></div>
+<div class="sec"><div class="sec-t">部门详情</div><div class="sg"><div class="sc"><div class="sl">产品管理</div><div class="sv">22<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:55%;background:var(--m-blue)"></div></div><div class="sd"><span>55%</span></div></div>
+<div class="sc"><div class="sl">行业与解决方案</div><div class="sv">8<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:20%;background:var(--m-green)"></div></div><div class="sd"><span>20%</span></div></div>
+<div class="sc"><div class="sl">产品企划</div><div class="sv">7<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:18%;background:var(--m-purple)"></div></div><div class="sd"><span>18%</span></div></div>
+<div class="sc"><div class="sl">人力行政</div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-pink)"></div></div><div class="sd"><span>5%</span></div></div>
+<div class="sc"><div class="sl">特战队</div><div class="sv">1<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:2%;background:var(--m-teal)"></div></div><div class="sd"><span>2%</span></div></div>
+</div></div>
+<div class="sec"><div class="sec-t">性别详情</div><div class="sg"><div class="sc"><div class="sl">男</div><div class="sv">30<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:75%;background:var(--m-blue)"></div></div><div class="sd"><span>75%</span></div></div>
+<div class="sc"><div class="sl">女</div><div class="sv">10<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:25%;background:var(--m-pink)"></div></div><div class="sd"><span>25%</span></div></div>
+</div></div>
+<div class="sec"><div class="sec-t">学历占比分布</div>
+<div class="cc"><div style="height:220px"><canvas id="cEdu"></canvas></div></div></div>
+<div class="sec"><div class="sec-t">学历详情</div><div class="sg"><div class="sc"><div class="sl">本科</div><div class="sv">28<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:70%;background:var(--m-green)"></div></div><div class="sd"><span>70%</span></div></div>
+<div class="sc"><div class="sl">大专</div><div class="sv">8<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:20%;background:var(--m-blue)"></div></div><div class="sd"><span>20%</span></div></div>
+<div class="sc"><div class="sl">中专</div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-purple)"></div></div><div class="sd"><span>5%</span></div></div>
+<div class="sc"><div class="sl">硕士</div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-beige)"></div></div><div class="sd"><span>5%</span></div></div>
+</div></div>
 </div>
 <div class="tp" id="t2">
-<div class="sec"><div class="sec-t">年龄与司龄</div><div class="cg">
-<div class="cc"><div style="height:200px"><canvas id="cAge"></canvas></div></div>
-<div class="cc"><div style="height:200px"><canvas id="cSenior"></canvas></div></div>
+<div class="sec"><div class="sec-t">年龄与司龄占比</div><div class="cg">
+<div class="cc"><div style="height:220px"><canvas id="cAge"></canvas></div></div>
+<div class="cc"><div style="height:220px"><canvas id="cSenior"></canvas></div></div>
 </div></div>
-<div class="sec"><div class="sec-t">司龄分布</div><div class="sg"><div class="sc"><div class="sl">1年</div><div class="sv">3</div><div class="sb"><div class="sf" style="width:8%;background:var(--m-blue)"></div></div><div class="sd"><span>占比8%</span></div></div>
-<div class="sc"><div class="sl">不足1年</div><div class="sv">7</div><div class="sb"><div class="sf" style="width:18%;background:var(--m-blue)"></div></div><div class="sd"><span>占比18%</span></div></div>
-<div class="sc"><div class="sl">2年</div><div class="sv">2</div><div class="sb"><div class="sf" style="width:5%;background:var(--m-blue)"></div></div><div class="sd"><span>占比5%</span></div></div>
-<div class="sc"><div class="sl">3年</div><div class="sv">1</div><div class="sb"><div class="sf" style="width:2%;background:var(--m-blue)"></div></div><div class="sd"><span>占比2%</span></div></div>
-<div class="sc"><div class="sl">4年</div><div class="sv">5</div><div class="sb"><div class="sf" style="width:12%;background:var(--m-blue)"></div></div><div class="sd"><span>占比12%</span></div></div>
-<div class="sc"><div class="sl">5年</div><div class="sv">6</div><div class="sb"><div class="sf" style="width:15%;background:var(--m-blue)"></div></div><div class="sd"><span>占比15%</span></div></div>
-<div class="sc"><div class="sl">6年</div><div class="sv">3</div><div class="sb"><div class="sf" style="width:8%;background:var(--m-blue)"></div></div><div class="sd"><span>占比8%</span></div></div>
-<div class="sc"><div class="sl">7年</div><div class="sv">4</div><div class="sb"><div class="sf" style="width:10%;background:var(--m-blue)"></div></div><div class="sd"><span>占比10%</span></div></div>
-<div class="sc"><div class="sl">8年</div><div class="sv">3</div><div class="sb"><div class="sf" style="width:8%;background:var(--m-blue)"></div></div><div class="sd"><span>占比8%</span></div></div>
-<div class="sc"><div class="sl">9年</div><div class="sv">5</div><div class="sb"><div class="sf" style="width:12%;background:var(--m-blue)"></div></div><div class="sd"><span>占比12%</span></div></div>
-<div class="sc"><div class="sl">19年</div><div class="sv">1</div><div class="sb"><div class="sf" style="width:2%;background:var(--m-blue)"></div></div><div class="sd"><span>占比2%</span></div></div>
+<div class="sec"><div class="sec-t">年龄段详情</div><div class="sg"><div class="sc"><div class="sl">20~29岁</div><div class="sv">10<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:25%;background:var(--m-teal)"></div></div><div class="sd"><span>25%</span></div></div>
+<div class="sc"><div class="sl">30~39岁</div><div class="sv">16<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:40%;background:var(--m-green)"></div></div><div class="sd"><span>40%</span></div></div>
+<div class="sc"><div class="sl">40~49岁</div><div class="sv">13<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:32%;background:var(--m-beige)"></div></div><div class="sd"><span>32%</span></div></div>
+<div class="sc"><div class="sl">50~59岁</div><div class="sv">1<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:2%;background:var(--m-stone)"></div></div><div class="sd"><span>2%</span></div></div>
+</div></div>
+<div class="sec"><div class="sec-t">司龄详情</div><div class="sg"><div class="sc"><div class="sl">1年</div><div class="sv">3<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:8%;background:var(--m-blue)"></div></div><div class="sd"><span>8%</span></div></div>
+<div class="sc"><div class="sl">不足1年</div><div class="sv">7<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:18%;background:var(--m-teal)"></div></div><div class="sd"><span>18%</span></div></div>
+<div class="sc"><div class="sl">2年</div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-green)"></div></div><div class="sd"><span>5%</span></div></div>
+<div class="sc"><div class="sl">3年</div><div class="sv">1<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:2%;background:var(--m-sage)"></div></div><div class="sd"><span>2%</span></div></div>
+<div class="sc"><div class="sl">4年</div><div class="sv">5<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:12%;background:var(--m-beige)"></div></div><div class="sd"><span>12%</span></div></div>
+<div class="sc"><div class="sl">5年</div><div class="sv">6<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:15%;background:var(--m-pink)"></div></div><div class="sd"><span>15%</span></div></div>
+<div class="sc"><div class="sl">6年</div><div class="sv">3<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:8%;background:var(--m-stone)"></div></div><div class="sd"><span>8%</span></div></div>
+<div class="sc"><div class="sl">7年</div><div class="sv">4<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:10%;background:var(--m-purple)"></div></div><div class="sd"><span>10%</span></div></div>
+<div class="sc"><div class="sl">8年</div><div class="sv">3<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:8%;background:var(--m-blue)"></div></div><div class="sd"><span>8%</span></div></div>
+<div class="sc"><div class="sl">9年</div><div class="sv">5<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:12%;background:var(--m-teal)"></div></div><div class="sd"><span>12%</span></div></div>
+<div class="sc"><div class="sl">19年</div><div class="sv">1<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:2%;background:var(--m-green)"></div></div><div class="sd"><span>2%</span></div></div>
 </div></div>
 </div>
 <div class="tp" id="t3">
-<div class="sec"><div class="sec-t">绩效与潜力</div><div class="cg">
-<div class="cc"><div style="height:200px"><canvas id="cPerf"></canvas></div></div>
-<div class="cc"><div style="height:200px"><canvas id="cPot"></canvas></div></div>
+<div class="sec"><div class="sec-t">绩效与潜力占比</div><div class="cg">
+<div class="cc"><div style="height:220px"><canvas id="cPerf"></canvas></div></div>
+<div class="cc"><div style="height:220px"><canvas id="cPot"></canvas></div></div>
 </div></div>
-<div class="sec"><div class="sec-t">人才标签</div><div class="sg"><div class="sc"><div class="sl">核心</div><div class="sv">4</div><div class="sb"><div class="sf" style="width:10%;background:var(--m-purple)"></div></div><div class="sd"><span class="tag tag-core">核心</span><span>占比10%</span></div></div>
-<div class="sc"><div class="sl">骨干</div><div class="sv">25</div><div class="sb"><div class="sf" style="width:62%;background:var(--m-purple)"></div></div><div class="sd"><span class="tag tag-backbone">骨干</span><span>占比62%</span></div></div>
-<div class="sc"><div class="sl">稳定</div><div class="sv">2</div><div class="sb"><div class="sf" style="width:5%;background:var(--m-purple)"></div></div><div class="sd"><span class="tag tag-stable">稳定</span><span>占比5%</span></div></div>
-<div class="sc"><div class="sl">明日之星</div><div class="sv">4</div><div class="sb"><div class="sf" style="width:10%;background:var(--m-purple)"></div></div><div class="sd"><span class="tag tag-star">明日之星</span><span>占比10%</span></div></div>
-<div class="sc"><div class="sl">关注</div><div class="sv">2</div><div class="sb"><div class="sf" style="width:5%;background:var(--m-purple)"></div></div><div class="sd"><span class="tag tag-watch">关注</span><span>占比5%</span></div></div>
-<div class="sc"><div class="sl">专业</div><div class="sv">1</div><div class="sb"><div class="sf" style="width:2%;background:var(--m-purple)"></div></div><div class="sd"><span class="tag tag-pro">专业</span><span>占比2%</span></div></div>
-<div class="sc"><div class="sl">明星</div><div class="sv">2</div><div class="sb"><div class="sf" style="width:5%;background:var(--m-purple)"></div></div><div class="sd"><span class="tag tag-icon">明星</span><span>占比5%</span></div></div>
+<div class="sec"><div class="sec-t">绩效等级详情</div><div class="sg"><div class="sc"><div class="sl">绩效 <span class="grade grade-aplus">A+</span></div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-beige)"></div></div><div class="sd"><span>5%</span></div></div>
+<div class="sc"><div class="sl">绩效 <span class="grade grade-a">A</span></div><div class="sv">5<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:12%;background:var(--m-green)"></div></div><div class="sd"><span>12%</span></div></div>
+<div class="sc"><div class="sl">绩效 <span class="grade grade-b">B</span></div><div class="sv">28<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:70%;background:var(--m-blue)"></div></div><div class="sd"><span>70%</span></div></div>
+<div class="sc"><div class="sl">绩效 <span class="grade grade-c">C</span></div><div class="sv">5<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:12%;background:var(--m-pink)"></div></div><div class="sd"><span>12%</span></div></div>
+</div></div>
+<div class="sec"><div class="sec-t">潜力等级详情</div><div class="sg"><div class="sc"><div class="sl"><span class="pot pot-high">高潜力</span></div><div class="sv">6<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:15%;background:var(--m-green)"></div></div><div class="sd"><span>15%</span></div></div>
+<div class="sc"><div class="sl"><span class="pot pot-mid">中潜力</span></div><div class="sv">31<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:78%;background:var(--m-blue)"></div></div><div class="sd"><span>78%</span></div></div>
+<div class="sc"><div class="sl"><span class="pot pot-low">低潜力</span></div><div class="sv">3<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:8%;background:var(--m-pink)"></div></div><div class="sd"><span>8%</span></div></div>
+</div></div>
+<div class="sec"><div class="sec-t">人才标签</div><div class="sg"><div class="sc"><div class="sl"><span class="tag tag-backbone">骨干</span></div><div class="sv">25<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:62%;background:var(--m-blue)"></div></div><div class="sd"><span>62%</span></div></div>
+<div class="sc"><div class="sl"><span class="tag tag-core">核心</span></div><div class="sv">4<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:10%;background:var(--m-green)"></div></div><div class="sd"><span>10%</span></div></div>
+<div class="sc"><div class="sl"><span class="tag tag-star">明日之星</span></div><div class="sv">4<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:10%;background:var(--m-purple)"></div></div><div class="sd"><span>10%</span></div></div>
+<div class="sc"><div class="sl"><span class="tag tag-stable">稳定</span></div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-pink)"></div></div><div class="sd"><span>5%</span></div></div>
+<div class="sc"><div class="sl"><span class="tag tag-watch">关注</span></div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-teal)"></div></div><div class="sd"><span>5%</span></div></div>
+<div class="sc"><div class="sl"><span class="tag tag-icon">明星</span></div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-beige)"></div></div><div class="sd"><span>5%</span></div></div>
+<div class="sc"><div class="sl"><span class="tag tag-pro">专业</span></div><div class="sv">1<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:2%;background:var(--m-stone)"></div></div><div class="sd"><span>2%</span></div></div>
 </div></div>
 </div>
 <div class="tp" id="t4">
-<div class="sec"><div class="sec-t">薪酬区间</div>
+<div class="sec"><div class="sec-t">薪酬区间占比</div>
 <div class="cc"><div style="height:240px"><canvas id="cSal"></canvas></div></div></div>
-<div class="sec"><div class="sec-t">薪酬概况</div><div class="sg"><div class="sc"><div class="sl">2万以上</div><div class="sv">6</div><div class="sb"><div class="sf" style="width:15%;background:var(--m-blue)"></div></div><div class="sd"><span>占比15%</span></div></div>
-<div class="sc"><div class="sl">1.5~2万</div><div class="sv">2</div><div class="sb"><div class="sf" style="width:5%;background:var(--m-teal)"></div></div><div class="sd"><span>占比5%</span></div></div>
-<div class="sc"><div class="sl">1万~1.5万</div><div class="sv">11</div><div class="sb"><div class="sf" style="width:28%;background:var(--m-green)"></div></div><div class="sd"><span>占比28%</span></div></div>
-<div class="sc"><div class="sl">8千~1万</div><div class="sv">7</div><div class="sb"><div class="sf" style="width:18%;background:var(--m-sage)"></div></div><div class="sd"><span>占比18%</span></div></div>
-<div class="sc"><div class="sl">6千~8千</div><div class="sv">5</div><div class="sb"><div class="sf" style="width:12%;background:var(--m-beige)"></div></div><div class="sd"><span>占比12%</span></div></div>
-<div class="sc"><div class="sl">5千~6千</div><div class="sv">8</div><div class="sb"><div class="sf" style="width:20%;background:var(--m-pink)"></div></div><div class="sd"><span>占比20%</span></div></div>
-<div class="sc"><div class="sl">5千以下</div><div class="sv">1</div><div class="sb"><div class="sf" style="width:2%;background:var(--m-stone)"></div></div><div class="sd"><span>占比2%</span></div></div>
+<div class="sec"><div class="sec-t">薪酬详情</div><div class="sg"><div class="sc"><div class="sl">2万以上</div><div class="sv">6<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:15%;background:var(--m-blue)"></div></div><div class="sd"><span>15%</span></div></div>
+<div class="sc"><div class="sl">1.5~2万</div><div class="sv">2<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:5%;background:var(--m-teal)"></div></div><div class="sd"><span>5%</span></div></div>
+<div class="sc"><div class="sl">1万~1.5万</div><div class="sv">11<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:28%;background:var(--m-green)"></div></div><div class="sd"><span>28%</span></div></div>
+<div class="sc"><div class="sl">8千~1万</div><div class="sv">7<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:18%;background:var(--m-sage)"></div></div><div class="sd"><span>18%</span></div></div>
+<div class="sc"><div class="sl">6千~8千</div><div class="sv">5<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:12%;background:var(--m-beige)"></div></div><div class="sd"><span>12%</span></div></div>
+<div class="sc"><div class="sl">5千~6千</div><div class="sv">8<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:20%;background:var(--m-pink)"></div></div><div class="sd"><span>20%</span></div></div>
+<div class="sc"><div class="sl">5千以下</div><div class="sv">1<span class="svu">人</span></div><div class="sb"><div class="sf" style="width:2%;background:var(--m-stone)"></div></div><div class="sd"><span>2%</span></div></div>
 </div></div>
 </div>
 <div class="tp" id="t5">
@@ -229,18 +259,22 @@ tr:last-child td{border-bottom:none}tr:hover{background:#faf7f4}
 </div>
 </div>
 <script>
+Chart.register(ChartDataLabels);
 function sw(el,id){document.querySelectorAll(".tp").forEach(function(e){e.classList.remove("on")});document.querySelectorAll(".tab").forEach(function(e){e.classList.remove("on")});document.getElementById(id).classList.add("on");el.classList.add("on")}
 function tv(v,el){document.querySelectorAll(".vb").forEach(function(e){e.classList.remove("on")});el.classList.add("on");document.getElementById("vCard").style.display=v==="card"?"flex":"none";document.getElementById("vTable").style.display=v==="table"?"block":"none"}
 Chart.defaults.font.family='-apple-system,"PingFang SC","Microsoft YaHei",sans-serif';Chart.defaults.font.size=11;Chart.defaults.color="#8A8480";Chart.defaults.plugins.legend.labels.usePointStyle=true;Chart.defaults.plugins.legend.labels.padding=12;Chart.defaults.plugins.legend.labels.pointStyleWidth=8
 var P=["#8BA4B8","#8FAA8E","#C4A4A0","#C8B89A","#A898B0","#7FA3A0","#C49E9A","#9E98B4","#97A68F","#C4AD98"]
-new Chart(document.getElementById("cDept"),{type:"bar",data:{labels:["产品管理", "特战队", "产品企划", "行业与解决方案", "人力行政"],datasets:[{data:[22, 1, 7, 8, 2],backgroundColor:P.slice(0,5),borderRadius:6,borderSkipped:false,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:5},grid:{color:"#F0ECE8"}},x:{grid:{display:false}}}}})
-new Chart(document.getElementById("cGender"),{type:"doughnut",data:{labels:["男","女"],datasets:[{data:[30,10],backgroundColor:["#8BA4B8","#C4A4A0"],borderWidth:0,cutout:"65%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
-new Chart(document.getElementById("cEdu"),{type:"doughnut",data:{labels:["本科", "大专", "中专", "硕士"],datasets:[{data:[28, 8, 2, 2],backgroundColor:P.slice(0,4),borderWidth:0,cutout:"60%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
-new Chart(document.getElementById("cAge"),{type:"doughnut",data:{labels:["30~39岁", "40~49岁", "20~29岁", "50~59岁"],datasets:[{data:[16, 13, 10, 1],backgroundColor:["#8BA4B8","#8FAA8E","#C8B89A","#9A948C"],borderWidth:0,cutout:"62%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
-new Chart(document.getElementById("cSenior"),{type:"bar",data:{labels:["7年", "9年", "4年", "8年", "6年", "2年", "1年", "5年", "19年", "3年", "不足1年"],datasets:[{data:[4, 5, 5, 3, 3, 2, 3, 6, 1, 1, 7],backgroundColor:"#B8CCD8",hoverBackgroundColor:"#8BA4B8",borderRadius:5,borderSkipped:false,barPercentage:.65}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:2},grid:{color:"#F0ECE8"}},x:{grid:{display:false}}}}})
-var gd={"A": 5, "B": 28, "C": 5, "A+": 2};var go=["A+","A","B","C","D"];var gL=go.filter(function(k){return k in gd});var gV=gL.map(function(k){return gd[k]});
-new Chart(document.getElementById("cPerf"),{type:"doughnut",data:{labels:gL,datasets:[{data:gV,backgroundColor:["#C2D5C1","#8FAA8E","#B8CCD8","#DDD0CE","#DDD0CC"],borderWidth:2,borderColor:"#fff",cutout:"60%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
-new Chart(document.getElementById("cPot"),{type:"doughnut",data:{labels:["中潜力", "低潜力", "高潜力"],datasets:[{data:[31, 3, 6],backgroundColor:["#8FAA8E","#B8CCD8","#DDD0CE"],borderWidth:2,borderColor:"#fff",cutout:"60%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
-var sd={"1万~1.5万": 11, "8千~1万": 7, "6千~8千": 5, "5千~6千": 8, "2万以上": 6, "5千以下": 1, "1.5~2万": 2};var so=["2万以上","1.5~2万","1万~1.5万","8千~1万","6千~8千","5千~6千","5千以下"];var ss=so.filter(function(k){return k in sd});var sr=Object.keys(sd).filter(function(k){return so.indexOf(k)===-1});var sa=ss.concat(sr);var sv=sa.map(function(k){return sd[k]});
-new Chart(document.getElementById("cSal"),{type:"bar",data:{labels:sa,datasets:[{data:sv,backgroundColor:["#8BA4B8","#7FA3A0","#8FAA8E","#97A68F","#C8B89A","#DDD0CE","#9A948C"],borderRadius:6,borderSkipped:false,barPercentage:.65}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:2},grid:{color:"#F0ECE8"}},y:{grid:{display:false}}}}})
+var PL=["#B8CCD8","#C2D5C1","#DDD0CE","#E2D8C6","#D0C6D5","#BDD0CE","#DDD0CC","#E8E3ED","#C2D5C1","#E2D8C6"]
+var pieDL={color:"#4A4540",font:{weight:"600",size:11},anchor:"end",align:"end",offset:4,formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+"人("+Math.round(v/t*100)+"%)";}}
+var barDL={anchor:"end",align:"top",color:"#4A4540",font:{weight:"600",size:10},formatter:function(v){return v+"%";}}
+new Chart(document.getElementById("cDept"),{type:"doughnut",data:{labels:["产品管理", "特战队", "产品企划", "行业与解决方案", "人力行政"],datasets:[{data:[22, 1, 7, 8, 2],backgroundColor:P.slice(0,5),borderWidth:2,borderColor:"#fff",cutout:"55%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{padding:10}},datalabels:pieDL}}})
+new Chart(document.getElementById("cGender"),{type:"doughnut",data:{labels:["男","女"],datasets:[{data:[30,10],backgroundColor:["#8BA4B8","#C4A4A0"],borderWidth:2,borderColor:"#fff",cutout:"55%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},datalabels:pieDL}}})
+new Chart(document.getElementById("cEdu"),{type:"doughnut",data:{labels:["本科", "大专", "中专", "硕士"],datasets:[{data:[28, 8, 2, 2],backgroundColor:P.slice(0,4),borderWidth:2,borderColor:"#fff",cutout:"55%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{padding:10}},datalabels:pieDL}}})
+new Chart(document.getElementById("cAge"),{type:"doughnut",data:{labels:["30~39岁", "40~49岁", "20~29岁", "50~59岁"],datasets:[{data:[16, 13, 10, 1],backgroundColor:["#8BA4B8","#8FAA8E","#C8B89A","#9A948C"],borderWidth:2,borderColor:"#fff",cutout:"55%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},datalabels:pieDL}}})
+new Chart(document.getElementById("cSenior"),{type:"bar",data:{labels:["7年", "9年", "4年", "8年", "6年", "2年", "1年", "5年", "19年", "3年", "不足1年"],datasets:[{data:[10.0, 12.5, 12.5, 7.5, 7.5, 5.0, 7.5, 15.0, 2.5, 2.5, 17.5],backgroundColor:PL.slice(0,11),hoverBackgroundColor:P.slice(0,11),borderRadius:5,borderSkipped:false,barPercentage:.65}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:barDL},scales:{y:{beginAtZero:true,max:40,ticks:{callback:function(v){return v+"%"},grid:{color:"#F0ECE8"}},title:{display:true,text:"占比(%)",font:{size:10}}},x:{grid:{display:false}}}}})
+var gd={"A": 12.5, "B": 70.0, "C": 12.5, "A+": 5.0};var go=["A+","A","B","C","D"];var gL=go.filter(function(k){return k in gd});var gV=gL.map(function(k){return gd[k]});
+new Chart(document.getElementById("cPerf"),{type:"doughnut",data:{labels:gL.map(function(k){return k+"级"}),datasets:[{data:gV,backgroundColor:["#C2D5C1","#8FAA8E","#B8CCD8","#DDD0CE","#DDD0CC"],borderWidth:2,borderColor:"#fff",cutout:"55%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},datalabels:{color:"#4A4540",font:{weight:"600",size:11},anchor:"end",align:"end",offset:4,formatter:function(v){return Math.round(v)+"%";}}}}})
+new Chart(document.getElementById("cPot"),{type:"doughnut",data:{labels:["中潜力", "低潜力", "高潜力"],datasets:[{data:[77.5, 7.5, 15.0],backgroundColor:["#8FAA8E","#B8CCD8","#DDD0CE"],borderWidth:2,borderColor:"#fff",cutout:"55%"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},datalabels:{color:"#4A4540",font:{weight:"600",size:11},anchor:"end",align:"end",offset:4,formatter:function(v){return Math.round(v)+"%";}}}}})
+var sd={"1万~1.5万": 27.5, "8千~1万": 17.5, "6千~8千": 12.5, "5千~6千": 20.0, "2万以上": 15.0, "5千以下": 2.5, "1.5~2万": 5.0};var so=["2万以上","1.5~2万","1万~1.5万","8千~1万","6千~8千","5千~6千","5千以下"];var ss=so.filter(function(k){return k in sd});var sr=Object.keys(sd).filter(function(k){return so.indexOf(k)===-1});var sa=ss.concat(sr);var sv=sa.map(function(k){return sd[k]});
+new Chart(document.getElementById("cSal"),{type:"bar",data:{labels:sa,datasets:[{data:sv,backgroundColor:["#8BA4B8","#7FA3A0","#8FAA8E","#97A68F","#C8B89A","#DDD0CE","#9A948C"],borderRadius:6,borderSkipped:false,barPercentage:.65}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:"y",plugins:{legend:{display:false},datalabels:{anchor:"end",align:"right",color:"#4A4540",font:{weight:"600",size:10},formatter:function(v){return v+"%";}}},scales:{x:{beginAtZero:true,max:40,ticks:{callback:function(v){return v+"%"},grid:{color:"#F0ECE8"}},title:{display:true,text:"占比(%)",font:{size:10}}},y:{grid:{display:false}}}}})
 </script></body></html>
