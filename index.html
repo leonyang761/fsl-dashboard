@@ -62,7 +62,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .pc-name{font-size:12px;font-weight:600}.pc-dept{font-size:9px;color:var(--text2);margin-bottom:3px}
 .pc-tags{display:flex;gap:2px;margin-bottom:4px;flex-wrap:wrap}
 .pc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.pc-item{text-align:center}.pc-val{display:block;font-size:10px;font-weight:600}.pc-lbl{display:block;font-size:7px;color:var(--text3)}
+.pc-item{text-align:center}.pc-val{display:block;font-size:10px;font-weight:600}.pc-lbl{display:block;font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden}
 .pc-phone{grid-column:span 3;text-align:center}.pc-phone .pc-val{color:var(--m-blue);font-size:11px}
 .dtw{overflow-x:auto;border-radius:7px;box-shadow:0 1px 3px var(--shadow);margin-bottom:6px}
 table.dtbl{width:100%;border-collapse:collapse;background:var(--card);font-size:10px;min-width:760px}
@@ -81,7 +81,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .petty-content.open{max-height:2000px}
 .petty-tbl{width:100%;border-collapse:collapse;font-size:7px}
 .petty-tbl th{background:var(--m-blue);color:#fff;padding:2px 4px;font-size:6px;font-weight:500;position:sticky;top:0}
-.petty-tbl td{padding:2px 4px;border-bottom:1px solid var(--border);white-space:nowrap}
+.petty-tbl td{padding:2px 4px;border-bottom:1px solid var(--border);white-space:nowrap;vertical-align:top;height:18px;line-height:18px}
 .petty-tbl td:first-child{min-width:70px}.petty-tbl .pam{font-weight:600;white-space:nowrap}
 .seat-map{background:var(--card);border-radius:8px;padding:8px;box-shadow:0 1px 3px var(--shadow)}
 .seat-legend{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;padding:3px 5px;background:var(--bg);border-radius:5px}
@@ -258,43 +258,43 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <div class="pcard"><div class="pv" style="color:var(--m-blue)">82,340.06</div><div class="pl">当前余额</div></div>
 </div>
 <div class="petty-swipe"><div class="petty-handle" onclick="this.nextElementSibling.classList.toggle('open')">上滑查看支出明细</div>
-<div class="petty-content"><table class="petty-tbl"><thead><tr><th>日期</th><th>项目</th><th>金额</th></tr></thead><tbody><tr><td>2026-04-15</td><td>购买应急药品+药箱<br><span style="font-size:7px;color:var(--text3)">截图</span></td><td class="pam">-251.29</td></tr>
-<tr><td>2026-04-10</td><td>更换绿植<br><span style="font-size:7px;color:var(--text3)">截图</span></td><td class="pam">-101.05</td></tr>
-<tr><td>2026-03-31</td><td>4月零食站零食<br><span style="font-size:7px;color:var(--text3)">截图</span></td><td class="pam">-399.23</td></tr>
-<tr><td>2026-03-10</td><td>慰问孙明磊（重度乙肝，广州住院）<br><span style="font-size:7px;color:var(--text3)">含慰问金800元+果篮166.5元，支取1000元现金，余200元</span></td><td class="pam">-966.50</td></tr>
-<tr><td>2026-03-06</td><td>三八妇女节下午茶<br><span style="font-size:7px;color:var(--text3)">截图</span></td><td class="pam">-130.28</td></tr>
-<tr><td>2026-03-04</td><td>三八妇女节礼物<br><span style="font-size:7px;color:var(--text3)">截图</span></td><td class="pam">-598.49</td></tr>
-<tr><td>2026-03-03</td><td>3月零食站零食<br><span style="font-size:7px;color:var(--text3)">截图</span></td><td class="pam">-397.30</td></tr>
-<tr><td>2026-02-25</td><td>补梁文杰年终奖<br><span style="font-size:7px;color:var(--text3)">微信转账</span></td><td class="pam">-2,000.00</td></tr>
-<tr><td>2026-02-12</td><td>部门绿植<br><span style="font-size:7px;color:var(--text3)">补充部门绿植30盆，共280元</span></td><td class="pam">-280.00</td></tr>
-<tr><td>2026-02-07</td><td>2月24日开工仪式活动<br><span style="font-size:7px;color:var(--text3)">2月7日3874.04元；2月9日328.2元；2月25日35.14元；2月26日34.1元</span></td><td class="pam">-4,271.48</td></tr>
-<tr><td>2026-02-04</td><td>部门年度总结会最佳主讲人<br><span style="font-size:7px;color:var(--text3)">每人500元，闫振、陈宁、程纯纯</span></td><td class="pam">-1,500.00</td></tr>
-<tr><td>2026-02-02</td><td>总结分享会工作人员工作餐<br><span style="font-size:7px;color:var(--text3)">杨烨、谭炜昕、陈宁、潘心怡、陈雨欣、蔡瑜</span></td><td class="pam">-337.80</td></tr>
+<div class="petty-content"><table class="petty-tbl"><thead><tr><th>日期</th><th>项目</th><th>金额</th></tr></thead><tbody><tr><td>2026-04-15</td><td>购买应急药品+药箱<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">截图</span></td><td class="pam">-251.29</td></tr>
+<tr><td>2026-04-10</td><td>更换绿植<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">截图</span></td><td class="pam">-101.05</td></tr>
+<tr><td>2026-03-31</td><td>4月零食站零食<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">截图</span></td><td class="pam">-399.23</td></tr>
+<tr><td>2026-03-10</td><td>慰问孙明磊（重度乙肝，广州住院）<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">含慰问金800元+果篮166.5元，支取1000元现金，余200元</span></td><td class="pam">-966.50</td></tr>
+<tr><td>2026-03-06</td><td>三八妇女节下午茶<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">截图</span></td><td class="pam">-130.28</td></tr>
+<tr><td>2026-03-04</td><td>三八妇女节礼物<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">截图</span></td><td class="pam">-598.49</td></tr>
+<tr><td>2026-03-03</td><td>3月零食站零食<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">截图</span></td><td class="pam">-397.30</td></tr>
+<tr><td>2026-02-25</td><td>补梁文杰年终奖<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">微信转账</span></td><td class="pam">-2,000.00</td></tr>
+<tr><td>2026-02-12</td><td>部门绿植<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">补充部门绿植30盆，共280元</span></td><td class="pam">-280.00</td></tr>
+<tr><td>2026-02-07</td><td>2月24日开工仪式活动<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">2月7日3874.04元；2月9日328.2元；2月25日35.14元；2月26日34.1元</span></td><td class="pam">-4,271.48</td></tr>
+<tr><td>2026-02-04</td><td>部门年度总结会最佳主讲人<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">每人500元，闫振、陈宁、程纯纯</span></td><td class="pam">-1,500.00</td></tr>
+<tr><td>2026-02-02</td><td>总结分享会工作人员工作餐<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">杨烨、谭炜昕、陈宁、潘心怡、陈雨欣、蔡瑜</span></td><td class="pam">-337.80</td></tr>
 <tr><td>2026-01-30</td><td>领导备用金</td><td class="pam">-10,000.00</td></tr>
-<tr><td>2026-02-02</td><td>25年工作总结分享会茶歇及其他物资<br><span style="font-size:7px;color:var(--text3)">打车：19.4元
+<tr><td>2026-02-02</td><td>25年工作总结分享会茶歇及其他物资<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">打车：19.4元
 零食：1056.6元
 桌布：34.6元</span></td><td class="pam">-1,110.60</td></tr>
 <tr><td>2026-01-28</td><td>2月零食站零食</td><td class="pam">-400.00</td></tr>
 <tr><td>2026-01-04</td><td>1月零食站零食</td><td class="pam">-399.40</td></tr>
 <tr><td>2025-12-30</td><td>铁链锁</td><td class="pam">-12.00</td></tr>
-<tr><td>2026-01-28</td><td>部门主经理团建<br><span style="font-size:7px;color:var(--text3)">含打的15.3元</span></td><td class="pam">-1,165.30</td></tr>
-<tr><td>2025-12-14</td><td>佛山照明羽毛球比赛午餐<br><span style="font-size:7px;color:var(--text3)">陈宁、黄少娟、陈志斌、潘心怡、曹松华、杨烨、何培荣</span></td><td class="pam">-368.00</td></tr>
-<tr><td>2025-12-11</td><td>羽毛球训练<br><span style="font-size:7px;color:var(--text3)">场地费232元+球费68元</span></td><td class="pam">-300.00</td></tr>
+<tr><td>2026-01-28</td><td>部门主经理团建<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">含打的15.3元</span></td><td class="pam">-1,165.30</td></tr>
+<tr><td>2025-12-14</td><td>佛山照明羽毛球比赛午餐<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">陈宁、黄少娟、陈志斌、潘心怡、曹松华、杨烨、何培荣</span></td><td class="pam">-368.00</td></tr>
+<tr><td>2025-12-11</td><td>羽毛球训练<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">场地费232元+球费68元</span></td><td class="pam">-300.00</td></tr>
 <tr><td>2025-12-01</td><td>12月零食站零食</td><td class="pam">-399.03</td></tr>
-<tr><td>2025-12-03</td><td>羽毛球训练<br><span style="font-size:7px;color:var(--text3)">场地费232元+球费68元</span></td><td class="pam">-300.00</td></tr>
+<tr><td>2025-12-03</td><td>羽毛球训练<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">场地费232元+球费68元</span></td><td class="pam">-300.00</td></tr>
 <tr><td>2025-11-04</td><td>11月零食站零食</td><td class="pam">-388.39</td></tr>
 <tr><td>2025-11-04</td><td>生日蛋糕</td><td class="pam">-606.50</td></tr>
 <tr><td>2025-10-21</td><td>生日会物料</td><td class="pam">-340.83</td></tr>
 <tr><td>2025-10-15</td><td>生日会物料退货运费</td><td class="pam">-23.70</td></tr>
 <tr><td>2025-10-20</td><td>生日会礼物</td><td class="pam">-1,753.75</td></tr>
-<tr><td>2025-10-16</td><td>部门羽毛球活动<br><span style="font-size:7px;color:var(--text3)">场地和水费+50球费</span></td><td class="pam">-190.00</td></tr>
+<tr><td>2025-10-16</td><td>部门羽毛球活动<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">场地和水费+50球费</span></td><td class="pam">-190.00</td></tr>
 <tr><td>2025-10-11</td><td>生日会物料</td><td class="pam">-1,329.61</td></tr>
 <tr><td>2025-10-09</td><td>10月零食站零食</td><td class="pam">-390.42</td></tr>
-<tr><td>2025-09-30</td><td>部门团建<br><span style="font-size:7px;color:var(--text3)">参加人员：马涛、杨烨、陈群、梁婷、谭敏怡、黄少娟</span></td><td class="pam">-256.00</td></tr>
+<tr><td>2025-09-30</td><td>部门团建<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">参加人员：马涛、杨烨、陈群、梁婷、谭敏怡、黄少娟</span></td><td class="pam">-256.00</td></tr>
 <tr><td>2025-09-15</td><td>蟑螂药</td><td class="pam">-19.90</td></tr>
 <tr><td>2025-09-12</td><td>样品房磨砂贴纸</td><td class="pam">-22.94</td></tr>
 <tr><td>2025-09-02</td><td>9月零食站零食</td><td class="pam">-403.76</td></tr>
-<tr><td>2025-08-22</td><td>部门聚餐<br><span style="font-size:7px;color:var(--text3)">核心团队聚餐</span></td><td class="pam">-822.00</td></tr>
+<tr><td>2025-08-22</td><td>部门聚餐<br><span style="font-size:7px;color:var(--text3);display:block;height:0;overflow:hidden">核心团队聚餐</span></td><td class="pam">-822.00</td></tr>
 <tr><td>2025-08-11</td><td>标记红胶带</td><td class="pam">-19.00</td></tr>
 <tr><td>2025-08-01</td><td>8月零食站零食</td><td class="pam">-396.19</td></tr>
 <tr><td>2025-07-02</td><td>7月零食站零食</td><td class="pam">-399.51</td></tr>
