@@ -4,7 +4,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>产品及方案中心 · 人力行政数据看板</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <style>
 :root{--bg:#F5F0EB;--card:#FFF;--text:#4A4540;--text2:#8A8480;--text3:#B5AFA8;--border:#E8E2DC;--shadow:rgba(74,69,64,.06);--m-blue:#8BA4B8;--m-bl:#B8CCD8;--m-green:#8FAA8E;--m-gl:#C2D5C1;--m-pink:#C4A4A0;--m-pl:#DDD0CE;--m-beige:#C8B89A;--m-bel:#E2D8C6;--m-purple:#A898B0;--m-pul:#D0C6D5;--m-teal:#7FA3A0;--m-tl:#BDD0CE;--m-lavender:#9E98B4;--m-sage:#97A68F;--m-sand:#C4AD98;--m-rose:#B89898;--m-stone:#9A948C}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -48,6 +47,16 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .sc .sd{font-size:10px;color:var(--text3);margin-top:3px;text-align:right;font-weight:500}
 .sc-detail{max-height:0;overflow:hidden;transition:max-height .3s;font-size:11px;color:var(--text2);line-height:1.8}
 .sc-detail.show{max-height:200px}
+.stbl-wrap{max-height:0;overflow:hidden;transition:max-height .4s ease;margin-bottom:10px}
+.stbl-wrap.show{max-height:600px}
+.stbl{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 1px 6px var(--shadow)}
+.stbl table{width:100%;border-collapse:collapse;min-width:auto;font-size:12px}
+.stbl th{background:var(--m-blue);color:#fff;padding:8px 10px;text-align:left;font-weight:500;font-size:11px}
+.stbl td{padding:7px 10px;border-bottom:1px solid var(--border)}
+.stbl tr:last-child td{border-bottom:none}
+.stbl tr:hover{background:#faf7f4}
+.stbl .pct{color:var(--text3);font-size:11px}
+.stbl-toggle{display:inline-block;margin:6px 0;padding:4px 14px;border-radius:14px;font-size:11px;color:var(--m-blue);background:var(--card);border:1px solid var(--border);cursor:pointer;font-weight:500}
 .tag{display:inline-block;padding:2px 8px;border-radius:14px;font-size:10px;font-weight:500}
 .tag-core{background:#E8F5E9;color:#2E7D32}.tag-backbone{background:#E3F2FD;color:#1565C0}.tag-star{background:#FFF3E0;color:#E65100}.tag-stable{background:#F3E5F5;color:#7B1FA2}.tag-watch{background:#FFEBEE;color:#C62828}.tag-pro{background:#E0F7FA;color:#00838F}.tag-poor{background:#FBE9E7;color:#BF360C}.tag-icon{background:#FFF9C4;color:#F57F17}
 .grade{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700}
@@ -61,9 +70,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .pc-dept{font-size:11px;color:var(--text2);margin-bottom:6px}
 .pc-tags{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
 .pc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.pc-item{text-align:center}
-.pc-val{display:block;font-size:12px;font-weight:600}
-.pc-lbl{display:block;font-size:9px;color:var(--text3)}
+.pc-item{text-align:center}.pc-val{display:block;font-size:12px;font-weight:600}.pc-lbl{display:block;font-size:9px;color:var(--text3)}
 .dtw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;box-shadow:0 1px 6px var(--shadow);margin-bottom:10px}
 table{width:100%;border-collapse:collapse;background:var(--card);font-size:12px;min-width:780px}
 th{background:var(--m-blue);color:#fff;padding:8px 6px;text-align:left;font-weight:500;white-space:nowrap}
@@ -73,28 +80,22 @@ tr:last-child td{border-bottom:none}tr:hover{background:#faf7f4}
 .vb{padding:6px 16px;border-radius:16px;border:1px solid var(--border);background:var(--card);font-size:12px;color:var(--text2);cursor:pointer;margin:0 4px}
 .vb.on{background:var(--m-green);color:#fff;border-color:var(--m-green)}
 .petty-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-.petty-c{background:var(--card);border-radius:10px;padding:12px;text-align:center;box-shadow:0 1px 6px var(--shadow)}
-.petty-c .pv{font-size:20px;font-weight:700}
+.petty-c{background:var(--card);border-radius:10px;padding:14px;text-align:center;box-shadow:0 1px 6px var(--shadow)}
+.petty-c .pv{font-size:22px;font-weight:700}
 .petty-c .pl{font-size:11px;color:var(--text2);margin-top:2px}
-.petty-tbl{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 1px 6px var(--shadow);margin-bottom:10px}
-.petty-tbl table{min-width:auto;font-size:11px}
-.petty-tbl th{background:var(--m-blue);padding:6px 8px;font-size:10px}
-.petty-tbl td{padding:5px 8px}
-.petty-amt{font-weight:600;white-space:nowrap}
-.petty-note{display:block;font-size:9px;color:var(--text3);margin-top:2px}
-.seat-map{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 1px 6px var(--shadow)}
-.seat-grid{display:grid;grid-template-columns:repeat(14,1fr);gap:3px;margin-top:8px}
-.seat-occ{background:var(--m-gl);border:1px solid var(--m-green);border-radius:4px;padding:4px 2px;text-align:center;font-size:9px;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:center;min-height:32px}
-.seat-spare{background:var(--border);border:1px dashed var(--text3);border-radius:4px;padding:4px 2px;text-align:center;font-size:8px;color:var(--text3);display:flex;align-items:center;justify-content:center;min-height:32px}
-.seat-vacant{background:var(--m-pl);border:1px solid var(--m-pink);border-radius:4px;padding:4px 2px;text-align:center;font-size:9px;color:var(--m-coral,#C49E9A);display:flex;align-items:center;justify-content:center;min-height:32px}
-.seat-aisle{min-height:32px}
+.seat-map{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 1px 6px var(--shadow)}
+.seat-grid{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:3px;margin-top:8px}
+.seat-occ{background:var(--m-gl);border:1px solid var(--m-green);border-radius:4px;padding:3px 1px;text-align:center;font-size:10px;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:center;min-height:36px;word-break:keep-all;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.seat-spare{background:var(--border);border:1px dashed var(--text3);border-radius:4px;padding:3px 1px;text-align:center;font-size:9px;color:var(--text3);display:flex;align-items:center;justify-content:center;min-height:36px}
+.seat-vacant{background:var(--m-pl);border:1px solid var(--m-pink);border-radius:4px;padding:2px 1px;text-align:center;font-size:9px;color:#C49E9A;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:36px;line-height:1.2}
+.seat-vacant small{font-size:8px}
+.seat-aisle{min-height:36px}
 .seat-label{grid-column:span 14;font-size:10px;font-weight:600;color:var(--text2);padding:6px 0 2px;text-align:center}
-.seat-label:not([style*="span"])
 .seat-note{grid-column:span 14;text-align:center;font-size:10px;color:var(--text3);padding:8px 0 0}
 .seat-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;padding:8px;background:var(--bg);border-radius:8px}
 .seat-legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2)}
 .seat-legend-dot{width:14px;height:14px;border-radius:3px}
-@media(min-width:640px){.kpi{grid-template-columns:repeat(5,1fr);gap:12px}.kpi-v{font-size:26px}.sg{grid-template-columns:repeat(3,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.dash{padding:24px 20px 48px}.hd h1{font-size:24px}.pcl{display:none}.seat-grid{gap:4px}.seat-occ,.seat-spare,.seat-vacant{font-size:10px;padding:6px 4px;min-height:40px}}
+@media(min-width:640px){.kpi{grid-template-columns:repeat(5,1fr);gap:12px}.kpi-v{font-size:26px}.sg{grid-template-columns:repeat(3,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.dash{padding:24px 20px 48px}.hd h1{font-size:24px}.pcl{display:none}.seat-grid{gap:4px}.seat-occ{font-size:11px;min-height:42px}.seat-spare,.seat-vacant{min-height:42px}}
 @media(min-width:960px){.cg{grid-template-columns:repeat(3,1fr)}
 </style></head><body>
 <div class="dash">
@@ -121,14 +122,17 @@ tr:last-child td{border-bottom:none}tr:hover{background:#faf7f4}
 <div class="cc"><div class="ch"><span class="ct">部门占比</span><span class="cb">共40人</span></div><div style="height:220px"><canvas id="cDept"></canvas></div></div>
 <div class="cc"><div class="ch"><span class="ct">性别构成</span></div><div style="height:220px"><canvas id="cGender"></canvas></div></div>
 </div></div>
-<div class="sec"><div class="sec-t">学历结构</div>
-<div class="cc"><div style="height:220px"><canvas id="cEdu"></canvas></div></div></div>
+<span class="stbl-toggle" onclick="document.getElementById('tbl1').classList.toggle('show')">▼ 查看详细数据表</span>
+<div class="stbl-wrap" id="{id}"><div class="stbl"><table><thead><tr><th>组织维度</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>男</td><td>30</td><td class="pct">75%</td></tr><tr><td>产品管理</td><td>22</td><td class="pct">55%</td></tr><tr><td>女</td><td>10</td><td class="pct">25%</td></tr><tr><td>行业与解决方案</td><td>8</td><td class="pct">20%</td></tr><tr><td>产品企划</td><td>7</td><td class="pct">18%</td></tr><tr><td>人力行政</td><td>2</td><td class="pct">5%</td></tr><tr><td>特战队</td><td>1</td><td class="pct">2%</td></tr><tr style="font-weight:600;border-top:2px solid var(--border)"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div>
+<div class="stbl-wrap" id="tbl1"><div class="stbl"><table><thead><tr><th>维度</th><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>部门</td><td>产品管理</td><td>22</td><td class="pct">55%</td></tr><tr><td>部门</td><td>行业与解决方案</td><td>8</td><td class="pct">20%</td></tr><tr><td>部门</td><td>产品企划</td><td>7</td><td class="pct">18%</td></tr><tr><td>部门</td><td>人力行政</td><td>2</td><td class="pct">5%</td></tr><tr><td>部门</td><td>特战队</td><td>1</td><td class="pct">2%</td></tr><tr><td>性别</td><td>男</td><td>30</td><td class="pct">75%</td></tr><tr><td>性别</td><td>女</td><td>10</td><td class="pct">25%</td></tr><tr><td>学历</td><td>本科</td><td>28</td><td class="pct">70%</td></tr><tr><td>学历</td><td>大专</td><td>8</td><td class="pct">20%</td></tr><tr><td>学历</td><td>中专</td><td>2</td><td class="pct">5%</td></tr><tr><td>学历</td><td>硕士</td><td>2</td><td class="pct">5%</td></tr></tbody></table></div></div>
 </div>
 <div class="tp" id="t2">
 <div class="sec"><div class="sec-t">年龄与司龄</div><div class="cg">
 <div class="cc"><div style="height:220px"><canvas id="cAge"></canvas></div></div>
 <div class="cc"><div style="height:220px"><canvas id="cSenior"></canvas></div></div>
 </div></div>
+<span class="stbl-toggle" onclick="document.getElementById('tbl2').classList.toggle('show')">▼ 查看详细数据表</span>
+<div class="stbl-wrap" id="tbl2"><div class="stbl"><table><thead><tr><th>维度</th><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>年龄段</td><td>20~29岁</td><td>10</td><td class="pct">25%</td></tr><tr><td>年龄段</td><td>30~39岁</td><td>16</td><td class="pct">40%</td></tr><tr><td>年龄段</td><td>40~49岁</td><td>13</td><td class="pct">32%</td></tr><tr><td>年龄段</td><td>50~59岁</td><td>1</td><td class="pct">2%</td></tr><tr><td>司龄</td><td>1年</td><td>3</td><td class="pct">8%</td></tr><tr><td>司龄</td><td>不足1年</td><td>7</td><td class="pct">18%</td></tr><tr><td>司龄</td><td>2年</td><td>2</td><td class="pct">5%</td></tr><tr><td>司龄</td><td>3年</td><td>1</td><td class="pct">2%</td></tr><tr><td>司龄</td><td>4年</td><td>5</td><td class="pct">12%</td></tr><tr><td>司龄</td><td>5年</td><td>6</td><td class="pct">15%</td></tr><tr><td>司龄</td><td>6年</td><td>3</td><td class="pct">8%</td></tr><tr><td>司龄</td><td>7年</td><td>4</td><td class="pct">10%</td></tr><tr><td>司龄</td><td>8年</td><td>3</td><td class="pct">8%</td></tr><tr><td>司龄</td><td>9年</td><td>5</td><td class="pct">12%</td></tr><tr><td>司龄</td><td>19年</td><td>1</td><td class="pct">2%</td></tr></tbody></table></div></div>
 </div>
 <div class="tp" id="t3">
 <div class="sec"><div class="sec-t">绩效与潜力</div><div class="cg">
@@ -137,9 +141,11 @@ tr:last-child td{border-bottom:none}tr:hover{background:#faf7f4}
 </div></div>
 <div class="sec"><div class="sec-t">人才标签分布</div>
 <div class="cc"><div style="height:220px"><canvas id="cTag"></canvas></div></div></div>
+<span class="stbl-toggle" onclick="document.getElementById('tbl3').classList.toggle('show')">▼ 查看详细数据表</span>
+<div class="stbl-wrap" id="tbl3"><div class="stbl"><table><thead><tr><th>维度</th><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>绩效等级</td><td>A+</td><td>2</td><td class="pct">5%</td></tr><tr><td>绩效等级</td><td>A</td><td>5</td><td class="pct">12%</td></tr><tr><td>绩效等级</td><td>B</td><td>28</td><td class="pct">70%</td></tr><tr><td>绩效等级</td><td>C</td><td>5</td><td class="pct">12%</td></tr><tr><td>潜力等级</td><td>中潜力</td><td>31</td><td class="pct">78%</td></tr><tr><td>潜力等级</td><td>高潜力</td><td>6</td><td class="pct">15%</td></tr><tr><td>潜力等级</td><td>低潜力</td><td>3</td><td class="pct">8%</td></tr><tr><td>人才标签</td><td>骨干</td><td>25</td><td class="pct">62%</td></tr><tr><td>人才标签</td><td>核心</td><td>4</td><td class="pct">10%</td></tr><tr><td>人才标签</td><td>明日之星</td><td>4</td><td class="pct">10%</td></tr><tr><td>人才标签</td><td>稳定</td><td>2</td><td class="pct">5%</td></tr><tr><td>人才标签</td><td>关注</td><td>2</td><td class="pct">5%</td></tr><tr><td>人才标签</td><td>明星</td><td>2</td><td class="pct">5%</td></tr><tr><td>人才标签</td><td>专业</td><td>1</td><td class="pct">2%</td></tr></tbody></table></div></div>
 </div>
 <div class="tp" id="t4">
-<div class="sec"><div class="sec-t">薪酬区间占比</div>
+<div class="sec"><div class="sec-t">薪酬区间分布</div>
 <div class="cc"><div style="height:260px"><canvas id="cSal"></canvas></div></div></div>
 <div class="sec"><div class="sec-t">薪酬详情 <span style="font-size:10px;color:var(--text3);font-weight:400">点击展开查看人员</span></div><div class="sg"><div class="sc" onclick="this.querySelector('.sc-detail').classList.toggle('show')"><div class="sl" style="cursor:pointer">2万以上 <span style="color:var(--text3)">6人 · 15%</span></div><div class="sv" style="color:#8BA4B8">6</div><div class="sb"><div class="sf" style="width:15%;background:#8BA4B8"></div></div><div class="sc-detail">马涛、陈志斌、陈宁、黄健明、闫振、李章亮</div></div>
 <div class="sc" onclick="this.querySelector('.sc-detail').classList.toggle('show')"><div class="sl" style="cursor:pointer">1.5~2万 <span style="color:var(--text3)">2人 · 5%</span></div><div class="sv" style="color:#7FA3A0">2</div><div class="sb"><div class="sf" style="width:5%;background:#7FA3A0"></div></div><div class="sc-detail">黄少娟、罗俊</div></div>
@@ -248,89 +254,30 @@ tr:last-child td{border-bottom:none}tr:hover{background:#faf7f4}
 <div class="seat-occ">吴建润</div><div class="seat-occ">梁文杰</div><div class="seat-aisle"></div><div class="seat-occ">闫振</div><div class="seat-occ">陈杭弟</div><div class="seat-aisle"></div><div class="seat-occ">罗俊</div><div class="seat-occ">李齐新</div><div class="seat-aisle"></div><div class="seat-occ">莫智荣</div><div class="seat-vacant">张云卿<br><small>已离职</small></div><div class="seat-aisle"></div><div class="seat-occ">吕映华</div><div class="seat-occ">陆强达</div>
 <div class="seat-spare">备用</div><div class="seat-occ">陈钊民</div><div class="seat-aisle"></div><div class="seat-occ">李宥成</div><div class="seat-occ">白健</div><div class="seat-aisle"></div><div class="seat-occ">谭炜昕</div><div class="seat-occ">梁耀尹</div><div class="seat-aisle"></div><div class="seat-occ">程纯纯</div><div class="seat-vacant">金俊杰<br><small>已离职</small></div><div class="seat-aisle"></div><div class="seat-occ">刘章标</div><div class="seat-spare">备用</div>
 <div class="seat-occ">李土活</div><div class="seat-occ">潘心怡</div><div class="seat-aisle"></div><div class="seat-occ">黄健明</div><div class="seat-occ">陈宁</div><div class="seat-aisle"></div><div class="seat-occ">杨烨</div><div class="seat-occ">陈海标</div><div class="seat-aisle"></div><div class="seat-occ">梁婷</div><div class="seat-occ">陈志斌</div><div class="seat-aisle"></div><div class="seat-occ">孙明磊</div><div class="seat-occ">陈群</div>
-<div class="seat-note">工位48个 · 使用42个 · 闲置6个</div></div>
+<div class="seat-note">工位46个 · 使用40个 · 闲置6个</div></div>
 </div></div>
 <div class="sec"><div class="sec-t">备用金台账</div>
 <div class="petty-summary">
 <div class="petty-c"><div class="pv" style="color:var(--m-pink)">33,050.25</div><div class="pl">累计支出</div></div>
 <div class="petty-c"><div class="pv" style="color:var(--m-green)">115,390.31</div><div class="pl">累计收入</div></div>
 <div class="petty-c"><div class="pv" style="color:var(--m-blue)">82,340.06</div><div class="pl">当前余额</div></div>
-</div>
-<div class="petty-tbl"><table><thead><tr><th>日期</th><th>支出项目</th><th>金额(元)</th><th>备注</th></tr></thead>
-<tbody><tr><td>2026-04-15</td><td>购买应急药品+药箱</td><td class="petty-amt">-251.29</td> <span class="petty-note">截图</span></tr>
-<tr><td>2026-04-10</td><td>更换绿植</td><td class="petty-amt">-101.05</td> <span class="petty-note">截图</span></tr>
-<tr><td>2026-03-31</td><td>4月零食站零食</td><td class="petty-amt">-399.23</td> <span class="petty-note">截图</span></tr>
-<tr><td>2026-03-10</td><td>慰问孙明磊（重度乙肝，广州住院）</td><td class="petty-amt">-966.50</td> <span class="petty-note">含慰问金800元+果篮166.5元，支取1000元现金，余200元</span></tr>
-<tr><td>2026-03-06</td><td>三八妇女节下午茶</td><td class="petty-amt">-130.28</td> <span class="petty-note">截图</span></tr>
-<tr><td>2026-03-04</td><td>三八妇女节礼物</td><td class="petty-amt">-598.49</td> <span class="petty-note">截图</span></tr>
-<tr><td>2026-03-03</td><td>3月零食站零食</td><td class="petty-amt">-397.30</td> <span class="petty-note">截图</span></tr>
-<tr><td>2026-02-25</td><td>补梁文杰年终奖</td><td class="petty-amt">-2,000.00</td> <span class="petty-note">微信转账</span></tr>
-<tr><td>2026-02-12</td><td>部门绿植</td><td class="petty-amt">-280.00</td> <span class="petty-note">补充部门绿植30盆，共280元</span></tr>
-<tr><td>2026-02-07</td><td>2月24日开工仪式活动</td><td class="petty-amt">-4,271.48</td> <span class="petty-note">2月7日3874.04元；2月9日328.2元；2月25日35.14元；2月26日34.1元</span></tr>
-<tr><td>2026-02-04</td><td>部门年度总结会最佳主讲人</td><td class="petty-amt">-1,500.00</td> <span class="petty-note">每人500元，闫振、陈宁、程纯纯</span></tr>
-<tr><td>2026-02-02</td><td>总结分享会工作人员工作餐</td><td class="petty-amt">-337.80</td> <span class="petty-note">杨烨、谭炜昕、陈宁、潘心怡、陈雨欣、蔡瑜</span></tr>
-<tr><td>2026-01-30</td><td>领导备用金</td><td class="petty-amt">-10,000.00</td></tr>
-<tr><td>2026-02-02</td><td>25年工作总结分享会茶歇及其他物资</td><td class="petty-amt">-1,110.60</td> <span class="petty-note">打车：19.4元
-零食：1056.6元
-桌布：34.6元</span></tr>
-<tr><td>2026-01-28</td><td>2月零食站零食</td><td class="petty-amt">-400.00</td></tr>
-<tr><td>2026-01-04</td><td>1月零食站零食</td><td class="petty-amt">-399.40</td></tr>
-<tr><td>2025-12-30</td><td>铁链锁</td><td class="petty-amt">-12.00</td></tr>
-<tr><td>2026-01-28</td><td>部门主经理团建</td><td class="petty-amt">-1,165.30</td> <span class="petty-note">含打的15.3元</span></tr>
-<tr><td>2025-12-14</td><td>佛山照明羽毛球比赛午餐</td><td class="petty-amt">-368.00</td> <span class="petty-note">陈宁、黄少娟、陈志斌、潘心怡、曹松华、杨烨、何培荣</span></tr>
-<tr><td>2025-12-11</td><td>羽毛球训练</td><td class="petty-amt">-300.00</td> <span class="petty-note">场地费232元+球费68元</span></tr>
-<tr><td>2025-12-01</td><td>12月零食站零食</td><td class="petty-amt">-399.03</td></tr>
-<tr><td>2025-12-03</td><td>羽毛球训练</td><td class="petty-amt">-300.00</td> <span class="petty-note">场地费232元+球费68元</span></tr>
-<tr><td>2025-11-04</td><td>11月零食站零食</td><td class="petty-amt">-388.39</td></tr>
-<tr><td>2025-11-04</td><td>生日蛋糕</td><td class="petty-amt">-606.50</td></tr>
-<tr><td>2025-10-21</td><td>生日会物料</td><td class="petty-amt">-340.83</td></tr>
-<tr><td>2025-10-15</td><td>生日会物料退货运费</td><td class="petty-amt">-23.70</td></tr>
-<tr><td>2025-10-20</td><td>生日会礼物</td><td class="petty-amt">-1,753.75</td></tr>
-<tr><td>2025-10-16</td><td>部门羽毛球活动</td><td class="petty-amt">-190.00</td> <span class="petty-note">场地和水费+50球费</span></tr>
-<tr><td>2025-10-11</td><td>生日会物料</td><td class="petty-amt">-1,329.61</td></tr>
-<tr><td>2025-10-09</td><td>10月零食站零食</td><td class="petty-amt">-390.42</td></tr>
-<tr><td>2025-09-30</td><td>部门团建</td><td class="petty-amt">-256.00</td> <span class="petty-note">参加人员：马涛、杨烨、陈群、梁婷、谭敏怡、黄少娟</span></tr>
-<tr><td>2025-09-15</td><td>蟑螂药</td><td class="petty-amt">-19.90</td></tr>
-<tr><td>2025-09-12</td><td>样品房磨砂贴纸</td><td class="petty-amt">-22.94</td></tr>
-<tr><td>2025-09-02</td><td>9月零食站零食</td><td class="petty-amt">-403.76</td></tr>
-<tr><td>2025-08-22</td><td>部门聚餐</td><td class="petty-amt">-822.00</td> <span class="petty-note">核心团队聚餐</span></tr>
-<tr><td>2025-08-11</td><td>标记红胶带</td><td class="petty-amt">-19.00</td></tr>
-<tr><td>2025-08-01</td><td>8月零食站零食</td><td class="petty-amt">-396.19</td></tr>
-<tr><td>2025-07-02</td><td>7月零食站零食</td><td class="petty-amt">-399.51</td></tr>
-</tbody></table></div>
-<div class="petty-tbl"><table><thead><tr><th>收入项目</th><th>金额(元)</th></tr></thead>
-<tbody><tr><td>领导备用金</td><td class="petty-amt" style="color:var(--m-green)">+10,000.00</td></tr>
-<tr><td>第二季度总经理奖</td><td class="petty-amt" style="color:var(--m-green)">+5,557.92</td></tr>
-<tr><td>第三季度总经理奖</td><td class="petty-amt" style="color:var(--m-green)">+7,296.10</td></tr>
-<tr><td>第三季度总经理奖</td><td class="petty-amt" style="color:var(--m-green)">+2,845.00</td></tr>
-<tr><td>10月奖金</td><td class="petty-amt" style="color:var(--m-green)">+1,191.29</td></tr>
-<tr><td>年终收杨烨</td><td class="petty-amt" style="color:var(--m-green)">+15,000.00</td></tr>
-<tr><td>年终收潘心怡</td><td class="petty-amt" style="color:var(--m-green)">+20,000.00</td></tr>
-<tr><td>年终收蔡瑜</td><td class="petty-amt" style="color:var(--m-green)">+20,000.00</td></tr>
-<tr><td>爆品奖收潘心怡</td><td class="petty-amt" style="color:var(--m-green)">+10,000.00</td></tr>
-<tr><td>爆品奖收蔡瑜</td><td class="petty-amt" style="color:var(--m-green)">+23,500.00</td></tr>
-</tbody></table></div>
-</div>
+</div></div>
 </div>
 <script>
-Chart.register(ChartDataLabels);
 function sw(el,id){document.querySelectorAll(".tp").forEach(function(e){e.classList.remove("on")});document.querySelectorAll(".tab").forEach(function(e){e.classList.remove("on")});document.getElementById(id).classList.add("on");el.classList.add("on")}
 function tv(v,el){document.querySelectorAll(".vb").forEach(function(e){e.classList.remove("on")});el.classList.add("on");document.getElementById("vCard").style.display=v==="card"?"flex":"none";document.getElementById("vTable").style.display=v==="table"?"block":"none"}
 Chart.defaults.font.family='-apple-system,"PingFang SC","Microsoft YaHei",sans-serif';Chart.defaults.font.size=11;Chart.defaults.color="#8A8480";Chart.defaults.plugins.legend.labels.usePointStyle=true;Chart.defaults.plugins.legend.labels.padding=10;Chart.defaults.plugins.legend.labels.pointStyleWidth=8
 var P=["#8BA4B8","#8FAA8E","#C4A4A0","#C8B89A","#A898B0","#7FA3A0","#C49E9A","#9E98B4","#97A68F","#C4AD98"]
-var PL=["#B8CCD8","#C2D5C1","#DDD0CE","#E2D8C6","#D0C6D5","#BDD0CE","#DDD0CC","#E8E3ED","#C2D5C1","#E2D8C6"]
-var pieDL={color:"#4A4540",font:{weight:"600",size:10},anchor:"end",align:"end",offset:4,formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+"人("+Math.round(v/t*100)+"%)";}}
-var barDL={anchor:"end",align:"end",color:"#4A4540",font:{weight:"600",size:10},formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+"("+Math.round(v/t*100)+"%)";}}
-var hbarDL={anchor:"end",align:"right",color:"#4A4540",font:{weight:"600",size:10},formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+"("+Math.round(v/t*100)+"%)";}}
-new Chart(document.getElementById("cDept"),{type:"pie",data:{labels:["产品管理", "特战队", "产品企划", "行业与解决方案", "人力行政"],datasets:[{data:[22, 1, 7, 8, 2],backgroundColor:P.slice(0,5),borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{padding:8,font:{size:10}}},datalabels:pieDL}}})
-new Chart(document.getElementById("cGender"),{type:"pie",data:{labels:["男","女"],datasets:[{data:[30,10],backgroundColor:["#8BA4B8","#C4A4A0"],borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},datalabels:pieDL}}})
-new Chart(document.getElementById("cEdu"),{type:"pie",data:{labels:["本科", "大专", "中专", "硕士"],datasets:[{data:[28, 8, 2, 2],backgroundColor:P.slice(0,4),borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{padding:8,font:{size:10}}},datalabels:pieDL}}})
-new Chart(document.getElementById("cAge"),{type:"pie",data:{labels:["30~39岁", "40~49岁", "20~29岁", "50~59岁"],datasets:[{data:[16, 13, 10, 1],backgroundColor:["#8BA4B8","#8FAA8E","#C8B89A","#9A948C"],borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},datalabels:pieDL}}})
-new Chart(document.getElementById("cSenior"),{type:"pie",data:{labels:["7年", "9年", "4年", "8年", "6年", "2年", "1年", "5年", "19年", "3年", "不足1年"],datasets:[{data:[4, 5, 5, 3, 3, 2, 3, 6, 1, 1, 7],backgroundColor:P.slice(0,11),borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{padding:8,font:{size:10}}},datalabels:pieDL}}})
+var clickPlugin={id:"clickShow",afterEvent:function(chart,args){if(args.event.type==="click"){var els=chart.getElementsAtEventForMode(args.event,"nearest",{intersect:true});if(els.length){var idx=els[0].index;var label=chart.data.labels[idx];var val=chart.data.datasets[0].data[idx];var total=chart.data.datasets[0].data.reduce(function(a,b){return a+b},0);var pct=Math.round(val/total*100);alert(label+": "+val+"人 ("+pct+"%)");}}}};
+Chart.register(clickPlugin);
+new Chart(document.getElementById("cDept"),{type:"pie",data:{labels:["产品管理", "特战队", "产品企划", "行业与解决方案", "人力行政"],datasets:[{data:[22, 1, 7, 8, 2],backgroundColor:P.slice(0,5),borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{padding:8,font:{size:10}}}}}})
+new Chart(document.getElementById("cGender"),{type:"pie",data:{labels:["男","女"],datasets:[{data:[30,10],backgroundColor:["#8BA4B8","#C4A4A0"],borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
+new Chart(document.getElementById("cAge"),{type:"pie",data:{labels:["30~39岁", "40~49岁", "20~29岁", "50~59岁"],datasets:[{data:[16, 13, 10, 1],backgroundColor:["#8BA4B8","#8FAA8E","#C8B89A","#9A948C"],borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
+new Chart(document.getElementById("cSenior"),{type:"pie",data:{labels:["7年", "9年", "4年", "8年", "6年", "2年", "1年", "5年", "19年", "3年", "不足1年"],datasets:[{data:[4, 5, 5, 3, 3, 2, 3, 6, 1, 1, 7],backgroundColor:P.slice(0,11),borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{padding:8,font:{size:10}}}}}})
 var gd={"A": 5, "B": 28, "C": 5, "A+": 2};var go=["A+","A","B","C","D"];var gL=go.filter(function(k){return k in gd});var gV=gL.map(function(k){return gd[k]});
-new Chart(document.getElementById("cPerf"),{type:"pie",data:{labels:gL,datasets:[{data:gV,backgroundColor:["#C2D5C1","#8FAA8E","#B8CCD8","#DDD0CE","#DDD0CC"],borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},datalabels:pieDL}}})
-new Chart(document.getElementById("cPot"),{type:"pie",data:{labels:["中潜力", "低潜力", "高潜力"],datasets:[{data:[31, 3, 6],backgroundColor:["#8FAA8E","#B8CCD8","#DDD0CE"],borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},datalabels:pieDL}}})
-new Chart(document.getElementById("cTag"),{type:"bar",data:{labels:["核心", "骨干", "稳定", "明日之星", "关注", "专业", "明星"],datasets:[{data:[4, 25, 2, 4, 2, 1, 2],backgroundColor:P.slice(0,7),borderRadius:6,borderSkipped:false,barPercentage:.65}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:barDL},scales:{y:{beginAtZero:true,ticks:{stepSize:5},grid:{color:"#F0ECE8"}},x:{grid:{display:false}}}}})
+new Chart(document.getElementById("cPerf"),{type:"pie",data:{labels:gL,datasets:[{data:gV,backgroundColor:["#C2D5C1","#8FAA8E","#B8CCD8","#DDD0CE","#DDD0CC"],borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
+new Chart(document.getElementById("cPot"),{type:"pie",data:{labels:["中潜力", "低潜力", "高潜力"],datasets:[{data:[31, 3, 6],backgroundColor:["#8FAA8E","#B8CCD8","#DDD0CE"],borderWidth:2,borderColor:"#fff"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})
+new Chart(document.getElementById("cTag"),{type:"bar",data:{labels:["核心", "骨干", "稳定", "明日之星", "关注", "专业", "明星"],datasets:[{data:[4, 25, 2, 4, 2, 1, 2],backgroundColor:P.slice(0,7),borderRadius:6,borderSkipped:false,barPercentage:.65}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:5},grid:{color:"#F0ECE8"}},x:{grid:{display:false}}}}})
 var sd={"1万~1.5万": 11, "8千~1万": 7, "6千~8千": 5, "5千~6千": 8, "2万以上": 6, "5千以下": 1, "1.5~2万": 2};var so=["2万以上","1.5~2万","1万~1.5万","8千~1万","6千~8千","5千~6千","5千以下"];var ss=so.filter(function(k){return k in sd});var sr=Object.keys(sd).filter(function(k){return so.indexOf(k)===-1});var sa=ss.concat(sr);var sv=sa.map(function(k){return sd[k]});
-new Chart(document.getElementById("cSal"),{type:"bar",data:{labels:sa,datasets:[{data:sv,backgroundColor:["#8BA4B8","#7FA3A0","#8FAA8E","#97A68F","#C8B89A","#C4A4A0","#9A948C"],borderRadius:6,borderSkipped:false,barPercentage:.65}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:"y",plugins:{legend:{display:false},datalabels:hbarDL},scales:{x:{beginAtZero:true,ticks:{stepSize:5},grid:{color:"#F0ECE8"}},y:{grid:{display:false}}}}})
+new Chart(document.getElementById("cSal"),{type:"bar",data:{labels:sa,datasets:[{data:sv,backgroundColor:["#8BA4B8","#7FA3A0","#8FAA8E","#97A68F","#C8B89A","#C4A4A0","#9A948C"],borderRadius:6,borderSkipped:false,barPercentage:.65}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:5},grid:{color:"#F0ECE8"}},y:{grid:{display:false}}}}})
 </script></body></html>
