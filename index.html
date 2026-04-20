@@ -372,35 +372,4 @@ new Chart(document.getElementById("cTag"),{type:"bar",data:{labels:["核心", "�
 var sd={"1万~1.5万": 11, "8千~1万": 7, "6千~8千": 5, "5千~6千": 8, "2万以上": 6, "5千以下": 1, "1.5~2万": 2};var so=["2万以上","1.5~2万","1万~1.5万","8千~1万","6千~8千","5千~6千","5千以下"];var ss=so.filter(function(k){return k in sd});var sr=Object.keys(sd).filter(function(k){return so.indexOf(k)===-1});var sa=ss.concat(sr);var sv=sa.map(function(k){return sd[k]});
 new Chart(document.getElementById("cSal"),{type:"bar",data:{labels:sa,datasets:[{data:sv,backgroundColor:["#8BA4B8","#7FA3A0","#8FAA8E","#97A68F","#C8B89A","#C4A4A0","#9A948C"],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:{right:36}},plugins:{legend:{display:false},datalabels:hbarDL},scales:{x:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:"#F0ECE8"}},y:{grid:{display:false},ticks:{font:{size:8}}}}}})
 
-function drawOrgLines(){
-var lines=['c0l1','c1l2','c2l2','c3l2','c4l2','c5l2'];
-var tree=document.querySelector('.otree');
-if(!tree)return;
-// Remove old SVG
-var old=tree.querySelector('.olines');if(old)old.remove();
-var rect=tree.getBoundingClientRect();
-var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-svg.setAttribute('class','olines');
-svg.style.cssText='position:absolute;top:0;left:0;width:'+tree.scrollWidth+'px;height:'+tree.scrollHeight+'px;pointer-events:none;';
-lines.forEach(function(pid){
-var p=document.getElementById(pid);
-if(!p)return;
-var cs=p.querySelectorAll(':scope > .ol1, :scope > .ol2');
-if(cs.length<1)return;
-var pr=p.getBoundingClientRect();var tr=tree.getBoundingClientRect();
-var px=pr.left-tr.left+pr.width/2;var py=pr.top-tr.top+pr.height;
-var f=cs[0].getBoundingClientRect();var lr=cs[cs.length-1].getBoundingClientRect();
-var lx=cs.length===1?px:f.left-tr.left+f.width/2;
-var rx=lr.left-tr.left+lr.width/2;
-var cy=f.top-tr.top-3;
-svg.innerHTML+='<line x1="'+px+'" y1="'+py+'" x2="'+px+'" y2="'+cy+'" stroke="#d0c9c0" stroke-width="1"/>';
-svg.innerHTML+='<line x1="'+lx+'" y1="'+cy+'" x2="'+rx+'" y2="'+cy+'" stroke="#d0c9c0" stroke-width="1"/>';
-cs.forEach(function(c){
-var cr=c.getBoundingClientRect();var cx=cr.left-tr.left+cr.width/2;
-svg.innerHTML+='<line x1="'+cx+'" y1="'+cy+'" x2="'+cx+'" y2="'+(f.top-tr.top)+'" stroke="#d0c9c0" stroke-width="1"/>';
-});});
-tree.style.position='relative';tree.insertBefore(svg,tree.firstChild);
-}
-setTimeout(drawOrgLines,500);
-window.addEventListener('resize',drawOrgLines);
 </script></body></html>
