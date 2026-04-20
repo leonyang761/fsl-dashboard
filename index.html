@@ -80,18 +80,20 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .seat-aisle{min-height:22px}
 .seat-note{grid-column:span 14;text-align:center;font-size:8px;color:var(--text3);padding:4px 0 0}
 .org{background:var(--card);border-radius:8px;padding:12px 8px;box-shadow:0 1px 3px var(--shadow);overflow-x:auto;-webkit-overflow-scrolling:touch}
-.otree{display:flex;flex-direction:column;align-items:center;min-width:760px;font-size:0}
-.ol0{margin-bottom:0}
-.nd0{display:inline-block;background:#8BA4B8;color:#fff;padding:8px 22px;border-radius:6px;font-size:12px;font-weight:600;border:1.5px solid #8BA4B8;white-space:nowrap}
-.oconn{text-align:center;margin:0}.oconn .ov{display:inline-block;width:1px;height:12px;background:#8BA4B8}
-.ol1-row{display:flex;justify-content:center;gap:0}
-.ol1{display:flex;flex-direction:column;align-items:center;padding:0 6px}
-.nd1{background:#8BA4B8;color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:600;border:1.5px solid #8BA4B8;white-space:nowrap}
-.oconn2{text-align:center;margin:0}.oconn2 .ov{display:inline-block;width:1px;height:10px;background:#8BA4B8}
-.ol2-row{display:flex;justify-content:center;gap:0}
-.ol2{display:flex;flex-direction:column;align-items:center;padding:0 3px}
-.nd2{background:#8BA4B8;color:#fff;padding:4px 8px;border-radius:4px;font-size:8px;font-weight:500;border:1.5px solid #8BA4B8;white-space:nowrap}
-.ol1-c,.ol2-c{text-align:center;width:1px;height:10px;background:#8BA4B8}
+.htree{display:flex;gap:14px;min-width:820px;padding:4px 0;align-items:center}
+.hcol{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.hcol-body{display:flex;flex-direction:column;align-items:center;gap:4px}
+.hcol-head{text-align:center;margin-bottom:6px}
+.nd0{display:inline-block;background:#8BA4B8;color:#fff;padding:8px 16px;border-radius:6px;font-size:12px;font-weight:600;border:1.5px solid #8BA4B8;white-space:nowrap}
+.hline{display:flex;align-items:center;gap:0}
+.hline-v{width:1px;background:#8BA4B8;flex-shrink:0}
+.hline-h{height:1px;background:#8BA4B8;flex-shrink:0}
+.nd1{background:#8BA4B8;color:#fff;padding:5px 8px;border-radius:5px;font-size:9px;font-weight:600;border:1.5px solid #8BA4B8;white-space:nowrap;cursor:pointer}
+.nd1:hover{background:#7a94a8}
+.nd2{background:#fff;color:var(--text);padding:3px 5px;border-radius:3px;font-size:8px;font-weight:500;border:1.5px solid #8BA4B8;white-space:nowrap}
+.hbranch{display:flex;flex-direction:column;align-items:center;gap:0}
+.hbranch .hline-v{height:4px}
+@media(min-width:640px){.nd0{font-size:13px;padding:10px 20px}.nd1{font-size:10px;padding:6px 12px}.nd2{font-size:9px;padding:4px 8px}.htree{gap:20px}}
 @media(min-width:640px){.nd0{font-size:13px;padding:10px 28px}.nd1{font-size:11px;padding:7px 16px}.nd2{font-size:9px;padding:5px 12px}.ol1{padding:0 12px}.ol2{padding:0 6px}}
 @media(min-width:640px){body{font-size:14px}.kpi{grid-template-columns:repeat(5,1fr);gap:8px}.kpi-v{font-size:22px}.sg{grid-template-columns:repeat(3,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.dash{padding:18px 14px 40px}.hd h1{font-size:20px}.pcl{display:none}.seat-occ{font-size:8px;min-height:26px}.seat-spare,.seat-vacant{min-height:26px}.seat-grid{gap:2px}.nd0{font-size:13px;padding:8px 22px}.nd1{font-size:11px;padding:5px 14px}.nd2{font-size:9px;padding:4px 10px}.ol1-row{gap:12px}.ol2-row{gap:5px}}
 @media(min-width:960px){.cg{grid-template-columns:repeat(3,1fr)}}
@@ -113,28 +115,78 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <div class="tab" onclick="sw(this,'t6')">行政事务</div>
 </div>
 <div class="tp on" id="t1">
-<div class="sec"><div class="sec-t">组织架构</div><div class="org"><div class="otree">
+<div class="sec"><div class="sec-t">组织架构</div><div class="org"><div class="htree">
 
-<div class="ol0"><div class="nd nd0">产品及方案中心</div></div>
-<div class="oconn"><div class="ov"></div></div>
+<div class="hcol">
+<div class="hcol-head"><div class="nd0">产品及方案中心</div></div>
+</div>
 
-<div class="ol1-c" style="width:80%"></div>
-<div class="ol1-row">
-<div class="ol1"><div class="nd nd1">产品企划</div><div class="oconn2"><div class="ov"></div></div><div class="ol2-c" style="width:70%"></div><div class="ol2-row">
-<div class="ol2"><div class="nd nd2">产品企划组</div></div><div class="ol2"><div class="nd nd2">策略支持组</div></div>
-</div></div>
-<div class="ol1"><div class="nd nd1">特战队</div><div class="oconn2"><div class="ov"></div></div><div class="ol2-c" style="width:40%"></div><div class="ol2-row">
-<div class="ol2"><div class="nd nd2">家用特战队</div></div>
-</div></div>
-<div class="ol1"><div class="nd nd1">产品管理</div><div class="oconn2"><div class="ov"></div></div><div class="ol2-c" style="width:90%"></div><div class="ol2-row">
-<div class="ol2"><div class="nd nd2">光源组</div></div><div class="ol2"><div class="nd nd2">家居组</div></div><div class="ol2"><div class="nd nd2">商照组</div></div><div class="ol2"><div class="nd nd2">电工组</div></div><div class="ol2"><div class="nd nd2">电器组</div></div><div class="ol2"><div class="nd nd2">消防户外组</div></div><div class="ol2"><div class="nd nd2">移动后装组</div></div><div class="ol2"><div class="nd nd2">产品支持组</div></div>
-</div></div>
-<div class="ol1"><div class="nd nd1">行业与解决方案</div><div class="oconn2"><div class="ov"></div></div><div class="ol2-c" style="width:85%"></div><div class="ol2-row">
-<div class="ol2"><div class="nd nd2">工业组</div></div><div class="ol2"><div class="nd nd2">地产组</div></div><div class="ol2"><div class="nd nd2">酒店及连锁组</div></div><div class="ol2"><div class="nd nd2">办公组</div></div><div class="ol2"><div class="nd nd2">专项与定制组</div></div><div class="ol2"><div class="nd nd2">智能系统组</div></div>
-</div></div>
-<div class="ol1"><div class="nd nd1">人力行政</div><div class="oconn2"><div class="ov"></div></div><div class="ol2-c" style="width:40%"></div><div class="ol2-row">
-<div class="ol2"><div class="nd nd2">人力行政组</div></div>
-</div></div>
+<div class="hline">
+<div class="hline-v" style="height:200px"></div>
+</div>
+
+<div class="hcol">
+<div class="hline-v" style="height:8px"></div>
+<div class="hline-h" style="width:100%"></div>
+<div class="hbranch">
+<div class="hcol-body">
+<div class="hcol-head"><div class="nd1">产品企划</div></div>
+<div class="hline-v" style="height:4px"></div>
+<div class="hline-h" style="width:100%"></div>
+<div class="hbranch">
+<div class="nd2">产品企划组</div>
+<div class="nd2">策略支持组</div>
+</div>
+</div>
+<div class="hline-v" style="height:8px"></div>
+<div class="hcol-body">
+<div class="hcol-head"><div class="nd1">特战队</div></div>
+<div class="hline-v" style="height:4px"></div>
+<div class="hline-h" style="width:100%"></div>
+<div class="hbranch">
+<div class="nd2">家用特战队</div>
+</div>
+</div>
+<div class="hline-v" style="height:8px"></div>
+<div class="hcol-body">
+<div class="hcol-head"><div class="nd1">产品管理</div></div>
+<div class="hline-v" style="height:4px"></div>
+<div class="hline-h" style="width:100%"></div>
+<div class="hbranch">
+<div class="nd2">光源组</div>
+<div class="nd2">家居组</div>
+<div class="nd2">商照组</div>
+<div class="nd2">电工组</div>
+<div class="nd2">电器组</div>
+<div class="nd2">消防户外组</div>
+<div class="nd2">移动后装组</div>
+<div class="nd2">产品支持组</div>
+</div>
+</div>
+<div class="hline-v" style="height:8px"></div>
+<div class="hcol-body">
+<div class="hcol-head"><div class="nd1">行业与解决方案</div></div>
+<div class="hline-v" style="height:4px"></div>
+<div class="hline-h" style="width:100%"></div>
+<div class="hbranch">
+<div class="nd2">工业组</div>
+<div class="nd2">地产组</div>
+<div class="nd2">酒店及连锁组</div>
+<div class="nd2">办公组</div>
+<div class="nd2">专项与定制组</div>
+<div class="nd2">智能系统组</div>
+</div>
+</div>
+<div class="hline-v" style="height:8px"></div>
+<div class="hcol-body">
+<div class="hcol-head"><div class="nd1">人力行政</div></div>
+<div class="hline-v" style="height:4px"></div>
+<div class="hline-h" style="width:100%"></div>
+<div class="hbranch">
+<div class="nd2">人力行政组</div>
+</div>
+</div>
+</div>
 </div>
 
 </div></div></div>
