@@ -97,7 +97,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .modal-img-box img{display:block;max-width:96vw;max-height:90vh;width:auto;height:auto;object-fit:contain;border-radius:2px}
 /* 招聘模块 */
 .tag-a{display:inline-block;background:#E74C3C;color:#fff;font-size:7px;padding:1px 5px;border-radius:2px;font-weight:600}
-.tag-b{display:inline-block;background:#F39C12;color:#fff;font-size:7px;padding:1px 5px;border-radius:2px;font-weight:600}
+.tag-b{display:inline-block;background:#F39C12;color:#fff;font-size:7px;padding:1px 5px;border-radius:2px;font-weight:600}.w-danger{color:#E74C3C;font-size:7px;font-weight:700;line-height:1.3}
 .st-filter{display:inline-block;background:#E8F4FD;color:#2C8CB8;font-size:7px;padding:1px 4px;border-radius:2px}
 .st-final{display:inline-block;background:#FFF3E0;color:#E67E22;font-size:7px;padding:1px 4px;border-radius:2px;font-weight:600}
 /* 招聘概况 - 优先级卡片 */
@@ -386,21 +386,26 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
     <!-- 优先级分布 -->
     <div class="pri-row">
       <div class="pri-card pri-a">
-        <div class="pri-num">3</div>
+        <div class="pri-num">4</div>
         <div class="pri-label">A类 · 紧急</div>
         <div class="pri-detail">光源/电器/工业</div>
       </div>
       <div class="pri-card pri-b">
         <div class="pri-num">4</div>
         <div class="pri-label">B类 · 重要</div>
-        <div class="pri-detail">商照/地产/企划/智能</div>
+        <div class="pri-detail">商照/企划</div>
+      </div>
+      <div class="pri-card pri-c">
+        <div class="pri-num">2</div>
+        <div class="pri-label">C类 · 常规</div>
+        <div class="pri-detail">光源助理/渠道赋能</div>
       </div>
     </div>
     <!-- 总体进度 -->
     <div class="progress-wrap">
-      <div class="prog-label"><span>招聘完成进度</span><span class="prog-pct">0 / 7</span></div>
+      <div class="prog-label"><span>招聘完成进度</span><span class="prog-pct">0 / 10</span></div>
       <div class="prog-bar"><div class="prog-fill" style="width:0%"></div></div>
-      <div class="prog-note">已完成到岗 0 人，进行中 7 个岗位</div>
+      <div class="prog-note">已完成到岗 0 人，进行中 10 个岗位</div>
     </div>
   </div>
 
@@ -409,36 +414,36 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
     <div class="sec-t">招聘漏斗</div>
     <div class="funnel-cards">
       <div class="fc fc-1">
-        <div class="fc-num">245</div>
+        <div class="fc-num">0</div>
         <div class="fc-label">简历筛选</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:100%"></div></div>
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:0%"></div></div>
       </div>
       <div class="fc-arrow"><span>→</span></div>
       <div class="fc fc-2">
-        <div class="fc-num">10</div>
+        <div class="fc-num">0</div>
         <div class="fc-label">进入面试</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:4.1%"></div></div>
-        <div class="fc-rate">转化 4.1%</div>
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:0.0%"></div></div>
+        <div class="fc-rate">转化 0%</div>
       </div>
       <div class="fc-arrow"><span>→</span></div>
       <div class="fc fc-3">
-        <div class="fc-num">1</div>
+        <div class="fc-num">0</div>
         <div class="fc-label">终面</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:10%"></div></div>
-        <div class="fc-rate">转化 10.0%</div>
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:0.0%"></div></div>
+        <div class="fc-rate">转化 0%</div>
       </div>
       <div class="fc-arrow"><span>→</span></div>
       <div class="fc fc-4">
         <div class="fc-num">0</div>
         <div class="fc-label">Offer</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:0%"></div></div>
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:0.0%"></div></div>
         <div class="fc-rate">转化 0%</div>
       </div>
       <div class="fc-arrow"><span>→</span></div>
       <div class="fc fc-5">
         <div class="fc-num">0</div>
         <div class="fc-label">已入职</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:0%"></div></div>
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:0.0%"></div></div>
         <div class="fc-rate">转化 0%</div>
       </div>
     </div>
@@ -458,60 +463,85 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
       </div>
       <div class="rt-r">
         <div class="rt-g">商照组</div>
-        <div class="rt-j">产品经理</div>
-        <div class="rt-p"><span class="tag-b">B类</span></div>
-        <div class="rt-s"><span class="st-filter">筛选中</span></div>
-        <div class="rt-d">9/30</div>
+        <div class="rt-j">无主灯产品专员</div>
+        <div class="rt-p"><span class="tag-a">A类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
+        <div class="rt-d">6/30</div>
         <div class="rt-w"><span class="w-safe">正常</span></div>
       </div>
       <div class="rt-r rt-alt">
-        <div class="rt-g">光源组</div>
-        <div class="rt-j">产品经理</div>
-        <div class="rt-p"><span class="tag-a">A类</span></div>
-        <div class="rt-s"><span class="st-filter">筛选中</span></div>
-        <div class="rt-d">6/30</div>
-        <div class="rt-w"><span class="w-warn">关注<br><small>70天</small></span></div>
-      </div>
-      <div class="rt-r">
-        <div class="rt-g">电器组</div>
-        <div class="rt-j">产品经理</div>
-        <div class="rt-p"><span class="tag-a">A类</span></div>
-        <div class="rt-s"><span class="st-filter">筛选中</span></div>
-        <div class="rt-d">6/30</div>
-        <div class="rt-w"><span class="w-warn">关注<br><small>70天</small></span></div>
-      </div>
-      <div class="rt-r rt-alt">
-        <div class="rt-g">工业+办公</div>
-        <div class="rt-j">行业经理</div>
-        <div class="rt-p"><span class="tag-a">A类</span></div>
-        <div class="rt-s"><span class="st-filter">筛选中</span></div>
-        <div class="rt-d">6/30</div>
-        <div class="rt-w"><span class="w-warn">关注<br><small>70天</small></span></div>
-      </div>
-      <div class="rt-r">
-        <div class="rt-g">地产+酒店</div>
-        <div class="rt-j">行业经理</div>
+        <div class="rt-g">商照组</div>
+        <div class="rt-j">商照渠道产品经理</div>
         <div class="rt-p"><span class="tag-b">B类</span></div>
-        <div class="rt-s"><span class="st-filter">筛选中</span></div>
-        <div class="rt-d">9/30</div>
-        <div class="rt-w"><span class="w-safe">正常</span></div>
-      </div>
-      <div class="rt-r rt-alt">
-        <div class="rt-g">企划组</div>
-        <div class="rt-j">企划经理</div>
-        <div class="rt-p"><span class="tag-b">B类</span></div>
-        <div class="rt-s"><span class="st-final">终面中</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
         <div class="rt-d">7/31</div>
         <div class="rt-w"><span class="w-safe">正常</span></div>
       </div>
       <div class="rt-r">
-        <div class="rt-g">智能组</div>
-        <div class="rt-j">产品经理</div>
-        <div class="rt-p"><span class="tag-b">B类</span></div>
-        <div class="rt-s"><span class="st-filter">筛选中</span></div>
+        <div class="rt-g">光源组</div>
+        <div class="rt-j">高毛利单品产品经理</div>
+        <div class="rt-p"><span class="tag-a">A类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
         <div class="rt-d">6/30</div>
-        <div class="rt-w"><span class="w-warn">关注<br><small>70天</small></span></div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
       </div>
+      <div class="rt-r rt-alt">
+        <div class="rt-g">光源组</div>
+        <div class="rt-j">光源产品助理</div>
+        <div class="rt-p"><span class="tag-c">C类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
+        <div class="rt-d">8/31</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div>
+      <div class="rt-r">
+        <div class="rt-g">电器组</div>
+        <div class="rt-j">洁净电器产品专员</div>
+        <div class="rt-p"><span class="tag-a">A类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
+        <div class="rt-d">6/30</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div>
+      <div class="rt-r rt-alt">
+        <div class="rt-g">电器组</div>
+        <div class="rt-j">电器产品助理</div>
+        <div class="rt-p"><span class="tag-b">B类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
+        <div class="rt-d">7/31</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div>
+      <div class="rt-r">
+        <div class="rt-g">工业组</div>
+        <div class="rt-j">解决方案工程师</div>
+        <div class="rt-p"><span class="tag-a">A类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
+        <div class="rt-d">6/30</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div>
+      <div class="rt-r rt-alt">
+        <div class="rt-g">工业组</div>
+        <div class="rt-j">工业产品专员</div>
+        <div class="rt-p"><span class="tag-b">B类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
+        <div class="rt-d">7/31</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div>
+      <div class="rt-r">
+        <div class="rt-g">企划组</div>
+        <div class="rt-j">家居产品企划专员</div>
+        <div class="rt-p"><span class="tag-b">B类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
+        <div class="rt-d">7/31</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div>
+      <div class="rt-r rt-alt">
+        <div class="rt-g">企划组</div>
+        <div class="rt-j">渠道赋能专员</div>
+        <div class="rt-p"><span class="tag-c">C类</span></div>
+        <div class="rt-s"><span class="st-need">需求确认</span></div>
+        <div class="rt-d">8/31</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div>
+
     </div>
   </div>
 </div>
