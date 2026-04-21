@@ -66,7 +66,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .petty-swipe{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 1px 3px var(--shadow);margin-bottom:6px}
 .petty-handle{background:var(--card);text-align:center;padding:3px;font-size:9px;color:var(--m-blue);cursor:pointer;border-bottom:1px solid var(--border)}
 .petty-content{max-height:0;overflow:hidden;transition:max-height .4s ease;background:var(--card)}.petty-content.open{max-height:2000px}
-.petty-tbl{width:100%;border-collapse:collapse;font-size:7px;table-layout:fixed}.petty-tbl th:first-child{width:22%}.petty-tbl th:nth-child(2){width:38%}.petty-tbl th:nth-child(3){width:35%;text-align:right}.petty-tbl td:nth-child(3){text-align:right;white-space:nowrap;overflow:visible}
+.petty-tbl{width:100%;border-collapse:collapse;font-size:7px;table-layout:fixed}.petty-tbl th:first-child{width:22%}.petty-tbl th:nth-child(2){width:48%}.petty-tbl th:nth-child(3){width:30%;text-align:right}.petty-tbl td:nth-child(3){text-align:right;white-space:nowrap;overflow:visible}
 .petty-tbl th{background:var(--m-blue);color:#fff;padding:2px 4px;font-size:6px;font-weight:500;position:sticky;top:0}
 .petty-tbl td{padding:2px 4px;border-bottom:1px solid var(--border);white-space:nowrap;vertical-align:top;height:18px;line-height:18px}
 .petty-tbl td:first-child{min-width:70px}.petty-tbl .pam{font-weight:600;white-space:nowrap}
@@ -74,18 +74,18 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .seat-legend{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;padding:3px 5px;background:var(--bg);border-radius:5px}
 .seat-legend-item{display:flex;align-items:center;gap:2px;font-size:8px;color:var(--text2)}.seat-legend-dot{width:8px;height:8px;border-radius:2px}
 .seat-grid{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:1px}
-.seat-occ{background:var(--m-gl);border:1px solid var(--m-green);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;min-height:22px;writing-mode:vertical-lr;font-size:7px;font-weight:600;color:#fff;letter-spacing:.3px}
+.seat-occ{background:var(--m-gl);border:1px solid var(--m-green);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;min-height:22px;writing-mode:vertical-lr;font-size:7px;font-weight:600;color:var(--text);letter-spacing:.3px}
 .seat-spare{background:var(--border);border:1px dashed var(--text3);border-radius:2px;display:flex;align-items:center;justify-content:center;min-height:22px;writing-mode:vertical-lr;font-size:6px;color:var(--text3)}
 .seat-vacant{background:var(--m-pl);border:1px solid var(--m-pink);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:22px;font-size:6px;color:#C49E9A;line-height:1.1}.seat-vacant small{font-size:5px}
 .seat-aisle{min-height:22px}
 .seat-note{grid-column:span 14;text-align:center;font-size:8px;color:var(--text3);padding:4px 0 0}
 .org{background:var(--card);border-radius:8px;padding:8px;box-shadow:0 1px 3px var(--shadow);overflow-x:auto;-webkit-overflow-scrolling:touch}
 .org img{display:block;max-width:100%;height:auto;margin:0 auto}
-
-
-
-
-@media(min-width:640px){body{font-size:14px}.kpi{grid-template-columns:repeat(5,1fr);gap:8px}.kpi-v{font-size:22px}.cg{grid-template-columns:repeat(2,1fr)}.dash{padding:18px 14px 40px}.hd h1{font-size:20px}.pcl{display:flex;gap:6px}.person-card{flex:0 0 calc(33.33% - 4px)}.seat-occ{font-size:8px;min-height:26px}.seat-spare,.seat-vacant{min-height:26px}.seat-grid{gap:2px}}
+@media(min-width:640px){}
+@media(min-width:640px){}
+@media(min-width:640px){}
+@media(min-width:640px){}
+@media(min-width:640px){body{font-size:14px}.kpi{grid-template-columns:repeat(5,1fr);gap:8px}.kpi-v{font-size:22px}.sg{grid-template-columns:repeat(3,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.dash{padding:18px 14px 40px}.hd h1{font-size:20px}.pcl{display:none}.seat-occ{font-size:8px;min-height:26px}.seat-spare,.seat-vacant{min-height:26px}.seat-grid{gap:2px}}
 @media(min-width:960px){.cg{grid-template-columns:repeat(3,1fr)}}
 .org img{display:block;max-width:100%;height:auto;margin:0 auto;cursor:pointer;transition:transform .2s}
 .org img:hover{opacity:.9}
@@ -123,7 +123,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 </div>
 <div class="tp" id="t5">
 <div class="vt"><span class="vb on" onclick="tv('card',this)">卡片</span><span class="vb" onclick="tv('table',this)">表格</span></div>
-<div id="vCard" class="pcl" style="display:flex"><div class="person-card"><div class="pc-top"><span class="pc-name">马涛</span><span class="grade grade-aplus">A+</span></div><div class="pc-dept">产品管理</div><div class="pc-tags"><span class="tag tag-backbone">骨干</span><span class="pot pot-mid">中潜力</span></div><div class="pc-grid"><div class="pc-item"><span class="pc-val">男</span><span class="pc-lbl">性别</span></div><div class="pc-item"><span class="pc-val">大专</span><span class="pc-lbl">学历</span></div><div class="pc-item"><span class="pc-val">44岁</span><span class="pc-lbl">年龄</span></div><div class="pc-item"><span class="pc-val">27,000</span><span class="pc-lbl">薪酬</span></div><div class="pc-item"><span class="pc-val">96.14</span><span class="pc-lbl">绩效</span></div><div class="pc-item"><span class="pc-val">4年</span><span class="pc-lbl">司龄</span></div><div class="pc-item pc-phone"><span class="pc-val">-</span><span class="pc-lbl">电话</span></div></div></div>
+<div id="vCard" class="pcl"><div class="person-card"><div class="pc-top"><span class="pc-name">马涛</span><span class="grade grade-aplus">A+</span></div><div class="pc-dept">产品管理</div><div class="pc-tags"><span class="tag tag-backbone">骨干</span><span class="pot pot-mid">中潜力</span></div><div class="pc-grid"><div class="pc-item"><span class="pc-val">男</span><span class="pc-lbl">性别</span></div><div class="pc-item"><span class="pc-val">大专</span><span class="pc-lbl">学历</span></div><div class="pc-item"><span class="pc-val">44岁</span><span class="pc-lbl">年龄</span></div><div class="pc-item"><span class="pc-val">27,000</span><span class="pc-lbl">薪酬</span></div><div class="pc-item"><span class="pc-val">96.14</span><span class="pc-lbl">绩效</span></div><div class="pc-item"><span class="pc-val">4年</span><span class="pc-lbl">司龄</span></div><div class="pc-item pc-phone"><span class="pc-val">-</span><span class="pc-lbl">电话</span></div></div></div>
 <div class="person-card"><div class="pc-top"><span class="pc-name">黄健明</span><span class="grade grade-aplus">A+</span></div><div class="pc-dept">产品管理</div><div class="pc-tags"><span class="tag tag-icon">明星</span><span class="pot pot-high">高潜力</span></div><div class="pc-grid"><div class="pc-item"><span class="pc-val">男</span><span class="pc-lbl">性别</span></div><div class="pc-item"><span class="pc-val">大专</span><span class="pc-lbl">学历</span></div><div class="pc-item"><span class="pc-val">41岁</span><span class="pc-lbl">年龄</span></div><div class="pc-item"><span class="pc-val">25,000</span><span class="pc-lbl">薪酬</span></div><div class="pc-item"><span class="pc-val">95.61</span><span class="pc-lbl">绩效</span></div><div class="pc-item"><span class="pc-val">0年</span><span class="pc-lbl">司龄</span></div><div class="pc-item pc-phone"><span class="pc-val"><a href="tel:13822308894" style="color:var(--m-blue);text-decoration:none">13822308894</a></span><span class="pc-lbl">电话</span></div></div></div>
 <div class="person-card"><div class="pc-top"><span class="pc-name">李土活</span><span class="grade grade-a">A</span></div><div class="pc-dept">产品管理</div><div class="pc-tags"><span class="tag tag-core">核心</span><span class="pot pot-mid">中潜力</span></div><div class="pc-grid"><div class="pc-item"><span class="pc-val">男</span><span class="pc-lbl">性别</span></div><div class="pc-item"><span class="pc-val">本科</span><span class="pc-lbl">学历</span></div><div class="pc-item"><span class="pc-val">38岁</span><span class="pc-lbl">年龄</span></div><div class="pc-item"><span class="pc-val">10,900</span><span class="pc-lbl">薪酬</span></div><div class="pc-item"><span class="pc-val">94.71</span><span class="pc-lbl">绩效</span></div><div class="pc-item"><span class="pc-val">7年</span><span class="pc-lbl">司龄</span></div><div class="pc-item pc-phone"><span class="pc-val"><a href="tel:18933010168" style="color:var(--m-blue);text-decoration:none">18933010168</a></span><span class="pc-lbl">电话</span></div></div></div>
 <div class="person-card"><div class="pc-top"><span class="pc-name">陈杭弟</span><span class="grade grade-a">A</span></div><div class="pc-dept">产品管理</div><div class="pc-tags"><span class="tag tag-backbone">骨干</span><span class="pot pot-mid">中潜力</span></div><div class="pc-grid"><div class="pc-item"><span class="pc-val">男</span><span class="pc-lbl">性别</span></div><div class="pc-item"><span class="pc-val">本科</span><span class="pc-lbl">学历</span></div><div class="pc-item"><span class="pc-val">28岁</span><span class="pc-lbl">年龄</span></div><div class="pc-item"><span class="pc-val">7,400</span><span class="pc-lbl">薪酬</span></div><div class="pc-item"><span class="pc-val">94.79</span><span class="pc-lbl">绩效</span></div><div class="pc-item"><span class="pc-val">4年</span><span class="pc-lbl">司龄</span></div><div class="pc-item pc-phone"><span class="pc-val"><a href="tel:15820157250" style="color:var(--m-blue);text-decoration:none">15820157250</a></span><span class="pc-lbl">电话</span></div></div></div>
@@ -303,121 +303,26 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 </div>
 <script>
 Chart.register(ChartDataLabels);
-function sw(el,id){document.querySelectorAll('.tp').forEach(function(e){e.classList.remove('on')});document.querySelectorAll('.tab').forEach(function(e){e.classList.remove('on')});document.getElementById(id).classList.add('on');el.classList.add('on');if(id==='t5'){var vc=document.getElementById('vCard'),vt=document.getElementById('vTable');if(vc)vc.style.display='flex';if(vt)vt.style.display='none'}setTimeout(function(){document.querySelectorAll('.tp.on canvas').forEach(function(c){var ch=Chart.getChart(c);if(ch)ch.resize()})},50)}
+function sw(el,id){document.querySelectorAll('.tp').forEach(function(e){e.classList.remove('on')});document.querySelectorAll('.tab').forEach(function(e){e.classList.remove('on')});document.getElementById(id).classList.add('on');el.classList.add('on')}
 function tv(v,el){document.querySelectorAll('.vb').forEach(function(e){e.classList.remove('on')});el.classList.add('on');document.getElementById('vCard').style.display=v==='card'?'flex':'none';document.getElementById('vTable').style.display=v==='table'?'block':'none'}
 Chart.defaults.font.family='-apple-system,"PingFang SC","Microsoft YaHei",sans-serif';Chart.defaults.font.size=9;Chart.defaults.color="#8A8480";Chart.defaults.plugins.legend.labels.usePointStyle=true;Chart.defaults.plugins.legend.labels.padding=6;Chart.defaults.plugins.legend.labels.pointStyleWidth=6;Chart.defaults.plugins.legend.labels.font={size:9}
 var P=["#8BA4B8","#8FAA8E","#C4A4A0","#C8B89A","#A898B0","#7FA3A0","#C49E9A","#9E98B4","#97A68F","#C4AD98"]
 var pieDL={color:'#B5AFA8',font:{weight:'500',size:6},anchor:'end',align:'end',offset:1,textAlign:'center',formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+'('+Math.round(v/t*100)+'%)';}}
 var barDL={anchor:'end',align:'end',color:'#B5AFA8',font:{weight:'500',size:6},formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+'('+Math.round(v/t*100)+'%)';}}
-var hbarDL={anchor:'center',align:'center',color:'#fff',font:{weight:'bold',size:10},formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+'('+Math.round(v/t*100)+'%)';}}
-var barOpt={responsive:true,maintainAspectRatio:false,layout:{padding:{top:10}},plugins:{legend:{display:false},datalabels:barDL},scales:{y:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:'#F0ECE8'}},x:{grid:{display:false},ticks:{font:{size:7}}}},animation:{duration:600,easing:'easeOutQuart'}}
+var hbarDL={anchor:'end',align:'right',color:'#B5AFA8',font:{weight:'500',size:6},formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+'('+Math.round(v/t*100)+'%)';}}
+var barOpt={responsive:true,maintainAspectRatio:false,layout:{padding:{top:10}},plugins:{legend:{display:false},datalabels:barDL},scales:{y:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:'#F0ECE8'}},x:{grid:{display:false},ticks:{font:{size:7}}}}}
 var pieOpt={responsive:true,maintainAspectRatio:false,layout:{padding:2},plugins:{legend:{position:'bottom',labels:{padding:4,font:{size:8}}},datalabels:pieDL}}
 new Chart(document.getElementById('cDept'),{type:'pie',data:{labels:["产品管理", "特战队", "产品企划", "行业与解决方案", "人力行政"],datasets:[{data:[22, 1, 7, 8, 2],backgroundColor:P.slice(0,5),borderWidth:1,borderColor:'#fff'}]},options:pieOpt})
 new Chart(document.getElementById('cGender'),{type:'pie',data:{labels:['男','女'],datasets:[{data:[30,10],backgroundColor:['#8BA4B8','#C4A4A0'],borderWidth:1,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:2},plugins:{legend:{position:'bottom',labels:{font:{size:9}}},datalabels:pieDL}}})
 new Chart(document.getElementById('cEdu'),{type:'bar',data:{labels:["本科", "大专", "中专", "硕士"],datasets:[{data:[28, 8, 2, 2],backgroundColor:P.slice(0,4),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
 new Chart(document.getElementById('cAge'),{type:'bar',data:{labels:["30~39岁", "40~49岁", "20~29岁", "50~59岁"],datasets:[{data:[16, 13, 10, 1],backgroundColor:['#8BA4B8','#8FAA8E','#C8B89A','#9A948C'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
-new Chart(document.getElementById('cSenior'),{type:'bar',data:{labels:["1年","不足1年","2年","3年","4年","5年","6年","7年","8年","9年","19年"],datasets:[{data:[3,7,2,1,5,6,3,4,3,5,1],backgroundColor:P.slice(0,11),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt});
+new Chart(document.getElementById('cSenior'),{type:'bar',data:{labels:["1年", "不足1年", "2年", "3年", "4年", "5年", "6年", "7年", "8年", "9年", "19年"],datasets:[{data:[3, 7, 2, 1, 5, 6, 3, 4, 3, 5, 1],backgroundColor:P.slice(0,11),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
 var gd={"A": 5, "B": 28, "C": 5, "A+": 2};var go=['A+','A','B','C','D'];var gL=go.filter(function(k){return k in gd});var gV=gL.map(function(k){return gd[k]});
 new Chart(document.getElementById('cPerf'),{type:'bar',data:{labels:gL,datasets:[{data:gV,backgroundColor:['#C2D5C1','#8FAA8E','#B8CCD8','#DDD0CE','#DDD0CC'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
 new Chart(document.getElementById('cPot'),{type:'bar',data:{labels:["中潜力", "低潜力", "高潜力"],datasets:[{data:[31, 3, 6],backgroundColor:['#8FAA8E','#B8CCD8','#DDD0CE'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
 new Chart(document.getElementById('cTag'),{type:'bar',data:{labels:["核心", "骨干", "稳定", "明日之星", "关注", "专业", "明星"],datasets:[{data:[4, 25, 2, 4, 2, 1, 2],backgroundColor:P.slice(0,7),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
 var sd={"1万~1.5万": 11, "8千~1万": 7, "6千~8千": 5, "5千~6千": 8, "2万以上": 6, "5千以下": 1, "1.5~2万": 2};var so=['2万以上','1.5~2万','1万~1.5万','8千~1万','6千~8千','5千~6千','5千以下'];var ss=so.filter(function(k){return k in sd});var sr=Object.keys(sd).filter(function(k){return so.indexOf(k)===-1});var sa=ss.concat(sr);var sv=sa.map(function(k){return sd[k]});
 new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[{data:sv,backgroundColor:['#8BA4B8','#7FA3A0','#8FAA8E','#97A68F','#C8B89A','#C4A4A0','#9A948C'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:{right:0,left:0}},plugins:{legend:{display:false},datalabels:hbarDL},scales:{x:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:'#F0ECE8'}},y:{grid:{display:false},ticks:{font:{size:8}}}}}})
-</script>
-<div class="modal-overlay" id="orgModal" onclick="closeOrgModal(event)"><div class="modal-wrap"><div class="modal-img-box"><img id="orgModalImg" src=""></div></div><button class="modal-close" onclick="document.getElementById('orgModal').classList.remove('show')">&times;</button></div>
-<script>
-function closeOrgModal(e){if(!e.target.closest('.modal-img-box'))document.getElementById('orgModal').classList.remove('show')}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('orgModal').classList.remove('show')});
-(function(){
-var box=document.querySelector('.modal-img-box');if(!box)return;
-var img=box.querySelector('img'),scale=1,lastDist=0,lastX=0,lastY=0,isDrag=false;
-function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
-box.addEventListener('touchstart',function(e){
-if(e.touches.length===2){lastDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);isDrag=false}
-else if(e.touches.length===1){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;isDrag=scale>1}
-},{passive:true});
-box.addEventListener('touchmove',function(e){
-if(e.touches.length===2){
-var d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
-scale=clamp(scale*(d/lastDist),0.5,8);lastDist=d;
-img.style.transform='scale('+scale+')';img.style.transformOrigin='center center';
-e.preventDefault();
-}else if(e.touches.length===1&&isDrag){
-var dx=e.touches[0].clientX-lastX,dy=e.touches[0].clientY-lastY;
-lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;
-var cx=parseFloat(box.dataset.tx||0)+dx,cy=parseFloat(box.dataset.ty||0)+dy;
-box.dataset.tx=cx;box.dataset.ty=cy;
-img.style.transform='translate('+cx+'px,'+cy+'px) scale('+scale+')';
-}
-},{passive:false});
-box.addEventListener('touchend',function(){
-if(scale<=1){scale=1;img.style.transform='';box.dataset.tx=0;box.dataset.ty=0}
-},{passive:true});
-box.addEventListener('dblclick',function(){
-if(scale>1.5){scale=1;img.style.transform='';box.dataset.tx=0;box.dataset.ty=0}
-else{scale=3;img.style.transform='scale(3)';box.dataset.tx=0;box.dataset.ty=0}
-});
-})();
-</script>
-</body></html<script>
-try{
-function closeOrgModal(e){if(!e.target.closest('.modal-img-box'))document.getElementById('orgModal').classList.remove('show')}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('orgModal').classList.remove('show')});
-(function(){
-var box=document.querySelector('.modal-img-box');if(!box)return;
-var img=box.querySelector('img'),scale=1,lastDist=0,lastX=0,lastY=0,isDrag=false;
-function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
-box.addEventListener('touchstart',function(e){
-if(e.touches.length===2){lastDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);isDrag=false}
-else if(e.touches.length===1){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;isDrag=scale>1}
-},{passive:true});
-box.addEventListener('touchmove',function(e){
-if(e.touches.length===2){
-var d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
-scale=clamp(scale*(d/lastDist),0.5,8);lastDist=d;
-img.style.transform='scale('+scale+')';img.style.transformOrigin='center center';
-e.preventDefault();
-}else if(e.touches.length===1&&isDrag){
-var dx=e.touches[0].clientX-lastX,dy=e.touches[0].clientY-lastY;
-lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;
-var cx=parseFloat(box.dataset.tx||0)+dx,cy=parseFloat(box.dataset.ty||0)+dy;
-box.dataset.tx=cx;box.dataset.ty=cy;
-img.style.transform='translate('+cx+'px,'+cy+'px) scale('+scale+')';
-}
-},{passive:false});
-box.addEventListener('touchend',function(){
-if(scale<=1){scale=1;img.style.transform='';box.dataset.tx=0;box.dataset.ty=0}
-},{passive:true});
-box.addEventListener('dblclick',function(){
-if(scale>1.5){scale=1;img.style.transform='';box.dataset.tx=0;box.dataset.ty=0}
-else{scale=3;img.style.transform='scale(3)';box.dataset.tx=0;box.dataset.ty=0}
-});
-})();
-}catch(e){console.error('Modal error:',e)}
-
-Chart.register(ChartDataLabels);
-
-Chart.register(ChartDataLabels);
-function sw(el,id){document.querySelectorAll('.tp').forEach(function(e){e.classList.remove('on')});document.querySelectorAll('.tab').forEach(function(e){e.classList.remove('on')});document.getElementById(id).classList.add('on');el.classList.add('on');if(id==='t5'){var vc=document.getElementById('vCard'),vt=document.getElementById('vTable');if(vc)vc.style.display='flex';if(vt)vt.style.display='none'}setTimeout(function(){document.querySelectorAll('.tp.on canvas').forEach(function(c){var ch=Chart.getChart(c);if(ch)ch.resize()})},50)}
-function tv(v,el){document.querySelectorAll('.vb').forEach(function(e){e.classList.remove('on')});el.classList.add('on');document.getElementById('vCard').style.display=v==='card'?'flex':'none';document.getElementById('vTable').style.display=v==='table'?'block':'none'}
-Chart.defaults.font.family='-apple-system,"PingFang SC","Microsoft YaHei",sans-serif';Chart.defaults.font.size=9;Chart.defaults.color="#8A8480";Chart.defaults.plugins.legend.labels.usePointStyle=true;Chart.defaults.plugins.legend.labels.padding=6;Chart.defaults.plugins.legend.labels.pointStyleWidth=6;Chart.defaults.plugins.legend.labels.font={size:9}
-var P=["#8BA4B8","#8FAA8E","#C4A4A0","#C8B89A","#A898B0","#7FA3A0","#C49E9A","#9E98B4","#97A68F","#C4AD98"]
-var pieDL={color:'#B5AFA8',font:{weight:'500',size:6},anchor:'end',align:'end',offset:1,textAlign:'center',formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+'('+Math.round(v/t*100)+'%)';}}
-var barDL={anchor:'end',align:'end',color:'#B5AFA8',font:{weight:'500',size:6},formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+'('+Math.round(v/t*100)+'%)';}}
-var hbarDL={anchor:'center',align:'center',color:'#fff',font:{weight:'bold',size:10},formatter:function(v,ctx){var t=ctx.dataset.data.reduce(function(a,b){return a+b},0);return v+'('+Math.round(v/t*100)+'%)';}}
-var barOpt={responsive:true,maintainAspectRatio:false,layout:{padding:{top:10}},plugins:{legend:{display:false},datalabels:barDL},scales:{y:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:'#F0ECE8'}},x:{grid:{display:false},ticks:{font:{size:7}}}},animation:{duration:600,easing:'easeOutQuart'}}
-var pieOpt={responsive:true,maintainAspectRatio:false,layout:{padding:2},plugins:{legend:{position:'bottom',labels:{padding:4,font:{size:8}}},datalabels:pieDL}}
-new Chart(document.getElementById('cDept'),{type:'pie',data:{labels:["产品管理", "特战队", "产品企划", "行业与解决方案", "人力行政"],datasets:[{data:[22, 1, 7, 8, 2],backgroundColor:P.slice(0,5),borderWidth:1,borderColor:'#fff'}]},options:pieOpt})
-new Chart(document.getElementById('cGender'),{type:'pie',data:{labels:['男','女'],datasets:[{data:[30,10],backgroundColor:['#8BA4B8','#C4A4A0'],borderWidth:1,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:2},plugins:{legend:{position:'bottom',labels:{font:{size:9}}},datalabels:pieDL}}})
-new Chart(document.getElementById('cEdu'),{type:'bar',data:{labels:["本科", "大专", "中专", "硕士"],datasets:[{data:[28, 8, 2, 2],backgroundColor:P.slice(0,4),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
-new Chart(document.getElementById('cAge'),{type:'bar',data:{labels:["30~39岁", "40~49岁", "20~29岁", "50~59岁"],datasets:[{data:[16, 13, 10, 1],backgroundColor:['#8BA4B8','#8FAA8E','#C8B89A','#9A948C'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
-new Chart(document.getElementById('cSenior'),{type:'bar',data:{labels:["1年","不足1年","2年","3年","4年","5年","6年","7年","8年","9年","19年"],datasets:[{data:[3,7,2,1,5,6,3,4,3,5,1],backgroundColor:P.slice(0,11),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt});
-var gd={"A": 5, "B": 28, "C": 5, "A+": 2};var go=['A+','A','B','C','D'];var gL=go.filter(function(k){return k in gd});var gV=gL.map(function(k){return gd[k]});
-new Chart(document.getElementById('cPerf'),{type:'bar',data:{labels:gL,datasets:[{data:gV,backgroundColor:['#C2D5C1','#8FAA8E','#B8CCD8','#DDD0CE','#DDD0CC'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
-new Chart(document.getElementById('cPot'),{type:'bar',data:{labels:["中潜力", "低潜力", "高潜力"],datasets:[{data:[31, 3, 6],backgroundColor:['#8FAA8E','#B8CCD8','#DDD0CE'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
-new Chart(document.getElementById('cTag'),{type:'bar',data:{labels:["核心", "骨干", "稳定", "明日之星", "关注", "专业", "明星"],datasets:[{data:[4, 25, 2, 4, 2, 1, 2],backgroundColor:P.slice(0,7),borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:barOpt})
-var sd={"1万~1.5万": 11, "8千~1万": 7, "6千~8千": 5, "5千~6千": 8, "2万以上": 6, "5千以下": 1, "1.5~2万": 2};var so=['2万以上','1.5~2万','1万~1.5万','8千~1万','6千~8千','5千~6千','5千以下'];var ss=so.filter(function(k){return k in sd});var sr=Object.keys(sd).filter(function(k){return so.indexOf(k)===-1});var sa=ss.concat(sr);var sv=sa.map(function(k){return sd[k]});
-new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[{data:sv,backgroundColor:['#8BA4B8','#7FA3A0','#8FAA8E','#97A68F','#C8B89A','#C4A4A0','#9A948C'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:{right:0,left:0}},plugins:{legend:{display:false},datalabels:hbarDL},scales:{x:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:'#F0ECE8'}},y:{grid:{display:false},ticks:{font:{size:
 </script>
 <div class="modal-overlay" id="orgModal" onclick="closeOrgModal(event)"><div class="modal-wrap"><div class="modal-img-box"><img id="orgModalImg" src=""></div></div><button class="modal-close" onclick="document.getElementById('orgModal').classList.remove('show')">&times;</button></div>
 <script>
