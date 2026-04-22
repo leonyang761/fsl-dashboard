@@ -147,6 +147,35 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .w-urg small{font-weight:400;color:#E74C3C;font-size:6px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
 @media(min-width:640px){.w-safe,.w-warn,.w-urg{font-size:9px;padding:2px 8px}.w-warn small,.w-urg small{font-size:8px}}
+
+/* 员工关系 - 续签时间轴 */
+.timeline{display:flex;align-items:flex-start;gap:0;padding:10px 0;overflow-x:auto;scrollbar-width:none}
+.timeline::-webkit-scrollbar{display:none}
+.tl-item{flex-shrink:0}
+.tl-done{width:16px;display:flex;flex-direction:column;align-items:center}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--m-blue);border:2px solid #fff;box-shadow:0 0 0 1px var(--m-blue);margin-top:2px}
+.tl-bar{width:2px;flex:1;min-height:20px;background:var(--border)}
+.tl-month{flex-shrink:0;font-size:7px;color:#999;padding:2px 4px;min-width:24px;text-align:center;font-weight:600;margin-top:1px}
+.tl-card{flex-shrink:0;padding:6px 8px;border-radius:6px;margin:0 2px;min-width:120px;border-left:3px solid var(--m-blue);background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.tl-urg{border-left-color:#E74C3C}
+.tl-warn{border-left-color:#F39C12}
+.tl-safe{border-left-color:#8FAA8E}
+.tlc-head{display:flex;justify-content:space-between;align-items:center}
+.tlc-name{font-size:10px;font-weight:700;color:var(--text)}
+.tlc-dept{font-size:7px;color:#999}
+.tlc-date{font-size:9px;color:var(--text);margin-top:2px;font-weight:500}
+.tlc-type{font-size:7px;color:#888;margin-top:1px}
+.tlc-days{font-size:8px;margin-top:2px;font-weight:600}
+.tl-urg .tlc-days{color:#E74C3C}
+.tl-warn .tlc-days{color:#E67E22}
+.tl-safe .tlc-days{color:#388E3C}
+/* 员工关系 - 续签明细表 */
+.cr-table{display:flex;flex-direction:column;font-size:7px}
+.cr-h{display:grid;grid-template-columns:12% 13% 15% 17% 12% 31%;padding:4px 6px;background:var(--m-gl);color:var(--m-green);font-weight:600;border-radius:3px 3px 0 0;font-size:7px;min-height:26px;align-items:center}
+.cr-r{display:grid;grid-template-columns:12% 13% 15% 17% 12% 31%;padding:5px 6px;border-bottom:1px solid var(--border);align-items:center}
+.cr-alt{background:#FAFAF8}
+.cr-r2{font-weight:500}
+@media(min-width:640px){.timeline{padding:14px 0}.tl-card{min-width:160px;padding:8px 12px}.tlc-name{font-size:12px}.tlc-dept{font-size:9px}.tlc-date{font-size:11px}.tlc-type{font-size:9px}.tlc-days{font-size:10px}.tl-month{font-size:9px;min-width:30px}.cr-table,.cr-h,.cr-r{font-size:9px}.cr-h,.cr-r{grid-template-columns:11% 12% 14% 16% 11% 36%}}
 @media(min-width:640px){.pri-num{font-size:24px}.pri-label{font-size:10px}.pri-detail{font-size:9px}.prog-label,.prog-note{font-size:10px}.fc{min-width:70px;padding:8px 6px}.fc-num{font-size:22px}.fc-label{font-size:9px}.fc-rate{font-size:8px}.fc-arrow{font-size:14px;flex:0 0 12px}.recruit-table,.rt-h,.rt-r{font-size:9px}.tag-a,.tag-b,.st-filter,.st-final{font-size:9px;padding:2px 8px}}
 
 
@@ -221,6 +250,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <div class="tab on" onclick="sw(this,'t1')">组织概览</div>
 <div class="tab" onclick="sw(this,'t5')">人员总览</div>
 <div class="tab" onclick="sw(this,'t7')">人员招聘</div>
+<div class="tab" onclick="sw(this,'t8')">员工关系</div>
 <div class="tab" onclick="sw(this,'t2')">人员画像</div>
 <div class="tab" onclick="sw(this,'t3')">人才盘点</div>
 <div class="tab" onclick="sw(this,'t4')">薪酬分布</div>
@@ -317,6 +347,171 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <tr><td>38</td><td><b>吴泽经</b></td><td>行业与解决方案</td><td>男</td><td>本科</td><td>58岁</td><td><a href="tel:18933011655" style="color:var(--m-blue);text-decoration:none">18933011655</a></td><td>10,900</td><td>90.74</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-watch">关注</span></td><td><span class="pot pot-mid">中潜力</span></td></tr>
 <tr><td>39</td><td><b>孟令宾</b></td><td>行业与解决方案</td><td>男</td><td>大专</td><td>41岁</td><td><a href="tel:18933010375" style="color:var(--m-blue);text-decoration:none">18933010375</a></td><td>12,400</td><td>90.74</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-backbone">骨干</span></td><td><span class="pot pot-mid">中潜力</span></td></tr>
 <tr><td>40</td><td><b>谭炜昕</b></td><td>人力行政</td><td>女</td><td>本科</td><td>24岁</td><td><a href="tel:13726563396" style="color:var(--m-blue);text-decoration:none">13726563396</a></td><td>5,400</td><td>90.97</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-stable">稳定</span></td><td><span class="pot pot-low">低潜力</span></td></tr></tbody></table></div>
+</div>
+<div class="tp" id="t8">
+  <div class="sec">
+    <div class="sec-t">2026年合同续签概况</div>
+    <div class="cg">
+      <div class="cc"><div class="ch"><span class="ct">待续签</span><span class="cb">9人</span></div></div>
+      <div class="cc"><div class="ch"><span class="ct">紧急(&le;45天)</span><span class="cb">4人</span></div></div>
+      <div class="cc"><div class="ch"><span class="ct">关注(&le;90天)</span><span class="cb">3人</span></div></div>
+      <div class="cc"><div class="ch"><span class="ct">已完成</span><span class="cb">2人</span></div></div>
+      <div class="cc"><div class="ch"><span class="ct">无固定期限</span><span class="cb">7人</span></div></div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-t">续签时间轴</div>
+    <div class="timeline">
+      <div class="tl-item tl-done"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+      <div class="tl-month">3月</div>
+      <div class="tl-item tl-card tl-urg">
+        <div class="tlc-head"><span class="tlc-name">陈志斌</span><span class="tlc-dept">产品管理</span></div>
+        <div class="tlc-date">2026-03-08</div>
+        <div class="tlc-type">第三次签订（无固定期限）</div>
+        <div class="tlc-days">已过期 -44 天</div>
+      </div>
+      <div class="tl-item tl-card tl-urg">
+        <div class="tlc-head"><span class="tlc-name">李宥成</span><span class="tlc-dept">产品管理</span></div>
+        <div class="tlc-date">2026-04-19</div>
+        <div class="tlc-type">第三次签订（无固定期限）</div>
+        <div class="tlc-days">已过期 -2 天</div>
+      </div>
+      <div class="tl-item tl-done"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+      <div class="tl-month">4月</div>
+      <div class="tl-item tl-card tl-urg">
+        <div class="tlc-head"><span class="tlc-name">朱雨泽</span><span class="tlc-dept">产品管理</span></div>
+        <div class="tlc-date">2026-05-03</div>
+        <div class="tlc-type">第二次签订（三年固定）</div>
+        <div class="tlc-days">剩余 12 天</div>
+      </div>
+      <div class="tl-item tl-card tl-urg">
+        <div class="tlc-head"><span class="tlc-name">陆强达</span><span class="tlc-dept">产品企划</span></div>
+        <div class="tlc-date">2026-05-21</div>
+        <div class="tlc-type">第二次签订（三年固定）</div>
+        <div class="tlc-days">剩余 30 天</div>
+      </div>
+      <div class="tl-item tl-done"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+      <div class="tl-month">6月</div>
+      <div class="tl-item tl-card tl-warn">
+        <div class="tlc-head"><span class="tlc-name">胡国强</span><span class="tlc-dept">其他人员</span></div>
+        <div class="tlc-date">2026-06-22</div>
+        <div class="tlc-type">第三次签订（无固定期限）</div>
+        <div class="tlc-days">剩余 62 天</div>
+      </div>
+      <div class="tl-item tl-card tl-warn">
+        <div class="tlc-head"><span class="tlc-name">何培荣</span><span class="tlc-dept">产品管理</span></div>
+        <div class="tlc-date">2026-06-30</div>
+        <div class="tlc-type">第三次签订（无固定期限）</div>
+        <div class="tlc-days">剩余 70 天</div>
+      </div>
+      <div class="tl-item tl-card tl-warn">
+        <div class="tlc-head"><span class="tlc-name">孟令宾</span><span class="tlc-dept">行业与解决方案</span></div>
+        <div class="tlc-date">2026-07-09</div>
+        <div class="tlc-type">第三次签订（无固定期限）</div>
+        <div class="tlc-days">剩余 79 天</div>
+      </div>
+      <div class="tl-item tl-done"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+      <div class="tl-month">11月</div>
+      <div class="tl-item tl-card tl-safe">
+        <div class="tlc-head"><span class="tlc-name">谢永勇</span><span class="tlc-dept">其他人员</span></div>
+        <div class="tlc-date">2026-11-15</div>
+        <div class="tlc-type">第三次签订（无固定期限）</div>
+        <div class="tlc-days">剩余 208 天</div>
+      </div>
+      <div class="tl-item tl-card tl-safe">
+        <div class="tlc-head"><span class="tlc-name">吴泽经</span><span class="tlc-dept">行业与解决方案</span></div>
+        <div class="tlc-date">2026-11-22</div>
+        <div class="tlc-type">第三次签订（无固定期限）</div>
+        <div class="tlc-days">剩余 215 天</div>
+      </div>
+      <div class="tl-item tl-done"><div class="tl-dot"></div></div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="sec-t">续签明细</div>
+    <div class="cr-table">
+      <div class="cr-h">
+        <div class="cr-g">姓名</div>
+        <div class="cr-d">部门</div>
+        <div class="cr-t">入职日期</div>
+        <div class="cr-y">续签类型</div>
+        <div class="cr-r">续签日期</div>
+        <div class="cr-w">预警</div>
+      </div>
+      <div class="cr-r cr-alt">
+        <div class="cr-g">陈志斌</div>
+        <div class="cr-d">产品管理</div>
+        <div class="cr-t">2020-03-09</div>
+        <div class="cr-y">第三次<br><small>无固定期限</small></div>
+        <div class="cr-r2">03-08</div>
+        <div class="cr-w"><span class="w-urg">紧急<br><small>已过期</small></span></div>
+      </div>
+      <div class="cr-r">
+        <div class="cr-g">李宥成</div>
+        <div class="cr-d">产品管理</div>
+        <div class="cr-t">2020-04-20</div>
+        <div class="cr-y">第三次<br><small>无固定期限</small></div>
+        <div class="cr-r2">04-19</div>
+        <div class="cr-w"><span class="w-urg">紧急<br><small>已过期</small></span></div>
+      </div>
+      <div class="cr-r cr-alt">
+        <div class="cr-g">朱雨泽</div>
+        <div class="cr-d">产品管理</div>
+        <div class="cr-t">2023-05-04</div>
+        <div class="cr-y">第二次<br><small>三年固定</small></div>
+        <div class="cr-r2">05-03</div>
+        <div class="cr-w"><span class="w-urg">紧急<br><small>12天</small></span></div>
+      </div>
+      <div class="cr-r">
+        <div class="cr-g">陆强达</div>
+        <div class="cr-d">产品企划</div>
+        <div class="cr-t">2023-05-22</div>
+        <div class="cr-y">第二次<br><small>三年固定</small></div>
+        <div class="cr-r2">05-21</div>
+        <div class="cr-w"><span class="w-urg">紧急<br><small>30天</small></span></div>
+      </div>
+      <div class="cr-r cr-alt">
+        <div class="cr-g">胡国强</div>
+        <div class="cr-d">其他人员</div>
+        <div class="cr-t">2020-06-23</div>
+        <div class="cr-y">第三次<br><small>无固定期限</small></div>
+        <div class="cr-r2">06-22</div>
+        <div class="cr-w"><span class="w-warn">关注<br><small>62天</small></span></div>
+      </div>
+      <div class="cr-r">
+        <div class="cr-g">何培荣</div>
+        <div class="cr-d">产品管理</div>
+        <div class="cr-t">2020-07-01</div>
+        <div class="cr-y">第三次<br><small>无固定期限</small></div>
+        <div class="cr-r2">06-30</div>
+        <div class="cr-w"><span class="w-warn">关注<br><small>70天</small></span></div>
+      </div>
+      <div class="cr-r cr-alt">
+        <div class="cr-g">孟令宾</div>
+        <div class="cr-d">行业与解决方案</div>
+        <div class="cr-t">2020-07-10</div>
+        <div class="cr-y">第三次<br><small>无固定期限</small></div>
+        <div class="cr-r2">07-09</div>
+        <div class="cr-w"><span class="w-warn">关注<br><small>79天</small></span></div>
+      </div>
+      <div class="cr-r">
+        <div class="cr-g">谢永勇</div>
+        <div class="cr-d">其他人员</div>
+        <div class="cr-t">2020-11-16</div>
+        <div class="cr-y">第三次<br><small>无固定期限</small></div>
+        <div class="cr-r2">11-15</div>
+        <div class="cr-w"><span class="w-safe">正常</span></div>
+      </div>
+      <div class="cr-r cr-alt">
+        <div class="cr-g">吴泽经</div>
+        <div class="cr-d">行业与解决方案</div>
+        <div class="cr-t">2020-11-23</div>
+        <div class="cr-y">第三次<br><small>无固定期限</small></div>
+        <div class="cr-r2">11-22</div>
+        <div class="cr-w"><span class="w-safe">正常</span></div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="tp" id="t2">
 <div class="sec"><div class="sec-t">年龄与司龄</div><div class="cg">
