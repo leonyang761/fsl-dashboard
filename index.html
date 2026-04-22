@@ -154,7 +154,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .renew-tl::-webkit-scrollbar{display:none}
 .rtl-track{position:relative;min-width:700px;padding:8px 20px}
 .rtl-line{position:absolute;top:50%;left:10px;right:10px;height:2px;background:var(--border);border-radius:1px}
-.rtl-today{position:absolute;top:50%;width:2px;height:18px;background:#E74C3C;border-radius:1px;transform:translateY(-50%);z-index:3}
+.rtl-today{position:absolute;top:50%;width:2px;height:18px;background:#E74C3C;border-radius:1px;transform:translateY(-50%);z-index:3;left:5%}
 .rtl-today::before{content:"今天";position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:2px;font-size:7px;color:#E74C3C;white-space:nowrap;font-weight:600}
 .rtl-today::after{content:"4/21";position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:1px;font-size:6px;color:#E74C3C;white-space:nowrap}
 .rtl-nodes{display:flex;justify-content:space-between;position:relative;z-index:2}
@@ -163,22 +163,22 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .rtl-warn .rn-dot{background:#F39C12;box-shadow:0 0 6px rgba(243,156,18,.4)}
 .rtl-safe .rn-dot{background:#8FAA8E;box-shadow:0 0 6px rgba(143,170,142,.4)}
 .rn-dot{width:10px;height:10px;border-radius:50%;background:var(--m-blue);border:2px solid #fff;z-index:4;margin:2px 0}
-.rn-card{margin-top:4px;text-align:center;padding:4px 5px;border-radius:5px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.07);font-size:7px;min-width:80px}
+.rn-card{margin-top:4px;text-align:center;padding:4px 5px;border-radius:5px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.07);font-size:7px;min-width:80px;position:relative}
 .rn-card::before{content:"";position:absolute;bottom:100%;left:50%;width:1px;height:6px;background:var(--border)}
 .rtl-urg .rn-card{border-top:2px solid #E74C3C}
 .rtl-warn .rn-card{border-top:2px solid #F39C12}
 .rtl-safe .rn-card{border-top:2px solid #8FAA8E}
 .rnc-title{font-size:8px;font-weight:700;color:var(--text);margin-bottom:1px}
 .rnc-title small{font-weight:400;color:#999;font-size:6px;margin-left:2px}
-.rnc-sub{font-size:6px;color:#888;line-height:1.3;margin-bottom:2px}
+.rnc-sub{font-size:6px;color:#888;line-height:1.3;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rnc-tag{display:inline-block;font-size:6px;font-weight:700;padding:1px 4px;border-radius:3px}
 .rn-tag-urg{background:#FDEDEE;color:#E74C3C}
 .rn-tag-warn{background:#FEF3E2;color:#E67E22}
 .rn-tag-safe{background:#EAF4EA;color:#388E3C}
 /* 员工关系 - 续签明细表 */
-.cr-table{display:flex;flex-direction:column;font-size:7px}
-.cr-h{display:grid;grid-template-columns:12% 13% 15% 17% 12% 31%;padding:4px 6px;background:var(--m-gl);color:var(--m-green);font-weight:600;border-radius:3px 3px 0 0;font-size:7px;min-height:26px;align-items:center}
-.cr-r{display:grid;grid-template-columns:12% 13% 15% 17% 12% 31%;padding:5px 6px;border-bottom:1px solid var(--border);align-items:center}
+.cr-table{display:flex;flex-direction:column;font-size:7px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cr-h{display:grid;grid-template-columns:12% 13% 15% 17% 12% 31%;padding:4px 6px;background:var(--m-gl);color:var(--m-green);font-weight:600;border-radius:3px 3px 0 0;font-size:7px;min-height:26px;align-items:center;min-width:360px}
+.cr-r{display:grid;grid-template-columns:12% 13% 15% 17% 12% 31%;padding:5px 6px;border-bottom:1px solid var(--border);align-items:center;min-width:360px}
 .cr-alt{background:#FAFAF8}
 .cr-r2{font-weight:500}
 @media(min-width:640px){.timeline{padding:14px 0}.tl-card{min-width:160px;padding:8px 12px}.tlc-name{font-size:12px}.tlc-dept{font-size:9px}.tlc-date{font-size:11px}.tlc-type{font-size:9px}.tlc-days{font-size:10px}.tl-month{font-size:9px;min-width:30px}.cr-table,.cr-h,.cr-r{font-size:9px}.cr-h,.cr-r{grid-template-columns:11% 12% 14% 16% 11% 36%}}
