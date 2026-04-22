@@ -150,45 +150,34 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 
 /* 员工关系 - 续签时间轴 */
 /* 员工关系 - 续签时间轴 */
-.renew-tl{overflow-x:auto;padding:12px 0;scrollbar-width:none}
-.renew-tl::-webkit-scrollbar{display:none}
-.rtl-track{position:relative;min-width:700px;padding:8px 20px}
-.rtl-line{position:absolute;top:50%;left:10px;right:10px;height:2px;background:var(--border);border-radius:1px}
-.rtl-today{position:absolute;top:50%;width:2px;height:18px;background:#E74C3C;border-radius:1px;transform:translateY(-50%);z-index:3;left:5%}
-.rtl-today::before{content:"今天";position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:2px;font-size:7px;color:#E74C3C;white-space:nowrap;font-weight:600}
-.rtl-today::after{content:"4/21";position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:1px;font-size:6px;color:#E74C3C;white-space:nowrap}
-.rtl-nodes{display:flex;justify-content:space-between;position:relative;z-index:2}
-.rtl-node{display:flex;flex-direction:column;align-items:center;width:90px;position:relative}
-.rtl-urg .rn-dot{background:#E74C3C;box-shadow:0 0 6px rgba(231,76,60,.4)}
-.rtl-warn .rn-dot{background:#F39C12;box-shadow:0 0 6px rgba(243,156,18,.4)}
-.rtl-safe .rn-dot{background:#8FAA8E;box-shadow:0 0 6px rgba(143,170,142,.4)}
-.rn-dot{width:10px;height:10px;border-radius:50%;background:var(--m-blue);border:2px solid #fff;z-index:4;margin:2px 0}
-.rn-card{margin-top:4px;text-align:center;padding:4px 5px;border-radius:5px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.07);font-size:7px;min-width:80px;position:relative}
-.rn-card::before{content:"";position:absolute;bottom:100%;left:50%;width:1px;height:6px;background:var(--border)}
-.rtl-urg .rn-card{border-top:2px solid #E74C3C}
-.rtl-warn .rn-card{border-top:2px solid #F39C12}
-.rtl-safe .rn-card{border-top:2px solid #8FAA8E}
-.rnc-title{font-size:8px;font-weight:700;color:var(--text);margin-bottom:1px}
+
+.rtl-urg 
+.rtl-warn 
+.rtl-safe 
+
+.rtl-urg 
+.rtl-warn 
+.rtl-safe 
+
 .rnc-title small{font-weight:400;color:#999;font-size:6px;margin-left:2px}
-.rnc-sub{font-size:6px;color:#888;line-height:1.3;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rnc-tag{display:inline-block;font-size:6px;font-weight:700;padding:1px 4px;border-radius:3px}
-.rn-tag-urg{background:#FDEDEE;color:#E74C3C}
-.rn-tag-warn{background:#FEF3E2;color:#E67E22}
-.rn-tag-safe{background:#EAF4EA;color:#388E3C}
+
 /* 员工关系 - 续签明细表 */
-.cr-table{display:flex;flex-direction:column;font-size:7px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.cr-h{display:grid;grid-template-columns:12% 13% 15% 17% 12% 31%;padding:4px 6px;background:var(--m-gl);color:var(--m-green);font-weight:600;border-radius:3px 3px 0 0;font-size:7px;min-height:26px;align-items:center;min-width:360px}
-.cr-r{display:grid;grid-template-columns:12% 13% 15% 17% 12% 31%;padding:5px 6px;border-bottom:1px solid var(--border);align-items:center;min-width:360px}
-.cr-alt{background:#FAFAF8}
-.cr-r2{font-weight:500}
-@media(min-width:640px){.timeline{padding:14px 0}.tl-card{min-width:160px;padding:8px 12px}.tlc-name{font-size:12px}.tlc-dept{font-size:9px}.tlc-date{font-size:11px}.tlc-type{font-size:9px}.tlc-days{font-size:10px}.tl-month{font-size:9px;min-width:30px}.cr-table,.cr-h,.cr-r{font-size:9px}.cr-h,.cr-r{grid-template-columns:11% 12% 14% 16% 11% 36%}}
-@media(min-width:640px){.pri-num{font-size:24px}.pri-label{font-size:10px}.pri-detail{font-size:9px}.prog-label,.prog-note{font-size:10px}.fc{min-width:70px;padding:8px 6px}.fc-num{font-size:22px}.fc-label{font-size:9px}.fc-rate{font-size:8px}.fc-arrow{font-size:14px;flex:0 0 12px}.recruit-table,.rt-h,.rt-r{font-size:9px}.tag-a,.tag-b,.st-filter,.st-final{font-size:9px;padding:2px 8px}}
 
+@media(min-width:640px){.cr-table,.cr-h,.cr-h,}
+/* 员工关系 - 续签明细表 */
+.rc-table{display:flex;flex-direction:column;font-size:8px;min-width:340px}
+.rc-h{display:grid;grid-template-columns:52px 52px 80px 62px 48px 1fr;padding:4px 6px;background:var(--m-gl);color:var(--m-green);font-weight:600;border-radius:3px 3px 0 0;font-size:7px;min-height:22px;align-items:center}
+.rc-r{display:grid;grid-template-columns:52px 52px 80px 62px 48px 1fr;padding:4px 6px;border-bottom:1px solid var(--border);align-items:center;font-size:8px}
+.rc-alt{background:#FAFAF8}
+.rc-n{font-weight:600}
+.rc-e{color:#666}
+.rc-y{line-height:1.2}
+.rc-y small{color:#999;font-size:7px}
+.rc-a{font-weight:500}
+@media(min-width:640px){.rc-table{font-size:10px;min-width:auto}.rc-h,.rc-r{grid-template-columns:60px 60px 90px 70px 56px 1fr;font-size:10px}.rc-h{font-size:9px}.pri-num{font-size:24px}.pri-label{font-size:10px}.pri-detail{font-size:9px}.prog-label,.prog-note{font-size:10px}.fc{min-width:70px;padding:8px 6px}.fc-num{font-size:22px}.fc-label{font-size:9px}.fc-rate{font-size:8px}.fc-arrow{font-size:14px;flex:0 0 12px}.recruit-table,.rt-h,.rt-r{font-size:9px}.tag-a,.tag-b,.st-filter,.st-final{font-size:9px;padding:2px 8px}}
 
-.tl-dot{width:18px;height:18px;font-size:8px}.tl-card{padding:8px 10px}
 .tl-card-head{gap:4px}.tl-card-days{margin-left:0;width:100%}
 }
-
 
 /* ===== 招聘里程碑 ===== */
 .ms-container{padding:4px 0}
@@ -218,7 +207,6 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .gantt-today-line{width:2px;height:100%;background:#27AE60;opacity:0.5}
 .gantt-today-label{position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:8px;color:#27AE60;font-weight:700;margin-top:2px;white-space:nowrap}
 
-.gantt-row{display:flex;align-items:center;padding:9px 0;border-bottom:1px solid #F5F5F5;min-height:38px}
 .gantt-row:last-child{border-bottom:none}
 .gantt-alt{background:#FAFBFC}
 .gantt-label{width:70px;padding-left:10px;flex-shrink:0;font-size:10px;color:#555;font-weight:500;display:flex;align-items:center;gap:4px}
@@ -367,137 +355,140 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
   </div>
   <div class="sec">
     <div class="sec-t">续签时间轴</div>
-    <div class="renew-tl">
-      <div class="rtl-track">
-        <div class="rtl-line"></div>
-        <div class="rtl-today" style="left:5%"></div>
-        <div class="rtl-nodes">
-          <div class="rtl-node rtl-urg">
-            <div class="rn-dot"></div>
-            <div class="rn-card">
-              <div class="rnc-title"><b>朱雨泽</b> <small>产品管理</small></div>
-              <div class="rnc-sub">5/3 · 第二次 · 三年固定</div>
-              <div class="rnc-tag rn-tag-urg">剩12天</div>
-            </div>
-          </div>
-          <div class="rtl-node rtl-urg">
-            <div class="rn-dot"></div>
-            <div class="rn-card">
-              <div class="rnc-title"><b>陆强达</b> <small>产品企划</small></div>
-              <div class="rnc-sub">5/21 · 第二次 · 三年固定</div>
-              <div class="rnc-tag rn-tag-urg">剩30天</div>
-            </div>
-          </div>
-          <div class="rtl-node rtl-warn">
-            <div class="rn-dot"></div>
-            <div class="rn-card">
-              <div class="rnc-title"><b>胡国强</b> <small>其他人员</small></div>
-              <div class="rnc-sub">6/22 · 第三次 · 无固定</div>
-              <div class="rnc-tag rn-tag-warn">剩62天</div>
-            </div>
-          </div>
-          <div class="rtl-node rtl-warn">
-            <div class="rn-dot"></div>
-            <div class="rn-card">
-              <div class="rnc-title"><b>何培荣</b> <small>产品管理</small></div>
-              <div class="rnc-sub">6/30 · 第三次 · 无固定</div>
-              <div class="rnc-tag rn-tag-warn">剩70天</div>
-            </div>
-          </div>
-          <div class="rtl-node rtl-warn">
-            <div class="rn-dot"></div>
-            <div class="rn-card">
-              <div class="rnc-title"><b>孟令宾</b> <small>行业与解决方案</small></div>
-              <div class="rnc-sub">7/9 · 第三次 · 无固定</div>
-              <div class="rnc-tag rn-tag-warn">剩79天</div>
-            </div>
-          </div>
-          <div class="rtl-node rtl-safe">
-            <div class="rn-dot"></div>
-            <div class="rn-card">
-              <div class="rnc-title"><b>谢永勇</b> <small>其他人员</small></div>
-              <div class="rnc-sub">11/15 · 第三次 · 无固定</div>
-              <div class="rnc-tag rn-tag-safe">剩208天</div>
-            </div>
-          </div>
-          <div class="rtl-node rtl-safe">
-            <div class="rn-dot"></div>
-            <div class="rn-card">
-              <div class="rnc-title"><b>吴泽经</b> <small>行业与解决方案</small></div>
-              <div class="rnc-sub">11/22 · 第三次 · 无固定</div>
-              <div class="rnc-tag rn-tag-safe">剩215天</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding:8px 0">
+      <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;min-width:500px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">
+        <!-- Timeline axis -->
+        <line x1="30" y1="55" x2="670" y2="55" stroke="#E0E0E0" stroke-width="1.5"/>
+        <!-- Today marker -->
+        <line x1="62" y1="35" x2="62" y2="75" stroke="#E74C3C" stroke-width="1.5"/>
+        <text x="62" y="28" text-anchor="middle" font-size="8" fill="#E74C3C" font-weight="600">今天 4/21</text>
+        <!-- 朱雨泽 5/3 -->
+        <circle cx="140" cy="55" r="6" fill="#E74C3C"/>
+        <text x="140" y="46" text-anchor="middle" font-size="7" fill="#E74C3C" font-weight="600">5/3</text>
+        <text x="140" y="82" text-anchor="middle" font-size="8" fill="#333" font-weight="700">朱雨泽</text>
+        <text x="140" y="93" text-anchor="middle" font-size="7" fill="#888">产品管理</text>
+        <text x="140" y="104" text-anchor="middle" font-size="7" fill="#999">第二次·三年固定</text>
+        <rect x="115" y="108" width="50" height="12" rx="3" fill="#FDEDEE"/>
+        <text x="140" y="117" text-anchor="middle" font-size="7" fill="#E74C3C" font-weight="600">剩12天</text>
+        <!-- 陆强达 5/21 -->
+        <circle cx="250" cy="55" r="6" fill="#E74C3C"/>
+        <text x="250" y="46" text-anchor="middle" font-size="7" fill="#E74C3C" font-weight="600">5/21</text>
+        <text x="250" y="82" text-anchor="middle" font-size="8" fill="#333" font-weight="700">陆强达</text>
+        <text x="250" y="93" text-anchor="middle" font-size="7" fill="#888">产品企划</text>
+        <text x="250" y="104" text-anchor="middle" font-size="7" fill="#999">第二次·三年固定</text>
+        <rect x="225" y="108" width="50" height="12" rx="3" fill="#FDEDEE"/>
+        <text x="250" y="117" text-anchor="middle" font-size="7" fill="#E74C3C" font-weight="600">剩30天</text>
+        <!-- 胡国强 6/22 -->
+        <circle cx="360" cy="55" r="6" fill="#F39C12"/>
+        <text x="360" y="46" text-anchor="middle" font-size="7" fill="#E67E22" font-weight="600">6/22</text>
+        <text x="360" y="82" text-anchor="middle" font-size="8" fill="#333" font-weight="700">胡国强</text>
+        <text x="360" y="93" text-anchor="middle" font-size="7" fill="#888">其他人员</text>
+        <text x="360" y="104" text-anchor="middle" font-size="7" fill="#999">第三次·无固定</text>
+        <rect x="335" y="108" width="50" height="12" rx="3" fill="#FEF3E2"/>
+        <text x="360" y="117" text-anchor="middle" font-size="7" fill="#E67E22" font-weight="600">剩62天</text>
+        <!-- 何培荣 6/30 -->
+        <circle cx="430" cy="55" r="6" fill="#F39C12"/>
+        <text x="430" y="46" text-anchor="middle" font-size="7" fill="#E67E22" font-weight="600">6/30</text>
+        <text x="430" y="82" text-anchor="middle" font-size="8" fill="#333" font-weight="700">何培荣</text>
+        <text x="430" y="93" text-anchor="middle" font-size="7" fill="#888">产品管理</text>
+        <text x="430" y="104" text-anchor="middle" font-size="7" fill="#999">第三次·无固定</text>
+        <rect x="405" y="108" width="50" height="12" rx="3" fill="#FEF3E2"/>
+        <text x="430" y="117" text-anchor="middle" font-size="7" fill="#E67E22" font-weight="600">剩70天</text>
+        <!-- 孟令宾 7/9 -->
+        <circle cx="500" cy="55" r="6" fill="#F39C12"/>
+        <text x="500" y="46" text-anchor="middle" font-size="7" fill="#E67E22" font-weight="600">7/9</text>
+        <text x="500" y="82" text-anchor="middle" font-size="8" fill="#333" font-weight="700">孟令宾</text>
+        <text x="500" y="93" text-anchor="middle" font-size="7" fill="#888">行业方案</text>
+        <text x="500" y="104" text-anchor="middle" font-size="7" fill="#999">第三次·无固定</text>
+        <rect x="475" y="108" width="50" height="12" rx="3" fill="#FEF3E2"/>
+        <text x="500" y="117" text-anchor="middle" font-size="7" fill="#E67E22" font-weight="600">剩79天</text>
+        <!-- 谢永勇 11/15 -->
+        <circle cx="590" cy="55" r="6" fill="#8FAA8E"/>
+        <text x="590" y="46" text-anchor="middle" font-size="7" fill="#388E3C" font-weight="600">11/15</text>
+        <text x="590" y="82" text-anchor="middle" font-size="8" fill="#333" font-weight="700">谢永勇</text>
+        <text x="590" y="93" text-anchor="middle" font-size="7" fill="#888">其他人员</text>
+        <text x="590" y="104" text-anchor="middle" font-size="7" fill="#999">第三次·无固定</text>
+        <rect x="565" y="108" width="50" height="12" rx="3" fill="#EAF4EA"/>
+        <text x="590" y="117" text-anchor="middle" font-size="7" fill="#388E3C" font-weight="600">剩208天</text>
+        <!-- 吴泽经 11/22 -->
+        <circle cx="650" cy="55" r="6" fill="#8FAA8E"/>
+        <text x="650" y="46" text-anchor="middle" font-size="7" fill="#388E3C" font-weight="600">11/22</text>
+        <text x="650" y="82" text-anchor="middle" font-size="8" fill="#333" font-weight="700">吴泽经</text>
+        <text x="650" y="93" text-anchor="middle" font-size="7" fill="#888">行业方案</text>
+        <text x="650" y="104" text-anchor="middle" font-size="7" fill="#999">第三次·无固定</text>
+        <rect x="625" y="108" width="50" height="12" rx="3" fill="#EAF4EA"/>
+        <text x="650" y="117" text-anchor="middle" font-size="7" fill="#388E3C" font-weight="600">剩215天</text>
+      </svg>
     </div>
   </div>
   <div class="sec">
     <div class="sec-t">续签明细</div>
-    <div class="cr-table">
-      <div class="cr-h">
-        <div class="cr-g">姓名</div>
-        <div class="cr-d">部门</div>
-        <div class="cr-t">入职日期</div>
-        <div class="cr-y">续签类型</div>
-        <div class="cr-r">续签日期</div>
-        <div class="cr-w">预警</div>
-      </div>
-      <div class="cr-r cr-alt">
-        <div class="cr-g">朱雨泽</div>
-        <div class="cr-d">产品管理</div>
-        <div class="cr-t">2023-05-04</div>
-        <div class="cr-y">第二次<br><small>三年固定</small></div>
-        <div class="cr-r2">05-03</div>
-        <div class="cr-w"><span class="w-urg">紧急<br><small>12天</small></span></div>
-      </div>
-      <div class="cr-r">
-        <div class="cr-g">陆强达</div>
-        <div class="cr-d">产品企划</div>
-        <div class="cr-t">2023-05-22</div>
-        <div class="cr-y">第二次<br><small>三年固定</small></div>
-        <div class="cr-r2">05-21</div>
-        <div class="cr-w"><span class="w-urg">紧急<br><small>30天</small></span></div>
-      </div>
-      <div class="cr-r cr-alt">
-        <div class="cr-g">胡国强</div>
-        <div class="cr-d">其他人员</div>
-        <div class="cr-t">2020-06-23</div>
-        <div class="cr-y">第三次<br><small>无固定期限</small></div>
-        <div class="cr-r2">06-22</div>
-        <div class="cr-w"><span class="w-warn">关注<br><small>62天</small></span></div>
-      </div>
-      <div class="cr-r">
-        <div class="cr-g">何培荣</div>
-        <div class="cr-d">产品管理</div>
-        <div class="cr-t">2020-07-01</div>
-        <div class="cr-y">第三次<br><small>无固定期限</small></div>
-        <div class="cr-r2">06-30</div>
-        <div class="cr-w"><span class="w-warn">关注<br><small>70天</small></span></div>
-      </div>
-      <div class="cr-r cr-alt">
-        <div class="cr-g">孟令宾</div>
-        <div class="cr-d">行业与解决方案</div>
-        <div class="cr-t">2020-07-10</div>
-        <div class="cr-y">第三次<br><small>无固定期限</small></div>
-        <div class="cr-r2">07-09</div>
-        <div class="cr-w"><span class="w-warn">关注<br><small>79天</small></span></div>
-      </div>
-      <div class="cr-r">
-        <div class="cr-g">谢永勇</div>
-        <div class="cr-d">其他人员</div>
-        <div class="cr-t">2020-11-16</div>
-        <div class="cr-y">第三次<br><small>无固定期限</small></div>
-        <div class="cr-r2">11-15</div>
-        <div class="cr-w"><span class="w-safe">正常</span></div>
-      </div>
-      <div class="cr-r cr-alt">
-        <div class="cr-g">吴泽经</div>
-        <div class="cr-d">行业与解决方案</div>
-        <div class="cr-t">2020-11-23</div>
-        <div class="cr-y">第三次<br><small>无固定期限</small></div>
-        <div class="cr-r2">11-22</div>
-        <div class="cr-w"><span class="w-safe">正常</span></div>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <div class="rc-table">
+        <div class="rc-h">
+          <div class="rc-n">姓名</div>
+          <div class="rc-d">部门</div>
+          <div class="rc-e">入职日期</div>
+          <div class="rc-y">续签类型</div>
+          <div class="rc-a">续签日期</div>
+          <div class="rc-w">预警</div>
+        </div>
+        <div class="rc-r rc-alt">
+          <div class="rc-n">朱雨泽</div>
+          <div class="rc-d">产品管理</div>
+          <div class="rc-e">2023-05-04</div>
+          <div class="rc-y">第二次<br><small>三年固定</small></div>
+          <div class="rc-a">05-03</div>
+          <div class="rc-w"><span class="w-urg">紧急<br><small>12天</small></span></div>
+        </div>
+        <div class="rc-r">
+          <div class="rc-n">陆强达</div>
+          <div class="rc-d">产品企划</div>
+          <div class="rc-e">2023-05-22</div>
+          <div class="rc-y">第二次<br><small>三年固定</small></div>
+          <div class="rc-a">05-21</div>
+          <div class="rc-w"><span class="w-urg">紧急<br><small>30天</small></span></div>
+        </div>
+        <div class="rc-r rc-alt">
+          <div class="rc-n">胡国强</div>
+          <div class="rc-d">其他人员</div>
+          <div class="rc-e">2020-06-23</div>
+          <div class="rc-y">第三次<br><small>无固定期限</small></div>
+          <div class="rc-a">06-22</div>
+          <div class="rc-w"><span class="w-warn">关注<br><small>62天</small></span></div>
+        </div>
+        <div class="rc-r">
+          <div class="rc-n">何培荣</div>
+          <div class="rc-d">产品管理</div>
+          <div class="rc-e">2020-07-01</div>
+          <div class="rc-y">第三次<br><small>无固定期限</small></div>
+          <div class="rc-a">06-30</div>
+          <div class="rc-w"><span class="w-warn">关注<br><small>70天</small></span></div>
+        </div>
+        <div class="rc-r rc-alt">
+          <div class="rc-n">孟令宾</div>
+          <div class="rc-d">行业方案</div>
+          <div class="rc-e">2020-07-10</div>
+          <div class="rc-y">第三次<br><small>无固定期限</small></div>
+          <div class="rc-a">07-09</div>
+          <div class="rc-w"><span class="w-warn">关注<br><small>79天</small></span></div>
+        </div>
+        <div class="rc-r">
+          <div class="rc-n">谢永勇</div>
+          <div class="rc-d">其他人员</div>
+          <div class="rc-e">2020-11-16</div>
+          <div class="rc-y">第三次<br><small>无固定期限</small></div>
+          <div class="rc-a">11-15</div>
+          <div class="rc-w"><span class="w-safe">正常</span></div>
+        </div>
+        <div class="rc-r rc-alt">
+          <div class="rc-n">吴泽经</div>
+          <div class="rc-d">行业方案</div>
+          <div class="rc-e">2020-11-23</div>
+          <div class="rc-y">第三次<br><small>无固定期限</small></div>
+          <div class="rc-a">11-22</div>
+          <div class="rc-w"><span class="w-safe">正常</span></div>
+        </div>
       </div>
     </div>
   </div>
