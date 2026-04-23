@@ -505,11 +505,8 @@ var sd={"1万~1.5万": 11, "8千~1万": 7, "6千~8千": 5, "5千~6千": 8, "2万
 new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[{data:sv,backgroundColor:['#8BA4B8','#7FA3A0','#8FAA8E','#97A68F','#C8B89A','#C4A4A0','#9A948C'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:{right:0,left:0}},plugins:{legend:{display:false},datalabels:hbarDL},scales:{x:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:'#F0ECE8'}},y:{grid:{display:false},ticks:{font:{size:8}}}}}})
 </script>
 <div id="t7" class="tp">
-<div class="rc-recruit">
-  <!-- KPI 摘要 -->
-  <div class="sec">
+<div class="sec">
     <div class="sec-t">招聘概况</div>
-    <!-- 优先级分布 -->
     <div class="pri-row">
       <div class="pri-card pri-a">
         <div class="pri-num">3</div>
@@ -522,69 +519,37 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
         <div class="pri-detail">商照/地产/企划/智能</div>
       </div>
     </div>
-    <!-- 总体进度 -->
     <div class="progress-wrap">
       <div class="prog-label"><span>招聘完成进度</span><span class="prog-pct">0 / 7</span></div>
       <div class="prog-bar"><div class="prog-fill" style="width:0%"></div></div>
       <div class="prog-note">已完成到岗 0 人，进行中 7 个岗位</div>
     </div>
   </div>
-
-  <!-- 招聘漏斗 -->
-  <div class="sec">
-    <div class="sec-t">招聘漏斗</div>
-    <div class="funnel-cards">
-      <div class="fc fc-1">
-        <div class="fc-num">245</div>
+<div class="sec"><div class="sec-t">招聘漏斗</div><div class="funnel-cards"><div class="fc fc-1">
+        <div class="fc-num">259</div>
         <div class="fc-label">简历筛选</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:100%"></div></div>
-      </div>
-      <div class="fc-arrow"><span>→</span></div>
-      <div class="fc fc-2">
-        <div class="fc-num">10</div>
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:100.0%"></div></div></div><div class="fc-arrow"><span>→</span></div><div class="fc fc-2">
+        <div class="fc-num">11</div>
         <div class="fc-label">进入面试</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:4.1%"></div></div>
-        <div class="fc-rate">转化 4.1%</div>
-      </div>
-      <div class="fc-arrow"><span>→</span></div>
-      <div class="fc fc-3">
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:4.2%"></div></div><div class="fc-rate">转化 4.2%</div></div><div class="fc-arrow"><span>→</span></div><div class="fc fc-3">
         <div class="fc-num">1</div>
         <div class="fc-label">终面</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:10%"></div></div>
-        <div class="fc-rate">转化 10.0%</div>
-      </div>
-      <div class="fc-arrow"><span>→</span></div>
-      <div class="fc fc-4">
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:0.4%"></div></div><div class="fc-rate">转化 9.1%</div></div><div class="fc-arrow"><span>→</span></div><div class="fc fc-4">
         <div class="fc-num">0</div>
         <div class="fc-label">Offer</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:0%"></div></div>
-        <div class="fc-rate">转化 0%</div>
-      </div>
-      <div class="fc-arrow"><span>→</span></div>
-      <div class="fc fc-5">
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:0.0%"></div></div><div class="fc-rate">转化 0.0%</div></div><div class="fc-arrow"><span>→</span></div><div class="fc fc-5">
         <div class="fc-num">0</div>
         <div class="fc-label">已入职</div>
-        <div class="fc-bar"><div class="fc-bar-fill" style="width:0%"></div></div>
-        <div class="fc-rate">转化 0%</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 岗位明细 -->
-
-  
-  <!-- 招聘里程碑 -->
-  <div class="sec">
+        <div class="fc-bar"><div class="fc-bar-fill" style="width:0.0%"></div></div><div class="fc-rate">转化 0%</div></div></div></div>
+<div class="sec">
     <div class="sec-t">招聘里程碑</div>
     <div class="ms-container">
-      <!-- 概览统计 -->
       <div class="ms-summary">
         <div class="ms-stat ms-stat-a"><div class="ms-stat-num">3</div><div class="ms-stat-label">A类紧急</div></div>
         <div class="ms-stat ms-stat-b"><div class="ms-stat-num">4</div><div class="ms-stat-label">B类重要</div></div>
         <div class="ms-stat ms-stat-t"><div class="ms-stat-num">7</div><div class="ms-stat-label">岗位总数</div></div>
-        <div class="ms-stat ms-stat-d"><div class="ms-stat-num">69</div><div class="ms-stat-label">最近到岗(天)</div></div>
+        <div class="ms-stat ms-stat-d"><div class="ms-stat-num">68</div><div class="ms-stat-label">最近到岗(天)</div></div>
       </div>
-      <!-- 甘特图 -->
       <div class="gantt">
         <div class="gantt-header">
           <div class="gantt-hl">组别</div>
@@ -593,13 +558,16 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
           <div class="gantt-hd">到岗</div>
         </div>
         <div class="gantt-body">
-          <!-- 时间轴刻度 -->
           <div class="gantt-axis">
-            <div class="gantt-today-mark" style="left:0.6%"><div class="gantt-today-line"></div><div class="gantt-today-label">今日</div></div>
-            <div class="gantt-mark" style="left:0.0%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">4月</div></div><div class="gantt-mark" style="left:6.2%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">5月</div></div><div class="gantt-mark" style="left:24.7%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">6月</div></div><div class="gantt-mark" style="left:43.8%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">7月</div></div><div class="gantt-mark" style="left:63.0%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">8月</div></div><div class="gantt-mark" style="left:81.5%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">9月</div></div><div class="gantt-mark" style="left:100.0%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">9/30</div></div>
-          </div>
-          <!-- 岗位行 -->
-          <div class="gantt-row">
+            <div class="gantt-today-mark" style="left:1.2%"><div class="gantt-today-line"></div><div class="gantt-today-label">今日</div></div>
+            <div class="gantt-mark" style="left:0.0%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">4月</div></div>
+            <div class="gantt-mark" style="left:6.1%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">5月</div></div>
+            <div class="gantt-mark" style="left:24.5%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">6月</div></div>
+            <div class="gantt-mark" style="left:43.6%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">7月</div></div>
+            <div class="gantt-mark" style="left:62.6%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">8月</div></div>
+            <div class="gantt-mark" style="left:81.6%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">9月</div></div>
+            <div class="gantt-mark" style="left:100.0%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">9/30</div></div>
+          </div><div class="gantt-row">
       <div class="gantt-label"><span class="gantt-pri" style="background:#E74C3C">A</span>光源组</div>
       <div class="gantt-role">产品经理</div>
       <div class="gantt-bar-wrap">
@@ -608,7 +576,7 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
           <div class="gantt-bar-end" style="left:43.2%"></div>
         </div>
       </div>
-      <div class="gantt-deadline">06/30<br><small>69天</small></div>
+      <div class="gantt-deadline">06/30<br><small>68天</small></div>
     </div><div class="gantt-row gantt-alt">
       <div class="gantt-label"><span class="gantt-pri" style="background:#E74C3C">A</span>电器组</div>
       <div class="gantt-role">产品经理</div>
@@ -618,7 +586,7 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
           <div class="gantt-bar-end" style="left:43.2%"></div>
         </div>
       </div>
-      <div class="gantt-deadline">06/30<br><small>69天</small></div>
+      <div class="gantt-deadline">06/30<br><small>68天</small></div>
     </div><div class="gantt-row">
       <div class="gantt-label"><span class="gantt-pri" style="background:#E74C3C">A</span>工业+办公</div>
       <div class="gantt-role">行业经理</div>
@@ -628,7 +596,7 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
           <div class="gantt-bar-end" style="left:43.2%"></div>
         </div>
       </div>
-      <div class="gantt-deadline">06/30<br><small>69天</small></div>
+      <div class="gantt-deadline">06/30<br><small>68天</small></div>
     </div><div class="gantt-row gantt-alt">
       <div class="gantt-label"><span class="gantt-pri" style="background:#3498DB">B</span>智能组</div>
       <div class="gantt-role">产品经理</div>
@@ -638,7 +606,7 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
           <div class="gantt-bar-end" style="left:43.2%"></div>
         </div>
       </div>
-      <div class="gantt-deadline">06/30<br><small>69天</small></div>
+      <div class="gantt-deadline">06/30<br><small>68天</small></div>
     </div><div class="gantt-row">
       <div class="gantt-label"><span class="gantt-pri" style="background:#3498DB">B</span>企划组</div>
       <div class="gantt-role">企划经理</div>
@@ -648,7 +616,7 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
           <div class="gantt-bar-end" style="left:62.3%"></div>
         </div>
       </div>
-      <div class="gantt-deadline">07/31<br><small>100天</small></div>
+      <div class="gantt-deadline">07/31<br><small>99天</small></div>
     </div><div class="gantt-row gantt-alt">
       <div class="gantt-label"><span class="gantt-pri" style="background:#3498DB">B</span>商照组</div>
       <div class="gantt-role">产品经理</div>
@@ -658,7 +626,7 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
           <div class="gantt-bar-end" style="left:100.0%"></div>
         </div>
       </div>
-      <div class="gantt-deadline">09/30<br><small>161天</small></div>
+      <div class="gantt-deadline">09/30<br><small>160天</small></div>
     </div><div class="gantt-row">
       <div class="gantt-label"><span class="gantt-pri" style="background:#3498DB">B</span>地产+酒店</div>
       <div class="gantt-role">行业经理</div>
@@ -668,11 +636,8 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
           <div class="gantt-bar-end" style="left:100.0%"></div>
         </div>
       </div>
-      <div class="gantt-deadline">09/30<br><small>161天</small></div>
-    </div>
-        </div>
-      </div>
-      <!-- 图例 -->
+      <div class="gantt-deadline">09/30<br><small>160天</small></div>
+    </div></div></div>
       <div class="ms-legend">
         <span class="ms-legend-item"><span class="ms-legend-dot" style="background:#E74C3C"></span>A类紧急（6/30到岗）</span>
         <span class="ms-legend-item"><span class="ms-legend-dot" style="background:#3498DB"></span>B类重要（7-9月到岗）</span>
@@ -680,78 +645,63 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
       </div>
     </div>
   </div>
-
-  <div class="sec">
-    <div class="sec-t">岗位明细</div>
-    <div class="recruit-table">
-      <div class="rt-h">
+<div class="sec"><div class="sec-t">岗位明细</div><div class="recruit-table"><div class="rt-h">
         <div class="rt-g">组别</div>
         <div class="rt-j">岗位</div>
         <div class="rt-p">优先级</div>
         <div class="rt-s">状态</div>
         <div class="rt-d">到岗</div>
         <div class="rt-w">预警</div>
-      </div>
-      <div class="rt-r">
-        <div class="rt-g">商照组</div>
-        <div class="rt-j">产品经理</div>
-        <div class="rt-p"><span class="tag-b">B类</span></div>
-        <div class="rt-s"><span class="st-filter">筛选中</span></div>
-        <div class="rt-d">9/30</div>
-        <div class="rt-w"><span class="w-safe">正常</span></div>
-      </div>
-      <div class="rt-r rt-alt">
+      </div><div class="rt-r">
         <div class="rt-g">光源组</div>
         <div class="rt-j">产品经理</div>
         <div class="rt-p"><span class="tag-a">A类</span></div>
         <div class="rt-s"><span class="st-filter">筛选中</span></div>
         <div class="rt-d">6/30</div>
-        <div class="rt-w"><span class="w-warn">关注<br><small>70天</small></span></div>
-      </div>
-      <div class="rt-r">
+        <div class="rt-w"><span class="w-warn">关注<br><small>68天</small></span></div>
+      </div><div class="rt-r rt-alt">
         <div class="rt-g">电器组</div>
         <div class="rt-j">产品经理</div>
         <div class="rt-p"><span class="tag-a">A类</span></div>
         <div class="rt-s"><span class="st-filter">筛选中</span></div>
         <div class="rt-d">6/30</div>
-        <div class="rt-w"><span class="w-warn">关注<br><small>70天</small></span></div>
-      </div>
-      <div class="rt-r rt-alt">
+        <div class="rt-w"><span class="w-warn">关注<br><small>68天</small></span></div>
+      </div><div class="rt-r">
         <div class="rt-g">工业+办公</div>
         <div class="rt-j">行业经理</div>
         <div class="rt-p"><span class="tag-a">A类</span></div>
         <div class="rt-s"><span class="st-filter">筛选中</span></div>
         <div class="rt-d">6/30</div>
-        <div class="rt-w"><span class="w-warn">关注<br><small>70天</small></span></div>
-      </div>
-      <div class="rt-r">
-        <div class="rt-g">地产+酒店</div>
-        <div class="rt-j">行业经理</div>
+        <div class="rt-w"><span class="w-warn">关注<br><small>68天</small></span></div>
+      </div><div class="rt-r rt-alt">
+        <div class="rt-g">智能组</div>
+        <div class="rt-j">产品经理</div>
         <div class="rt-p"><span class="tag-b">B类</span></div>
         <div class="rt-s"><span class="st-filter">筛选中</span></div>
-        <div class="rt-d">9/30</div>
+        <div class="rt-d">6/30</div>
         <div class="rt-w"><span class="w-safe">正常</span></div>
-      </div>
-      <div class="rt-r rt-alt">
+      </div><div class="rt-r">
         <div class="rt-g">企划组</div>
         <div class="rt-j">企划经理</div>
         <div class="rt-p"><span class="tag-b">B类</span></div>
         <div class="rt-s"><span class="st-final">终面中</span></div>
         <div class="rt-d">7/31</div>
         <div class="rt-w"><span class="w-safe">正常</span></div>
-      </div>
-      <div class="rt-r">
-        <div class="rt-g">智能组</div>
+      </div><div class="rt-r rt-alt">
+        <div class="rt-g">商照组</div>
         <div class="rt-j">产品经理</div>
         <div class="rt-p"><span class="tag-b">B类</span></div>
         <div class="rt-s"><span class="st-filter">筛选中</span></div>
-        <div class="rt-d">6/30</div>
-        <div class="rt-w"><span class="w-warn">关注<br><small>70天</small></span></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal-overlay" id="orgModal" onclick="closeOrgModal(event)"><div class="modal-wrap"><div class="modal-img-box"><img id="orgModalImg" src=""></div></div><button class="modal-close" onclick="document.getElementById('orgModal').classList.remove('show')">&times;</button></div>
+        <div class="rt-d">9/30</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div><div class="rt-r">
+        <div class="rt-g">地产+酒店</div>
+        <div class="rt-j">行业经理</div>
+        <div class="rt-p"><span class="tag-b">B类</span></div>
+        <div class="rt-s"><span class="st-filter">筛选中</span></div>
+        <div class="rt-d">9/30</div>
+        <div class="rt-w"><span class="w-safe">正常</span></div>
+      </div></div></div><div class="modal-overlay" id="orgModal" onclick="closeOrgModal(event)"><div class="modal-wrap"><div class="modal-img-box"><img id="orgModalImg" src=""></div></div><button class="modal-close" onclick="document.getElementById('orgModal').classList.remove('show')">&times;</button></div>
 <script>
 function closeOrgModal(e){if(!e.target.closest('.modal-img-box'))document.getElementById('orgModal').classList.remove('show')}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('orgModal').classList.remove('show')});
