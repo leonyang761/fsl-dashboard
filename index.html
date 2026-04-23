@@ -482,6 +482,8 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 </div>
 </div>
 </div>
+</div>
+</div>
 <script>
 Chart.register(ChartDataLabels);
 function sw(el,id){document.querySelectorAll('.tp').forEach(function(e){e.classList.remove('on')});document.querySelectorAll('.tab').forEach(function(e){e.classList.remove('on')});document.getElementById(id).classList.add('on');el.classList.add('on')}
@@ -659,6 +661,8 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
   </div>
 </div>
 <div class="modal-overlay" id="orgModal" onclick="closeOrgModal(event)"><div class="modal-wrap"><div class="modal-img-box"><img id="orgModalImg" src=""></div></div><button class="modal-close" onclick="document.getElementById('orgModal').classList.remove('show')">&times;</button></div>
+</div>
+</div>
 <script>
 function closeOrgModal(e){if(!e.target.closest('.modal-img-box'))document.getElementById('orgModal').classList.remove('show')}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('orgModal').classList.remove('show')});
