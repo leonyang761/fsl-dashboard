@@ -243,7 +243,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <div class="sec"><div class="sec-t">学历结构</div><div class="cc"><div class="cw"><canvas id="cEdu"></canvas></div></div></div>
 <div class="stbl-wrap" id="tbl_dept"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle(&#39;show&#39;)">▼ 部门</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>产品管理</td><td>22</td><td class="pct">55%</td></tr><tr><td>行业与解决方案</td><td>8</td><td class="pct">20%</td></tr><tr><td>产品企划</td><td>7</td><td class="pct">18%</td></tr><tr><td>人力行政</td><td>2</td><td class="pct">5%</td></tr><tr><td>特战队</td><td>1</td><td class="pct">2%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div><div class="stbl-wrap" id="tbl_gender"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle(&#39;show&#39;)">▼ 性别</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>男</td><td>30</td><td class="pct">75%</td></tr><tr><td>女</td><td>10</td><td class="pct">25%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div><div class="stbl-wrap" id="tbl_edu"><span class="stbl-toggle" onclick="this.nextElementSibling.classList.toggle(&#39;show&#39;)">▼ 学历</span><div class="stbl-box"><div class="stbl"><table><thead><tr><th>类别</th><th>人数</th><th>占比</th></tr></thead><tbody><tr><td>本科</td><td>28</td><td class="pct">70%</td></tr><tr><td>大专</td><td>8</td><td class="pct">20%</td></tr><tr><td>中专</td><td>2</td><td class="pct">5%</td></tr><tr><td>硕士</td><td>2</td><td class="pct">5%</td></tr><tr class="stbl-total"><td>合计</td><td>40</td><td>100%</td></tr></tbody></table></div></div></div>
 </div>
-<div class="tp" id="t5">
+</div><div class="tp" id="t5">
 <div class="vt"><span class="vb on" onclick="tv('card',this)">卡片</span><span class="vb" onclick="tv('table',this)">表格</span></div>
 <div id="vCard" class="pcl"><div class="person-card"><div class="pc-top"><span class="pc-name">马涛</span><span class="grade grade-aplus">A+</span></div><div class="pc-dept">产品管理</div><div class="pc-tags"><span class="tag tag-backbone">骨干</span><span class="pot pot-mid">中潜力</span></div><div class="pc-grid"><div class="pc-item"><span class="pc-val">男</span><span class="pc-lbl">性别</span></div><div class="pc-item"><span class="pc-val">大专</span><span class="pc-lbl">学历</span></div><div class="pc-item"><span class="pc-val">44岁</span><span class="pc-lbl">年龄</span></div><div class="pc-item"><span class="pc-val">27,000</span><span class="pc-lbl">薪酬</span></div><div class="pc-item"><span class="pc-val">96.14</span><span class="pc-lbl">绩效</span></div><div class="pc-item"><span class="pc-val">4年</span><span class="pc-lbl">司龄</span></div><div class="pc-item pc-phone"><span class="pc-val">-</span><span class="pc-lbl">电话</span></div></div></div>
 <div class="person-card"><div class="pc-top"><span class="pc-name">黄健明</span><span class="grade grade-aplus">A+</span></div><div class="pc-dept">产品管理</div><div class="pc-tags"><span class="tag tag-icon">明星</span><span class="pot pot-high">高潜力</span></div><div class="pc-grid"><div class="pc-item"><span class="pc-val">男</span><span class="pc-lbl">性别</span></div><div class="pc-item"><span class="pc-val">大专</span><span class="pc-lbl">学历</span></div><div class="pc-item"><span class="pc-val">41岁</span><span class="pc-lbl">年龄</span></div><div class="pc-item"><span class="pc-val">25,000</span><span class="pc-lbl">薪酬</span></div><div class="pc-item"><span class="pc-val">95.61</span><span class="pc-lbl">绩效</span></div><div class="pc-item"><span class="pc-val">0年</span><span class="pc-lbl">司龄</span></div><div class="pc-item pc-phone"><span class="pc-val"><a href="tel:13822308894" style="color:var(--m-blue);text-decoration:none">13822308894</a></span><span class="pc-lbl">电话</span></div></div></div>
@@ -385,7 +385,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
     </div>
   </div>
 </div>
-<div class="tp" id="t2">
+</div><div class="tp" id="t2">
 <div class="sec"><div class="sec-t">年龄与司龄</div><div class="cg">
 <div class="cc"><div class="ch"><span class="ct">年龄分布</span></div><div class="cw"><canvas id="cAge"></canvas></div></div>
 <div class="cc"><div class="ch"><span class="ct">司龄分布</span></div><div class="cw"><canvas id="cSenior"></canvas></div></div>
@@ -483,7 +483,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 </div>
 </div>
 </div>
-</div>
+</div></div>
 <script>
 Chart.register(ChartDataLabels);
 function sw(el,id){document.querySelectorAll('.tp').forEach(function(e){e.classList.remove('on')});document.querySelectorAll('.tab').forEach(function(e){e.classList.remove('on')});document.getElementById(id).classList.add('on');el.classList.add('on')}
