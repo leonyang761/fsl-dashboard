@@ -3,7 +3,7 @@
 <title>产品及方案中心 · 人力行政数据看板</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
-<style>
+<style><style>
 :root{--bg:#F5F0EB;--card:#FFF;--text:#4A4540;--text2:#8A8480;--text3:#B5AFA8;--border:#E8E2DC;--shadow:rgba(74,69,64,.06);--m-blue:#8BA4B8;--m-bl:#B8CCD8;--m-green:#8FAA8E;--m-gl:#C2D5C1;--m-pink:#C4A4A0;--m-pl:#DDD0CE;--m-beige:#C8B89A;--m-purple:#A898B0;--m-teal:#7FA3A0;--m-lavender:#9E98B4;--m-sage:#97A68F;--m-stone:#9A948C}
 *{margin:0;padding:0;box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:13px}
@@ -174,45 +174,39 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 .ms-stat-d{border-top:2.5px solid #27AE60}.ms-stat-d .ms-stat-num{color:#27AE60}
 .ms-stat-num{font-size:22px;font-weight:800;line-height:1.2}
 .ms-stat-label{font-size:9px;color:#7F8C8D;font-weight:500;margin-top:2px}
-
-.gantt{background:#fff;border:1px solid #E8ECF0;border-radius:8px;overflow:hidden}
-.gantt-header{display:flex;align-items:center;background:#F4F6F8;border-bottom:1px solid #E8ECF0;padding:8px 0;font-size:9px;color:#7F8C8D;font-weight:600}
-.gantt-hl{width:70px;padding-left:10px;flex-shrink:0}
-.gantt-hr{width:62px;flex-shrink:0}
-.gantt-hb{flex:1;padding-left:8px}
-.gantt-hd{width:44px;flex-shrink:0;text-align:center}
-
-.gantt-body{position:relative}
-.gantt-axis{position:absolute;top:0;left:138px;right:50px;height:100%;pointer-events:none}
-.gantt-mark{position:absolute;top:0;bottom:0}
-.gantt-mark-line{width:1px;height:100%;background:#F0F0F0}
-.gantt-mark-label{position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:8px;color:#CCC;font-weight:500;margin-top:2px}
-.gantt-today-mark{position:absolute;top:0;bottom:0;z-index:3}
-.gantt-today-line{width:2px;height:100%;background:#27AE60;opacity:0.5}
-.gantt-today-label{position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:8px;color:#27AE60;font-weight:700;margin-top:2px;white-space:nowrap}
-
-.gantt-row:last-child{border-bottom:none}
-.gantt-alt{background:#FAFBFC}
-.gantt-label{width:70px;padding-left:10px;flex-shrink:0;font-size:10px;color:#555;font-weight:500;display:flex;align-items:center;gap:4px}
-.gantt-pri{display:inline-block;width:14px;height:14px;border-radius:3px;color:#fff;font-size:8px;font-weight:800;text-align:center;line-height:14px;flex-shrink:0}
-.gantt-role{width:62px;flex-shrink:0;font-size:10px;color:#2C3E50;font-weight:600}
-.gantt-bar-wrap{flex:1;padding:0 6px}
-.gantt-bar-bg{position:relative;height:8px;background:#F0F0F0;border-radius:4px;overflow:visible}
-.gantt-bar{height:100%;border-radius:4px;position:relative;transition:width 0.8s cubic-bezier(0.4,0,0.2,1)}
-.gantt-bar-end{position:absolute;top:-3px;width:2px;height:14px;background:inherit;border-radius:1px;opacity:0.6;transform:translateX(-1px)}
-.gantt-deadline{width:44px;flex-shrink:0;text-align:center;font-size:10px;font-weight:700;color:#2C3E50;line-height:1.2}
-.gantt-urgent{color:#E74C3C}
-.gantt-urgent small{color:#E74C3C}
-.gantt-deadline small{font-size:8px;font-weight:500;color:#AAA}
-
-.ms-legend{display:flex;gap:14px;padding:10px 4px 2px;flex-wrap:wrap}
-.ms-legend-item{display:flex;align-items:center;gap:4px;font-size:9px;color:#95A5A6}
-.ms-legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
-
+.tl-batches{display:flex;flex-direction:column;gap:12px}
+.tl-batch{background:#FAFBFC;border:1px solid #E8ECF0;border-radius:10px;padding:14px;transition:box-shadow 0.2s}
+.tl-batch:hover{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.tl-batch-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.tl-date{font-size:15px;font-weight:800;color:#2C3E50;line-height:1.2}
+.tl-days{font-size:11px;color:#95A5A6;margin-top:3px}
+.tl-days strong{color:#2C3E50;font-weight:700}
+.tl-badge{font-size:9px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.tl-progress{margin-bottom:12px}
+.tl-progress-bar{height:4px;background:#E8ECF0;border-radius:2px;overflow:hidden}
+.tl-progress-fill{height:100%;border-radius:2px;transition:width 0.8s cubic-bezier(0.4,0,0.2,1)}
+.tl-jobs{display:flex;flex-direction:column;gap:8px}
+.tl-job{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#fff;border-radius:8px;border:1px solid #F0F2F5}
+.tl-job-left{display:flex;align-items:center;gap:6px;min-width:0;flex:1}
+.tl-pri{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;font-size:10px;font-weight:800;flex-shrink:0}
+.tl-name{font-size:11px;font-weight:700;color:#2C3E50;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-job-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.tl-group{font-size:9px;color:#95A5A6;font-weight:500}
+.tl-status{font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.tl-resume{font-size:9px;color:#BDC3C7;font-weight:500;flex-shrink:0;margin-left:auto}
+.dist-wrap{margin-top:14px;background:#FAFBFC;border:1px solid #E8ECF0;border-radius:10px;padding:12px 14px}
+.dist-title{font-size:11px;font-weight:700;color:#2C3E50;margin-bottom:10px}
+.dist-list{display:flex;flex-direction:column;gap:8px}
+.dist-item{display:flex;align-items:center;gap:8px}
+.dist-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.dist-label{font-size:10px;color:#555;font-weight:600;width:48px;flex-shrink:0}
+.dist-count{font-size:12px;font-weight:800;color:#2C3E50;width:20px;flex-shrink:0;text-align:right}
+.dist-bar-wrap{flex:1;height:6px;background:#E8ECF0;border-radius:3px;overflow:hidden}
+.dist-bar{height:100%;border-radius:3px;transition:width 0.8s cubic-bezier(0.4,0,0.2,1)}
 @media(max-width:640px){
 .ms-stat{padding:8px 4px}.ms-stat-num{font-size:18px}
-.gantt-hl{width:54px;padding-left:6px}.gantt-hr{width:52px}.gantt-label{font-size:9px}.gantt-role{font-size:9px}
-.gantt-deadline{width:38px;font-size:9px}
+.tl-batch{padding:10px}.tl-date{font-size:13px}.tl-job{padding:6px 8px;gap:5px}.tl-name{font-size:10px}.tl-pri{width:18px;height:18px;font-size:9px}.tl-resume{display:none}
+.dist-item{gap:6px}.dist-label{width:40px;font-size:9px}
 }
 
 </style></head><body><div class="dash">
@@ -554,7 +548,7 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
         <div class="fc-bar" style="width:16%"></div>
       </div>
 </div></div>
-<div class="sec"><div class="sec-t">里程碑甘特图</div>
+<div class="sec"><div class="sec-t">到岗里程碑</div>
     <div class="ms-container">
       <div class="ms-summary">
         <div class="ms-stat ms-stat-a"><div class="ms-stat-num">3</div><div class="ms-stat-label">A类紧急</div></div>
@@ -562,98 +556,146 @@ new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[
         <div class="ms-stat ms-stat-t"><div class="ms-stat-num">7</div><div class="ms-stat-label">岗位总数</div></div>
         <div class="ms-stat ms-stat-d"><div class="ms-stat-num">67</div><div class="ms-stat-label">最近到岗(天)</div></div>
       </div>
-      <div class="gantt">
-        <div class="gantt-header">
-          <div class="gantt-hl">组别</div>
-          <div class="gantt-hr">岗位</div>
-          <div class="gantt-hb">招聘周期 <small style="font-weight:400;color:#AAA">2026.04.24 — 2026.09.30</small></div>
-          <div class="gantt-hd">到岗</div>
-        </div>
-        <div class="gantt-body">
-          <div class="gantt-axis">
-            <div class="gantt-today-mark" style="left:0.0%"><div class="gantt-today-line"></div><div class="gantt-today-label">今日</div></div>
-            <div class="gantt-mark" style="left:-14.5%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">4月</div></div>
-            <div class="gantt-mark" style="left:4.4%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">5月</div></div>
-            <div class="gantt-mark" style="left:23.9%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">6月</div></div>
-            <div class="gantt-mark" style="left:42.8%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">7月</div></div>
-            <div class="gantt-mark" style="left:62.3%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">8月</div></div>
-            <div class="gantt-mark" style="left:81.8%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">9月</div></div>
-            <div class="gantt-mark" style="left:100.0%"><div class="gantt-mark-line"></div><div class="gantt-mark-label">9/30</div></div>
-          </div><div class="gantt-row">
-      <div class="gantt-label"><span class="gantt-pri" style="background:#E74C3C">A</span>光源组</div>
-      <div class="gantt-role">产品经理</div>
-      <div class="gantt-bar-wrap">
-        <div class="gantt-bar-bg">
-          <div class="gantt-bar" style="width:42.1%;background:linear-gradient(90deg,#E74C3C,#E74C3C88)"></div>
-          <div class="gantt-bar-end" style="left:42.1%"></div>
-        </div>
+      <div class="tl-batches">
+        <div class="tl-batch">
+            <div class="tl-batch-header">
+              <div>
+                <div class="tl-date">6月30日</div>
+                <div class="tl-days">剩余 <strong>67</strong> 天</div>
+              </div>
+              <span class="tl-badge" style="color:#E74C3C;background:#FDEDEC">本月冲刺</span>
+            </div>
+            <div class="tl-progress">
+              <div class="tl-progress-bar">
+                <div class="tl-progress-fill" style="width:58%;background:#E74C3C"></div>
+              </div>
+            </div>
+            <div class="tl-jobs"><div class="tl-job">
+                <div class="tl-job-left">
+                  <span class="tl-pri" style="color:#E74C3C;border:1.5px solid #E74C3C">A</span>
+                  <span class="tl-name">产品经理</span>
+                </div>
+                <div class="tl-job-right">
+                  <span class="tl-group">光源组</span>
+                  <span class="tl-status" style="color:#95A5A6;background:#F8F9F9">○ 筛选中</span>
+                </div>
+                <div class="tl-resume">简历 26</div>
+              </div><div class="tl-job">
+                <div class="tl-job-left">
+                  <span class="tl-pri" style="color:#E74C3C;border:1.5px solid #E74C3C">A</span>
+                  <span class="tl-name">产品经理</span>
+                </div>
+                <div class="tl-job-right">
+                  <span class="tl-group">电器组</span>
+                  <span class="tl-status" style="color:#95A5A6;background:#F8F9F9">○ 筛选中</span>
+                </div>
+                <div class="tl-resume">简历 46</div>
+              </div><div class="tl-job">
+                <div class="tl-job-left">
+                  <span class="tl-pri" style="color:#E74C3C;border:1.5px solid #E74C3C">A</span>
+                  <span class="tl-name">行业经理</span>
+                </div>
+                <div class="tl-job-right">
+                  <span class="tl-group">工业+办公</span>
+                  <span class="tl-status" style="color:#2980B9;background:#EBF5FB">● 面试中</span>
+                </div>
+                <div class="tl-resume">简历 14</div>
+              </div><div class="tl-job">
+                <div class="tl-job-left">
+                  <span class="tl-pri" style="color:#3498DB;border:1.5px solid #3498DB">B</span>
+                  <span class="tl-name">产品经理</span>
+                </div>
+                <div class="tl-job-right">
+                  <span class="tl-group">智能组</span>
+                  <span class="tl-status" style="color:#2980B9;background:#EBF5FB">● 面试中</span>
+                </div>
+                <div class="tl-resume">简历 75</div>
+              </div>
+            </div>
+          </div><div class="tl-batch">
+            <div class="tl-batch-header">
+              <div>
+                <div class="tl-date">7月31日</div>
+                <div class="tl-days">剩余 <strong>98</strong> 天</div>
+              </div>
+              <span class="tl-badge" style="color:#F39C12;background:#FEF9E7">稳步推进</span>
+            </div>
+            <div class="tl-progress">
+              <div class="tl-progress-bar">
+                <div class="tl-progress-fill" style="width:38%;background:#F39C12"></div>
+              </div>
+            </div>
+            <div class="tl-jobs"><div class="tl-job">
+                <div class="tl-job-left">
+                  <span class="tl-pri" style="color:#3498DB;border:1.5px solid #3498DB">B</span>
+                  <span class="tl-name">企划经理</span>
+                </div>
+                <div class="tl-job-right">
+                  <span class="tl-group">企划组</span>
+                  <span class="tl-status" style="color:#8E44AD;background:#F5EEF8">◆ 终面中</span>
+                </div>
+                <div class="tl-resume">简历 29</div>
+              </div>
+            </div>
+          </div><div class="tl-batch">
+            <div class="tl-batch-header">
+              <div>
+                <div class="tl-date">9月30日</div>
+                <div class="tl-days">剩余 <strong>159</strong> 天</div>
+              </div>
+              <span class="tl-badge" style="color:#27AE60;background:#EAFAF1">长线储备</span>
+            </div>
+            <div class="tl-progress">
+              <div class="tl-progress-bar">
+                <div class="tl-progress-fill" style="width:0%;background:#27AE60"></div>
+              </div>
+            </div>
+            <div class="tl-jobs"><div class="tl-job">
+                <div class="tl-job-left">
+                  <span class="tl-pri" style="color:#3498DB;border:1.5px solid #3498DB">B</span>
+                  <span class="tl-name">产品经理</span>
+                </div>
+                <div class="tl-job-right">
+                  <span class="tl-group">商照组</span>
+                  <span class="tl-status" style="color:#95A5A6;background:#F8F9F9">○ 筛选中</span>
+                </div>
+                <div class="tl-resume">简历 75</div>
+              </div><div class="tl-job">
+                <div class="tl-job-left">
+                  <span class="tl-pri" style="color:#3498DB;border:1.5px solid #3498DB">B</span>
+                  <span class="tl-name">行业经理</span>
+                </div>
+                <div class="tl-job-right">
+                  <span class="tl-group">地产+酒店</span>
+                  <span class="tl-status" style="color:#95A5A6;background:#F8F9F9">○ 筛选中</span>
+                </div>
+                <div class="tl-resume">简历 13</div>
+              </div>
+            </div>
+          </div>
       </div>
-      <div class="gantt-deadline">6/30<br><small>67天</small></div>
-    </div><div class="gantt-row gantt-alt">
-      <div class="gantt-label"><span class="gantt-pri" style="background:#E74C3C">A</span>电器组</div>
-      <div class="gantt-role">产品经理</div>
-      <div class="gantt-bar-wrap">
-        <div class="gantt-bar-bg">
-          <div class="gantt-bar" style="width:42.1%;background:linear-gradient(90deg,#E74C3C,#E74C3C88)"></div>
-          <div class="gantt-bar-end" style="left:42.1%"></div>
+      <div class="dist-wrap">
+        <div class="dist-title">招聘状态分布</div>
+        <div class="dist-list"><div class="dist-item">
+            <div class="dist-dot" style="background:#8E44AD"></div>
+            <div class="dist-label">终面中</div>
+            <div class="dist-count">1</div>
+            <div class="dist-bar-wrap"><div class="dist-bar" style="width:14.3%;background:#8E44AD"></div></div>
+          </div><div class="dist-item">
+            <div class="dist-dot" style="background:#2980B9"></div>
+            <div class="dist-label">面试中</div>
+            <div class="dist-count">2</div>
+            <div class="dist-bar-wrap"><div class="dist-bar" style="width:28.6%;background:#2980B9"></div></div>
+          </div><div class="dist-item">
+            <div class="dist-dot" style="background:#95A5A6"></div>
+            <div class="dist-label">筛选中</div>
+            <div class="dist-count">4</div>
+            <div class="dist-bar-wrap"><div class="dist-bar" style="width:57.1%;background:#95A5A6"></div></div>
+          </div>
         </div>
-      </div>
-      <div class="gantt-deadline">6/30<br><small>67天</small></div>
-    </div><div class="gantt-row">
-      <div class="gantt-label"><span class="gantt-pri" style="background:#E74C3C">A</span>工业+办公</div>
-      <div class="gantt-role">行业经理</div>
-      <div class="gantt-bar-wrap">
-        <div class="gantt-bar-bg">
-          <div class="gantt-bar" style="width:42.1%;background:linear-gradient(90deg,#E74C3C,#E74C3C88)"></div>
-          <div class="gantt-bar-end" style="left:42.1%"></div>
-        </div>
-      </div>
-      <div class="gantt-deadline">6/30<br><small>67天</small></div>
-    </div><div class="gantt-row gantt-alt">
-      <div class="gantt-label"><span class="gantt-pri" style="background:#3498DB">B</span>智能组</div>
-      <div class="gantt-role">产品经理</div>
-      <div class="gantt-bar-wrap">
-        <div class="gantt-bar-bg">
-          <div class="gantt-bar" style="width:42.1%;background:linear-gradient(90deg,#3498DB,#3498DB88)"></div>
-          <div class="gantt-bar-end" style="left:42.1%"></div>
-        </div>
-      </div>
-      <div class="gantt-deadline">6/30<br><small>67天</small></div>
-    </div><div class="gantt-row">
-      <div class="gantt-label"><span class="gantt-pri" style="background:#3498DB">B</span>企划组</div>
-      <div class="gantt-role">企划经理</div>
-      <div class="gantt-bar-wrap">
-        <div class="gantt-bar-bg">
-          <div class="gantt-bar" style="width:61.6%;background:linear-gradient(90deg,#3498DB,#3498DB88)"></div>
-          <div class="gantt-bar-end" style="left:61.6%"></div>
-        </div>
-      </div>
-      <div class="gantt-deadline">7/31<br><small>98天</small></div>
-    </div><div class="gantt-row gantt-alt">
-      <div class="gantt-label"><span class="gantt-pri" style="background:#3498DB">B</span>商照组</div>
-      <div class="gantt-role">产品经理</div>
-      <div class="gantt-bar-wrap">
-        <div class="gantt-bar-bg">
-          <div class="gantt-bar" style="width:100.0%;background:linear-gradient(90deg,#3498DB,#3498DB88)"></div>
-          <div class="gantt-bar-end" style="left:100.0%"></div>
-        </div>
-      </div>
-      <div class="gantt-deadline">9/30<br><small>159天</small></div>
-    </div><div class="gantt-row">
-      <div class="gantt-label"><span class="gantt-pri" style="background:#3498DB">B</span>地产+酒店</div>
-      <div class="gantt-role">行业经理</div>
-      <div class="gantt-bar-wrap">
-        <div class="gantt-bar-bg">
-          <div class="gantt-bar" style="width:100.0%;background:linear-gradient(90deg,#3498DB,#3498DB88)"></div>
-          <div class="gantt-bar-end" style="left:100.0%"></div>
-        </div>
-      </div>
-      <div class="gantt-deadline">9/30<br><small>159天</small></div>
-    </div>        </div>
       </div>
     </div>
-  </div>
-<div class="sec"><div class="sec-t">岗位明细</div><div class="recruit-table"><div class="rt-h">
+  </div><div class="sec"><div class="sec-t">岗位明细</div><div class="recruit-table"><div class="rt-h">
         <div class="rt-g">组别</div>
         <div class="rt-j">岗位</div>
         <div class="rt-p">优先级</div>
