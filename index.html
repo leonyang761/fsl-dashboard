@@ -220,7 +220,6 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <div class="kpi-c"><div class="kpi-v" style="color:var(--m-beige)">36.2<span class="kpi-u">岁</span></div><div class="kpi-l">平均年龄</div></div>
 <div class="kpi-c"><div class="kpi-v" style="color:var(--m-pink)">11,253</div><div class="kpi-l">平均薪酬</div></div>
 <div class="kpi-c"><div class="kpi-v" style="color:var(--m-purple)">92.60</div><div class="kpi-l">平均绩效</div></div>
-</div>
 <div class="tabs">
 <div class="tab on" onclick="sw(this,'t1')">组织概览</div>
 <div class="tab" onclick="sw(this,'t5')">人员总览</div>
@@ -321,9 +320,7 @@ table.dtbl tr:last-child td{border-bottom:none}table.dtbl tr:hover{background:#f
 <tr><td>37</td><td><b>朱雨泽</b></td><td>产品管理</td><td>男</td><td>本科</td><td>37岁</td><td><a href="tel:13760641102" style="color:var(--m-blue);text-decoration:none">13760641102</a></td><td>10,000</td><td>89.49</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-core">核心</span></td><td><span class="pot pot-mid">中潜力</span></td></tr>
 <tr><td>38</td><td><b>吴泽经</b></td><td>行业与解决方案</td><td>男</td><td>本科</td><td>58岁</td><td><a href="tel:18933011655" style="color:var(--m-blue);text-decoration:none">18933011655</a></td><td>10,900</td><td>90.74</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-watch">关注</span></td><td><span class="pot pot-mid">中潜力</span></td></tr>
 <tr><td>39</td><td><b>孟令宾</b></td><td>行业与解决方案</td><td>男</td><td>大专</td><td>41岁</td><td><a href="tel:18933010375" style="color:var(--m-blue);text-decoration:none">18933010375</a></td><td>12,400</td><td>90.74</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-backbone">骨干</span></td><td><span class="pot pot-mid">中潜力</span></td></tr>
-<tr><td>40</td><td><b>谭炜昕</b></td><td>人力行政</td><td>女</td><td>本科</td><td>24岁</td><td><a href="tel:13726563396" style="color:var(--m-blue);text-decoration:none">13726563396</a></td><td>5,400</td><td>90.97</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-stable">稳定</span></td><td><span class="pot pot-low">低潜力</span></td></tr></tbody></table></div>
-</div>
-<div class="tp" <div class="tp" id="t8">
+<tr><td>40</td><td><b>谭炜昕</b></td><td>人力行政</td><td>女</td><td>本科</td><td>24岁</td><td><a href="tel:13726563396" style="color:var(--m-blue);text-decoration:none">13726563396</a></td><td>5,400</td><td>90.97</td><td><span class="grade grade-c">C</span></td><td><span class="tag tag-stable">稳定</span></td><td><span class="pot pot-low">低潜力</span></td></tr></tbody></table></div></div><div class="tp" id="t8">lass="tp" id="t8">
   <div class="sec">
     <div class="sec-t">2026年合同续签概况</div>
     <div class="cg">
@@ -501,7 +498,7 @@ new Chart(document.getElementById('cTag'),{type:'bar',data:{labels:["核心", "�
 var sd={"1万~1.5万": 11, "8千~1万": 7, "6千~8千": 5, "5千~6千": 8, "2万以上": 6, "5千以下": 1, "1.5~2万": 2};var so=['2万以上','1.5~2万','1万~1.5万','8千~1万','6千~8千','5千~6千','5千以下'];var ss=so.filter(function(k){return k in sd});var sr=Object.keys(sd).filter(function(k){return so.indexOf(k)===-1});var sa=ss.concat(sr);var sv=sa.map(function(k){return sd[k]});
 new Chart(document.getElementById('cSal'),{type:'bar',data:{labels:sa,datasets:[{data:sv,backgroundColor:['#8BA4B8','#7FA3A0','#8FAA8E','#97A68F','#C8B89A','#C4A4A0','#9A948C'],borderRadius:3,borderSkipped:false,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,layout:{padding:{right:0,left:0}},plugins:{legend:{display:false},datalabels:hbarDL},scales:{x:{beginAtZero:true,ticks:{stepSize:5,font:{size:8}},grid:{color:'#F0ECE8'}},y:{grid:{display:false},ticks:{font:{size:8}}}}}})
 </script>
-<div id="t7" class="tp">
+<div><div id="t7" class="tp">
 <div class="sec">
     <div class="sec-t">招聘概况</div>
     <div class="pri-row">
@@ -729,6 +726,6 @@ else{scale=3;img.style.transform='scale(3)';box.dataset.tx=0;box.dataset.ty=0}
 });
 })();
 </script>
-</div>
+</div></div>
 </div>
 </body></html>
